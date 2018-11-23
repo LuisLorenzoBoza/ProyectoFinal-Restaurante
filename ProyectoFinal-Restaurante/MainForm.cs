@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProyectoFinal_Restaurante
+namespace ProyectoFinal
 {
     public partial class MainForm : Form
     {

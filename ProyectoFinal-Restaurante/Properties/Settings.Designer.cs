@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProyectoFinal_Restaurante.Properties
+namespace ProyectoFinal.Properties
 {
 
 

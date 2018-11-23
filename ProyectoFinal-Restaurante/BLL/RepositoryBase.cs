@@ -1,4 +1,4 @@
-﻿using ProyectoFinal-Restaurante.DAL;
+﻿using ProyectoFinal.DAL;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProyectoFinal_Restaurante.BLL
+namespace ProyectoFinal.BLL
 {
     public class RepositoryBase<T> : IDisposable, IRepository<T> where T : class
     {
