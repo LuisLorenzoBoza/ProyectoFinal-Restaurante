@@ -40,11 +40,11 @@ namespace ProyectoFinal_Restaurante.Entidades
 
 
 
-        public FacturaDetalle(int facturaDetalleID, int factutaID, int iDArticulos, string Articulos, int cantidad, int precio)
+        public FacturaDetalle(int facturaDetalleID, int factutaID, int productoiD, string Articulos, int cantidad, int precio)
         {
             FacturaDetalleID = facturaDetalleID;
             this.facturaID = factutaID;
-            ProductoID = iDArticulos;
+            ProductoID = productoiD;
             Producto = Producto;
             Cantidad = cantidad;
             this.precio = precio;

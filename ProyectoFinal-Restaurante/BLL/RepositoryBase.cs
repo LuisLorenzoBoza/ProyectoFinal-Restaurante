@@ -1,4 +1,5 @@
 ﻿using ProyectoFinal_Restaurante.DAL;
+using ProyectoFinal_Restaurante.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -65,8 +66,10 @@ namespace ProyectoFinal_Restaurante.BLL
             return paso;
         }
 
-
-
+        internal object GetList(List<Producto> filtro)
+        {
+            throw new NotImplementedException();
+        }
 
         public virtual bool Eliminar(int id)
         {
@@ -113,7 +116,6 @@ namespace ProyectoFinal_Restaurante.BLL
             try
             {
                 lista = _contexto.Set<T>().Where(expression).ToList();
-
             }
             catch (Exception)
             {

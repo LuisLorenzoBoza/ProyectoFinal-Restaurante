@@ -24,17 +24,17 @@ namespace ProyectoFinal_Restaurante
         private void Loginbutton_Click(object sender, EventArgs e)
         {
             string usuario = UsariotextBox.Text;
-            string clave = PasswordtextBox.Text;
+            string contraseña = ContraseñatextBox.Text;
             RepositoryBase<Usuario> repositorio = new RepositoryBase<Usuario>(new DAL.Contexto());
             List<Usuario> lista = repositorio.GetList(x => true);
             foreach (var item in lista)
             {
-                if (usuario == item.Clasificacion && clave == item.Contraseña)
+                if (usuario == item.CuentaUsua && contraseña == item.Contraseña)
                 {
                     new MainForm().Show();
                     Program.usuario = item;
                     this.Visible = false;
-                    MessageBox.Show("Bienbenido ", item.Clasificacion);
+                    MessageBox.Show("Bienbenido ", item.Nombre);
                 }
                 else
                 {

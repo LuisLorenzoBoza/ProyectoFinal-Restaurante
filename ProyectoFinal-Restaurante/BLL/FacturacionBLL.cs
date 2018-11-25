@@ -159,7 +159,7 @@ namespace ProyectoFinal_Restaurante.BLL
                     factura.Detalle.Count();
                     foreach (var item in factura.Detalle)
                     {
-                        string des = item.Productos.Descripcion;
+                        string des = item.Producto.Descripcion;
                     }
                 }
                 contexto.Dispose();
@@ -195,16 +195,25 @@ namespace ProyectoFinal_Restaurante.BLL
             }
             return facturas;
         }
+
+
+
         public static int CacularImporte(int precio, int cantidad)
         {
             return precio = cantidad;
         }
+
+
+
         public static decimal CacularItebis(decimal subTotal)
         {
 
             return Convert.ToDecimal(subTotal) + Convert.ToDecimal(0.18);
 
         }
+
+
+
         public static decimal CarcularTotal(decimal subTotal, decimal itebis)
         {
             return Convert.ToDecimal(subTotal) + Convert.ToDecimal(itebis);

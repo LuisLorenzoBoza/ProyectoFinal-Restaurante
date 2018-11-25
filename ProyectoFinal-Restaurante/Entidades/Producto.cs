@@ -14,7 +14,6 @@ namespace ProyectoFinal_Restaurante.Entidades
         public string Descripcion { get; set; }
         public int Cantidad { get; set; }
         public float Precio { get; set; }
-        public float Iterbis { get; set; }
         public DateTime FechaDeRegistro { get; set; }
 
 
@@ -24,8 +23,17 @@ namespace ProyectoFinal_Restaurante.Entidades
             Descripcion = string.Empty;
             Cantidad = 0;
             Precio = 0;
-            Iterbis = 0;
             FechaDeRegistro = DateTime.Now;
+        }
+
+
+        public Producto(int ProductoID, string Descripcion, int Cantidad, float Precio, DateTime FechaDeRegistro)
+        {
+            this.ProductoID = ProductoID;
+            this.Descripcion = Descripcion;
+            this.Cantidad = Cantidad;
+            this.Precio = Precio;
+            this.FechaDeRegistro = FechaDeRegistro;
         }
 
 

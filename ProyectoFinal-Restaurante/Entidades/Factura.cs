@@ -31,7 +31,7 @@ namespace ProyectoFinal_Restaurante.Entidades
         }
 
 
-        public void AgregarDetalle(int FacturaDetalleID, int FacturaID, int ProductoID, string Productos, int Cantidad, int precio)
+        public void AgregarDetalle(int FacturaDetalleID, int FacturaID, int ProductoID, string Productos, int Cantidad, int precio, int v)
         {
             Detalle.Add(new FacturaDetalle(FacturaDetalleID, FactutaID, ProductoID, Productos, Cantidad, precio));
         }

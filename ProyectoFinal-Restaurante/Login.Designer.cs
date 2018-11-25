@@ -30,7 +30,7 @@
         {
             this.Cancelarbutton = new System.Windows.Forms.Button();
             this.Loginbutton = new System.Windows.Forms.Button();
-            this.PasswordtextBox = new System.Windows.Forms.TextBox();
+            this.ContraseñatextBox = new System.Windows.Forms.TextBox();
             this.UsariotextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -63,13 +63,13 @@
             // 
             // PasswordtextBox
             // 
-            this.PasswordtextBox.Location = new System.Drawing.Point(72, 160);
-            this.PasswordtextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.PasswordtextBox.Name = "PasswordtextBox";
-            this.PasswordtextBox.PasswordChar = '*';
-            this.PasswordtextBox.Size = new System.Drawing.Size(206, 20);
-            this.PasswordtextBox.TabIndex = 16;
-            this.PasswordtextBox.UseSystemPasswordChar = true;
+            this.ContraseñatextBox.Location = new System.Drawing.Point(72, 160);
+            this.ContraseñatextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.ContraseñatextBox.Name = "PasswordtextBox";
+            this.ContraseñatextBox.PasswordChar = '*';
+            this.ContraseñatextBox.Size = new System.Drawing.Size(206, 20);
+            this.ContraseñatextBox.TabIndex = 16;
+            this.ContraseñatextBox.UseSystemPasswordChar = true;
             // 
             // UsariotextBox
             // 
@@ -115,7 +115,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Cancelarbutton);
             this.Controls.Add(this.Loginbutton);
-            this.Controls.Add(this.PasswordtextBox);
+            this.Controls.Add(this.ContraseñatextBox);
             this.Controls.Add(this.UsariotextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -131,7 +131,7 @@
 
         private System.Windows.Forms.Button Cancelarbutton;
         private System.Windows.Forms.Button Loginbutton;
-        private System.Windows.Forms.TextBox PasswordtextBox;
+        private System.Windows.Forms.TextBox ContraseñatextBox;
         private System.Windows.Forms.TextBox UsariotextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

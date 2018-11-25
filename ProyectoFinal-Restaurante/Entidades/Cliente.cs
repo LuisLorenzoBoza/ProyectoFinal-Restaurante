@@ -21,7 +21,13 @@ namespace ProyectoFinal_Restaurante.Entidades
             Nombre = string.Empty;
             Email = string.Empty;
             Telefono = string.Empty;
+        }
 
+        public Cliente(int ClienteID, string Nombre, string Email, string Telefono)
+        {
+            this.ClienteID = ClienteID;
+            this.Nombre = Nombre;
+            this.Email = Email;
         }
 
     }
