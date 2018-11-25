@@ -1,4 +1,4 @@
-﻿namespace ProyectoFinal.UI.Registro
+﻿namespace ProyectoFinal_Restaurante.UI.Registro
 {
     partial class RegistroCliente
     {
@@ -29,20 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.Telefono2maskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.BuscarButton = new System.Windows.Forms.Button();
             this.EliminarButton = new System.Windows.Forms.Button();
             this.GuardarButton = new System.Windows.Forms.Button();
             this.NuevoButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TelefonomaskedTextBox = new System.Windows.Forms.MaskedTextBox();
-            this.DirecciontextBox = new System.Windows.Forms.TextBox();
-            this.CedulamaskedTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.EmailtextBox = new System.Windows.Forms.TextBox();
             this.NombretextBox = new System.Windows.Forms.TextBox();
             this.IDnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
@@ -50,15 +47,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Telefono2maskedTextBox
-            // 
-            this.Telefono2maskedTextBox.Location = new System.Drawing.Point(211, 342);
-            this.Telefono2maskedTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.Telefono2maskedTextBox.Mask = "(999)-999-9999";
-            this.Telefono2maskedTextBox.Name = "Telefono2maskedTextBox";
-            this.Telefono2maskedTextBox.Size = new System.Drawing.Size(90, 20);
-            this.Telefono2maskedTextBox.TabIndex = 32;
             // 
             // BuscarButton
             // 
@@ -74,7 +62,7 @@
             // 
             // EliminarButton
             // 
-            this.EliminarButton.Location = new System.Drawing.Point(243, 380);
+            this.EliminarButton.Location = new System.Drawing.Point(266, 282);
             this.EliminarButton.Margin = new System.Windows.Forms.Padding(2);
             this.EliminarButton.Name = "EliminarButton";
             this.EliminarButton.Size = new System.Drawing.Size(56, 54);
@@ -86,7 +74,7 @@
             // 
             // GuardarButton
             // 
-            this.GuardarButton.Location = new System.Drawing.Point(136, 380);
+            this.GuardarButton.Location = new System.Drawing.Point(159, 282);
             this.GuardarButton.Margin = new System.Windows.Forms.Padding(2);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(56, 54);
@@ -98,7 +86,7 @@
             // 
             // NuevoButton
             // 
-            this.NuevoButton.Location = new System.Drawing.Point(22, 380);
+            this.NuevoButton.Location = new System.Drawing.Point(45, 282);
             this.NuevoButton.Margin = new System.Windows.Forms.Padding(2);
             this.NuevoButton.Name = "NuevoButton";
             this.NuevoButton.Size = new System.Drawing.Size(60, 54);
@@ -120,29 +108,20 @@
             // 
             // TelefonomaskedTextBox
             // 
-            this.TelefonomaskedTextBox.Location = new System.Drawing.Point(99, 344);
+            this.TelefonomaskedTextBox.Location = new System.Drawing.Point(101, 228);
             this.TelefonomaskedTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.TelefonomaskedTextBox.Mask = "(999)-999-9999";
             this.TelefonomaskedTextBox.Name = "TelefonomaskedTextBox";
             this.TelefonomaskedTextBox.Size = new System.Drawing.Size(85, 20);
             this.TelefonomaskedTextBox.TabIndex = 26;
             // 
-            // DirecciontextBox
+            // EmailtextBox
             // 
-            this.DirecciontextBox.Location = new System.Drawing.Point(99, 271);
-            this.DirecciontextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.DirecciontextBox.Name = "DirecciontextBox";
-            this.DirecciontextBox.Size = new System.Drawing.Size(201, 20);
-            this.DirecciontextBox.TabIndex = 25;
-            // 
-            // CedulamaskedTextBox
-            // 
-            this.CedulamaskedTextBox.Location = new System.Drawing.Point(99, 207);
-            this.CedulamaskedTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.CedulamaskedTextBox.Mask = "999-9999999-9";
-            this.CedulamaskedTextBox.Name = "CedulamaskedTextBox";
-            this.CedulamaskedTextBox.Size = new System.Drawing.Size(85, 20);
-            this.CedulamaskedTextBox.TabIndex = 24;
+            this.EmailtextBox.Location = new System.Drawing.Point(99, 186);
+            this.EmailtextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.EmailtextBox.Name = "EmailtextBox";
+            this.EmailtextBox.Size = new System.Drawing.Size(201, 20);
+            this.EmailtextBox.TabIndex = 25;
             // 
             // NombretextBox
             // 
@@ -163,7 +142,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 346);
+            this.label5.Location = new System.Drawing.Point(12, 230);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 13);
@@ -173,22 +152,12 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 276);
+            this.label4.Location = new System.Drawing.Point(10, 191);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 13);
+            this.label4.Size = new System.Drawing.Size(32, 13);
             this.label4.TabIndex = 20;
-            this.label4.Text = "Direccion";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 211);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 13);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Cedula";
+            this.label4.Text = "Email";
             // 
             // label2
             // 
@@ -218,21 +187,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 450);
-            this.Controls.Add(this.Telefono2maskedTextBox);
+            this.ClientSize = new System.Drawing.Size(379, 353);
             this.Controls.Add(this.BuscarButton);
             this.Controls.Add(this.EliminarButton);
             this.Controls.Add(this.GuardarButton);
             this.Controls.Add(this.NuevoButton);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.TelefonomaskedTextBox);
-            this.Controls.Add(this.DirecciontextBox);
-            this.Controls.Add(this.CedulamaskedTextBox);
+            this.Controls.Add(this.EmailtextBox);
             this.Controls.Add(this.NombretextBox);
             this.Controls.Add(this.IDnumericUpDown);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "RegistroCliente";
@@ -246,21 +212,17 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.MaskedTextBox Telefono2maskedTextBox;
         private System.Windows.Forms.Button BuscarButton;
         private System.Windows.Forms.Button EliminarButton;
         private System.Windows.Forms.Button GuardarButton;
         private System.Windows.Forms.Button NuevoButton;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.MaskedTextBox TelefonomaskedTextBox;
-        private System.Windows.Forms.TextBox DirecciontextBox;
-        private System.Windows.Forms.MaskedTextBox CedulamaskedTextBox;
+        private System.Windows.Forms.TextBox EmailtextBox;
         private System.Windows.Forms.TextBox NombretextBox;
         private System.Windows.Forms.NumericUpDown IDnumericUpDown;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ErrorProvider errorProvider1;

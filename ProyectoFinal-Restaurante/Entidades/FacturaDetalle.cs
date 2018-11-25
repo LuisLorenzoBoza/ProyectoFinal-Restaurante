@@ -18,7 +18,7 @@ namespace ProyectoFinal_Restaurante.Entidades
         public int UsuarioID { get; set; }
         public DateTime FechaDeFactura { get; set; }
         public int ProductoID { get; set; }
-        public string Producto { get; set; }
+        public string Productos { get; set; }
         public int Cantidad { get; set; }
         public int precio { get; set; }
         public int Importe { get; set; }

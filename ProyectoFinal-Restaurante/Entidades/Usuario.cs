@@ -5,13 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProyectoFinal.Entidades
+namespace ProyectoFinal_Restaurante.Entidades
 {
     public class Usuario
     {
         [Key]
         public int UsuarioID { get; set; }
-        public string Clave { get; set; }
         public string Contraseña { get; set; }
         public string Nombre { get; set; }
         public decimal TotalVendido { get; set; }
@@ -20,7 +19,6 @@ namespace ProyectoFinal.Entidades
         public Usuario()
         {
             UsuarioID = 0;
-            Clave = string.Empty;
             Contraseña = string.Empty;
             Nombre = string.Empty;
             Pocision = false;

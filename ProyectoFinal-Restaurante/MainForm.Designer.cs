@@ -1,4 +1,4 @@
-﻿namespace ProyectoFinal
+﻿namespace ProyectoFinal_Restaurante
 {
     partial class MainForm
     {

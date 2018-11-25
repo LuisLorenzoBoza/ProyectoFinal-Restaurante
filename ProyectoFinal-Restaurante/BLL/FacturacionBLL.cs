@@ -12,7 +12,6 @@ namespace ProyectoFinal_Restaurante.BLL
 {
     public class FacturacionBLL
     {
-        // RepositoryBase<Usuario> repository;
         public static bool Guardar(Factura factura)
         {
             bool paso = false;
@@ -20,11 +19,11 @@ namespace ProyectoFinal_Restaurante.BLL
             Usuario usuario = new Usuario();
             try
             {
-                if (contexto.Facturas.Add(factura) != null)
+                if (contexto.Factura.Add(factura) != null)
                 {
                     foreach (var item in factura.Detalle)
                     {
-                        contexto.Articulos.Find(item.ProductoID).Cantidad -= item.Cantidad;
+                        contexto.Producto.Find(item.ProductoID).Cantidad -= item.Cantidad;
                     }
                     contexto.Usario.Find(factura.UsuarioID).TotalVendido += factura.ToTal;
                     contexto.SaveChanges();
@@ -37,6 +36,10 @@ namespace ProyectoFinal_Restaurante.BLL
             }
             return paso;
         }
+
+
+
+
         public static bool Modificar(Factura factura)
         {
             RepositoryBase<Usuario> repository = new RepositoryBase<Usuario>(new Contexto());
@@ -60,10 +63,10 @@ namespace ProyectoFinal_Restaurante.BLL
                 {
                     foreach (var item in factura.Detalle)
                     {
-                        contexto.Articulos.Find(item.ProductoID).Cantidad += item.Cantidad;
+                        contexto.Producto.Find(item.ProductoID).Cantidad += item.Cantidad;
                         if (!factura.Detalle.ToList().Exists(x => x.FacturaDetalleID == item.FacturaDetalleID))
                         {
-                            item.Articulos = null;
+                            item.Productos = null;
                             contexto.Entry(item).State = EntityState.Deleted;
 
                         }
@@ -71,7 +74,7 @@ namespace ProyectoFinal_Restaurante.BLL
                     }
                     foreach (var item in factura.Detalle)
                     {
-                        contexto.Articulos.Find(item.Articulos).Cantidad -= item.Cantidad;
+                        contexto.Producto.Find(item.Productos).Cantidad -= item.Cantidad;
                         var estado = item.FacturaDetalleID > 0 ? EntityState.Modified : EntityState.Added;
                         contexto.Entry(item).State = estado;
                     }
@@ -105,6 +108,10 @@ namespace ProyectoFinal_Restaurante.BLL
             }
             return paso;
         }
+
+
+
+
         public static bool Eliminar(int id)
         {
             bool paso = false;
@@ -116,11 +123,11 @@ namespace ProyectoFinal_Restaurante.BLL
                 {
                     foreach (var item in factura.Detalle)
                     {
-                        contexto.Articulos.Find(item.ProductoID).Cantidad += item.Cantidad;
+                        contexto.Producto.Find(item.ProductoID).Cantidad += item.Cantidad;
                     }
                     contexto.Usario.Find(factura.UsuarioID).TotalVendido -= factura.Cantidad;
                     factura.Detalle.Count();
-                    contexto.Facturas.Remove(factura);
+                    contexto.Factura.Remove(factura);
                 }
                 if (contexto.SaveChanges() > 0)
                 {
@@ -135,19 +142,24 @@ namespace ProyectoFinal_Restaurante.BLL
             }
             return paso;
         }
+
+
+
+
+
         public static Factura Buscar(int id)
         {
             Factura factura = new Factura();
             Contexto contexto = new Contexto();
             try
             {
-                factura = contexto.Facturas.Find(id);
+                factura = contexto.Factura.Find(id);
                 if (factura != null)
                 {
                     factura.Detalle.Count();
                     foreach (var item in factura.Detalle)
                     {
-                        string des = item.Articulos.Descripcion;
+                        string des = item.Productos.Descripcion;
                     }
                 }
                 contexto.Dispose();
@@ -158,6 +170,10 @@ namespace ProyectoFinal_Restaurante.BLL
             }
             return factura;
         }
+
+
+
+
         public static List<Factura> GetList(Expression<Func<Factura, bool>> expression)
         {
             List<Factura> facturas = new List<Factura>();
@@ -165,7 +181,7 @@ namespace ProyectoFinal_Restaurante.BLL
 
             try
             {
-                facturas = contexto.Facturas.Where(expression).ToList();
+                facturas = contexto.Factura.Where(expression).ToList();
                 foreach (var item in facturas)
                 {
                     item.Detalle.Count();

@@ -26,7 +26,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         {
             IDnumericUpDown.Value = 0;
             UsuariotextBox.Text = string.Empty;
-            PassawordtextBox.Text = string.Empty;
+            ContraseñatextBox.Text = string.Empty;
             NombretextBox.Text = string.Empty;
             PosicionnumericUpDown.Value = 0;
             AdminitradorradioButton.Checked = false;
@@ -37,9 +37,8 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         {
             Usuario usuario = new Usuario();
             usuario.UsuarioID = Convert.ToInt32(IDnumericUpDown);
-            usuario.Clave = UsuariotextBox.Text;
-            usuario.Contraseña = PassawordtextBox.Text;
             usuario.Nombre = NombretextBox.Text;
+            usuario.Contraseña = ContraseñatextBox.Text;
             usuario.Pocision = Convert.ToBoolean(PosicionnumericUpDown.Value);
             return usuario;
         }
@@ -50,9 +49,8 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         public void LlenarCampo(Usuario usuario)
         {
             IDnumericUpDown.Value = usuario.UsuarioID;
-            UsuariotextBox.Text = usuario.Clave;
-            PassawordtextBox.Text = usuario.Contraseña;
             NombretextBox.Text = usuario.Nombre;
+            ContraseñatextBox.Text = usuario.Contraseña;
             PosicionnumericUpDown.Value = Convert.ToInt32(usuario.Pocision);
         }
 
@@ -68,14 +66,14 @@ namespace ProyectoFinal_Restaurante.UI.Registro
                 errorProvider1.SetError(UsuariotextBox, "Campo Vacio ");
                 paso = false;
             }
-            if (string.IsNullOrWhiteSpace(PassawordtextBox.Text))
-            {
-                errorProvider1.SetError(PassawordtextBox, "Campo Vacio ");
-                paso = false;
-            }
             if (string.IsNullOrWhiteSpace(NombretextBox.Text))
             {
                 errorProvider1.SetError(NombretextBox, "Campo Vacio");
+                paso = false;
+            }
+            if (string.IsNullOrWhiteSpace(ContraseñatextBox.Text))
+            {
+                errorProvider1.SetError(ContraseñatextBox, "Campo Vacio ");
                 paso = false;
             }
             if (PosicionnumericUpDown.Value < 0 && PosicionnumericUpDown.Value > 1)
@@ -141,6 +139,10 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             }
         }
 
+
+
+
+
         private void Eliminarbutton_Click(object sender, EventArgs e)
         {
             repository = new RepositoryBase<Usuario>();
@@ -159,15 +161,17 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             }
             else
                 MessageBox.Show("No se Pudo Eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
         }
+
+
+
+
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
             repository = new RepositoryBase<Usuario>();
             int id;
             Usuario usuario = new Usuario();
-
             int.TryParse(IDnumericUpDown.Text, out id);
             usuario = repository.Buscar(id);
 

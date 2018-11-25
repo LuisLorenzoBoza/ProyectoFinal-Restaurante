@@ -1,4 +1,4 @@
-﻿using ProyectoFinal.DAL;
+﻿using ProyectoFinal_Restaurante.DAL;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -7,15 +7,28 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProyectoFinal.BLL
+namespace ProyectoFinal_Restaurante.BLL
 {
     public class RepositoryBase<T> : IDisposable, IRepository<T> where T : class
     {
         internal Contexto _contexto;
-        public RepositoryBase()
+        public RepositoryBase(Contexto contexto)
         {
             _contexto = new Contexto();
         }
+
+
+
+
+
+        public RepositoryBase()
+        {
+        }
+
+
+
+
+
         public virtual bool Guardar(T entity)
         {
             bool paso = true;
@@ -32,6 +45,10 @@ namespace ProyectoFinal.BLL
             }
             return paso;
         }
+
+
+
+
         public virtual bool Modificar(T entity)
         {
             _contexto = new Contexto();
@@ -47,6 +64,10 @@ namespace ProyectoFinal.BLL
             }
             return paso;
         }
+
+
+
+
         public virtual bool Eliminar(int id)
         {
             bool paso = false;
@@ -64,6 +85,10 @@ namespace ProyectoFinal.BLL
             return paso;
         }
 
+
+
+
+
         public virtual T Buscar(int id)
         {
             T entity;
@@ -77,6 +102,10 @@ namespace ProyectoFinal.BLL
             }
             return entity;
         }
+
+
+
+
 
         public List<T> GetList(Expression<Func<T, bool>> expression)
         {
@@ -92,6 +121,9 @@ namespace ProyectoFinal.BLL
             }
             return lista;
         }
+
+
+
 
         public void Dispose()
         {

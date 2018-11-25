@@ -30,8 +30,6 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             PrecionumericUpDown.Value = 0;
             FechadateTimePicker.Value = DateTime.Now;
             ItbnumericUpDown.Value = 0;
-            CostonumericUpDown.Value = 0;
-            GanancianumericUpDown.Value = 0;
         }
 
         private Producto LlenarClase()
@@ -43,9 +41,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             articulos.Precio = Convert.ToSingle(PrecionumericUpDown.Value);
             articulos.FechaDeRegistro = FechadateTimePicker.Value;
             articulos.Iterbis = Convert.ToSingle(ItbnumericUpDown.Value);
-            articulos.Costo = Convert.ToSingle(CostonumericUpDown.Value);
-            articulos.Ganancia = Convert.ToSingle(GanancianumericUpDown.Value);
-
+      
             return articulos;
         }
 
@@ -60,9 +56,6 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             PrecionumericUpDown.Value = Convert.ToDecimal(articulos.Precio);
             FechadateTimePicker.Value = articulos.FechaDeRegistro;
             ItbnumericUpDown.Value = Convert.ToDecimal(articulos.Iterbis);
-            CostonumericUpDown.Value = Convert.ToDecimal(articulos.Costo);
-            GanancianumericUpDown.Value = Convert.ToDecimal(articulos.Ganancia);
-
         }
 
 

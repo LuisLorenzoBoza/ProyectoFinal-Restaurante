@@ -29,12 +29,12 @@ namespace ProyectoFinal_Restaurante
             List<Usuario> lista = repositorio.GetList(x => true);
             foreach (var item in lista)
             {
-                if (usuario == item.Clave && clave == item.Contraseña)
+                if (usuario == item.Clasificacion && clave == item.Contraseña)
                 {
                     new MainForm().Show();
                     Program.usuario = item;
                     this.Visible = false;
-                    MessageBox.Show("Bienbenido ", item.Clave);
+                    MessageBox.Show("Bienbenido ", item.Clasificacion);
                 }
                 else
                 {

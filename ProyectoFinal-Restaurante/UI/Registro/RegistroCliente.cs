@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProyectoFinal.UI.Registro
+namespace ProyectoFinal_Restaurante.UI.Registro
 {
     public partial class RegistroCliente : Form
     {
@@ -26,10 +26,8 @@ namespace ProyectoFinal.UI.Registro
         {
             IDnumericUpDown.Value = 0;
             NombretextBox.Text = string.Empty;
-            CedulamaskedTextBox.Text = string.Empty;
-            DirecciontextBox.Text = string.Empty;
+            EmailtextBox.Text = string.Empty;
             TelefonomaskedTextBox.Text = string.Empty;
-            Telefono2maskedTextBox.Text = string.Empty;
         }
 
         private Cliente LlenarClase()
@@ -37,10 +35,10 @@ namespace ProyectoFinal.UI.Registro
             Cliente cliente = new Cliente();
             cliente.ClienteID = Convert.ToInt32(IDnumericUpDown.Value);
             cliente.Nombre = NombretextBox.Text;
-            cliente.Cedula = CedulamaskedTextBox.Text;
-            cliente.Email = DirecciontextBox.Text;
+            
+            cliente.Email = EmailtextBox.Text;
             cliente.Telefono = TelefonomaskedTextBox.Text;
-            cliente.Telefono2 = TelefonomaskedTextBox.Text;
+            
             return cliente;
         }
 
@@ -48,10 +46,10 @@ namespace ProyectoFinal.UI.Registro
         {
             IDnumericUpDown.Value = cliente.ClienteID;
             NombretextBox.Text = cliente.Nombre;
-            CedulamaskedTextBox.Text = cliente.Cedula;
-            DirecciontextBox.Text = cliente.Email;
+            
+            EmailtextBox.Text = cliente.Email;
             TelefonomaskedTextBox.Text = cliente.Telefono;
-            Telefono2maskedTextBox.Text = cliente.Telefono2;
+            
         }
 
         public bool ExiteEnLaDb()
@@ -70,28 +68,27 @@ namespace ProyectoFinal.UI.Registro
                 errorProvider1.SetError(NombretextBox, "Campo Vacio");
                 paso = false;
             }
-            if (string.IsNullOrWhiteSpace(CedulamaskedTextBox.Text))
-            {
-                errorProvider1.SetError(CedulamaskedTextBox, "Campo Vacio");
-                paso = false;
-            }
-            if (string.IsNullOrWhiteSpace(DirecciontextBox.Text))
+            if (string.IsNullOrWhiteSpace(EmailtextBox.Text))
             {
                 errorProvider1.SetError(TelefonomaskedTextBox, "Campo Vacio");
                 paso = false;
             }
-            if (string.IsNullOrWhiteSpace(Telefono2maskedTextBox.Text))
-            {
-                errorProvider1.SetError(Telefono2maskedTextBox, "Campo Vacio");
-                paso = false;
-            }
+           
             return paso;
         }
+
+
+
+
 
         private void NuevoButton_Click(object sender, EventArgs e)
         {
             Limpiar();
         }
+
+
+
+
 
         private void GuardarButton_Click(object sender, EventArgs e)
         {

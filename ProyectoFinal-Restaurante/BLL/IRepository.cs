@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProyectoFinal.BLL
+namespace ProyectoFinal_Restaurante.BLL
 {
     public interface IRepository<T> where T : class
     {

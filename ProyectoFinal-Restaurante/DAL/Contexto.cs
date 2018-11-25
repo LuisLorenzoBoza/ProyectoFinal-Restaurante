@@ -6,14 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProyectoFinal.DAL
+namespace ProyectoFinal_Restaurante.DAL
 {
     public class Contexto : DbContext
     {
         public DbSet<Usuario> Usario { get; set; }
-        public DbSet<Producto> Articulos { get; set; }
+        public DbSet<Producto> Producto { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
-        public DbSet<Factura> Facturas { get; set; }
+        public DbSet<Factura> Factura { get; set; }
 
 
 
