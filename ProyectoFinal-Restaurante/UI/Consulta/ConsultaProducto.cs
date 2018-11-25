@@ -26,6 +26,7 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
             RepositoryBase<Producto> repositorio;
+            repositorio = new RepositoryBase<Producto>();
             var listado = new List<Producto>();
             if (CriteriotextBox.Text.Trim().Length >= 0)
             {
@@ -61,7 +62,7 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
 
             else
             {
-                listado = repositorio.GetList(p => true);
+                listado = repositoryBase.GetList(p => true);
             }
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = listado;
