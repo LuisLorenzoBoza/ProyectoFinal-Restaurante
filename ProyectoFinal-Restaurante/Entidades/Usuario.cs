@@ -10,17 +10,18 @@ namespace ProyectoFinal.Entidades
     public class Usuario
     {
         [Key]
-        public int IDUsuario { get; set; }
-        public string Cuenta { get; set; }
+        public int UsuarioID { get; set; }
         public string Clave { get; set; }
+        public string Contraseña { get; set; }
         public string Nombre { get; set; }
+        public decimal TotalVendido { get; set; }
         public bool Pocision { get; set; }
 
         public Usuario()
         {
-            IDUsuario = 0;
-            Cuenta = string.Empty;
+            UsuarioID = 0;
             Clave = string.Empty;
+            Contraseña = string.Empty;
             Nombre = string.Empty;
             Pocision = false;
         }

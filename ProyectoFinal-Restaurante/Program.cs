@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoFinal_Restaurante.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,5 +19,6 @@ namespace ProyectoFinal
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
         }
+        public static Usuario usuario = null;
     }
 }

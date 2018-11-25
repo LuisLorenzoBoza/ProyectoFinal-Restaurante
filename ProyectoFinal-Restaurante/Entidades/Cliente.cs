@@ -10,21 +10,17 @@ namespace ProyectoFinal.Entidades
     public class Cliente
     {
         [Key]
-        public int IDCliente { get; set; }
+        public int ClienteID { get; set; }
         public string Nombre { get; set; }
-        public string Cedula { get; set; }
-        public string Direccion { get; set; }
+        public string Email { get; set; }
         public string Telefono { get; set; }
-        public string Telefono2 { get; set; }
 
         public Cliente()
         {
-            IDCliente = 0;
+            ClienteID = 0;
             Nombre = string.Empty;
-            Cedula = string.Empty;
-            Direccion = string.Empty;
+            Email = string.Empty;
             Telefono = string.Empty;
-            Telefono2 = string.Empty;
 
         }
 
