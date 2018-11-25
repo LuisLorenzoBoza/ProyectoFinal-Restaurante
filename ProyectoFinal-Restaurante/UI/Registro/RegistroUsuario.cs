@@ -28,7 +28,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             UsuariotextBox.Text = string.Empty;
             ContraseñatextBox.Text = string.Empty;
             NombretextBox.Text = string.Empty;
-            PosicionnumericUpDown.Value = 0;
+            //PosicionnumericUpDown.Value = 0;
             AdminitradorradioButton.Checked = false;
         }
 
@@ -36,10 +36,10 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         public Usuario LlenarClase()
         {
             Usuario usuario = new Usuario();
-            usuario.UsuarioID = Convert.ToInt32(IDnumericUpDown);
+            usuario.UsuarioID = Convert.ToInt32(IDnumericUpDown.Value);
             usuario.Nombre = NombretextBox.Text;
             usuario.Contraseña = ContraseñatextBox.Text;
-            usuario.Pocision = Convert.ToBoolean(PosicionnumericUpDown.Value);
+            //usuario.Pocision = Convert.ToBoolean(PosicionnumericUpDown.Value);
             return usuario;
         }
 
@@ -51,7 +51,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             IDnumericUpDown.Value = usuario.UsuarioID;
             NombretextBox.Text = usuario.Nombre;
             ContraseñatextBox.Text = usuario.Contraseña;
-            PosicionnumericUpDown.Value = Convert.ToInt32(usuario.Pocision);
+            //PosicionnumericUpDown.Value = Convert.ToInt32(usuario.Pocision);
         }
 
 
@@ -76,11 +76,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
                 errorProvider1.SetError(ContraseñatextBox, "Campo Vacio ");
                 paso = false;
             }
-            if (PosicionnumericUpDown.Value < 0 && PosicionnumericUpDown.Value > 1)
-            {
-                errorProvider1.SetError(IDnumericUpDown, "El valor Debe ser 0 o 1");
-                paso = false;
-            }
+            
             return paso;
         }
 

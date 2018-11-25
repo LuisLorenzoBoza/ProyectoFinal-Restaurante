@@ -40,7 +40,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             articulos.Cantidad = Convert.ToInt32(CantidadnumericUpDown.Value);
             articulos.Precio = Convert.ToSingle(PrecionumericUpDown.Value);
             articulos.FechaDeRegistro = FechadateTimePicker.Value;
-            articulos.Iterbis = Convert.ToSingle(ItbnumericUpDown.Value);
+           // articulos.Iterbis = Convert.ToSingle(ItbnumericUpDown.Value);
       
             return articulos;
         }
@@ -55,7 +55,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             CantidadnumericUpDown.Value = articulos.Cantidad;
             PrecionumericUpDown.Value = Convert.ToDecimal(articulos.Precio);
             FechadateTimePicker.Value = articulos.FechaDeRegistro;
-            ItbnumericUpDown.Value = Convert.ToDecimal(articulos.Iterbis);
+            //ItbnumericUpDown.Value = Convert.ToDecimal(articulos.Iterbis);
         }
 
 

@@ -41,19 +41,14 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.NombretextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.Nuevobutton = new System.Windows.Forms.Button();
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.Eliminarbutton = new System.Windows.Forms.Button();
-            this.PosicionnumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.UsuariotextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PosicionnumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -173,19 +168,9 @@
             this.label2.TabIndex = 53;
             this.label2.Text = "Nombre";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(19, 313);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 13);
-            this.label5.TabIndex = 44;
-            this.label5.Text = "Posicion";
-            // 
             // Nuevobutton
             // 
-            this.Nuevobutton.Location = new System.Drawing.Point(33, 342);
+            this.Nuevobutton.Location = new System.Drawing.Point(33, 310);
             this.Nuevobutton.Margin = new System.Windows.Forms.Padding(2);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(56, 57);
@@ -197,7 +182,7 @@
             // 
             // Guardarbutton
             // 
-            this.Guardarbutton.Location = new System.Drawing.Point(143, 342);
+            this.Guardarbutton.Location = new System.Drawing.Point(143, 310);
             this.Guardarbutton.Margin = new System.Windows.Forms.Padding(2);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(56, 57);
@@ -209,7 +194,7 @@
             // 
             // Eliminarbutton
             // 
-            this.Eliminarbutton.Location = new System.Drawing.Point(262, 342);
+            this.Eliminarbutton.Location = new System.Drawing.Point(262, 310);
             this.Eliminarbutton.Margin = new System.Windows.Forms.Padding(2);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(56, 57);
@@ -218,34 +203,6 @@
             this.Eliminarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.Eliminarbutton.UseVisualStyleBackColor = true;
             this.Eliminarbutton.Click += new System.EventHandler(this.Eliminarbutton_Click);
-            // 
-            // PosicionnumericUpDown
-            // 
-            this.PosicionnumericUpDown.Location = new System.Drawing.Point(80, 311);
-            this.PosicionnumericUpDown.Margin = new System.Windows.Forms.Padding(2);
-            this.PosicionnumericUpDown.Name = "PosicionnumericUpDown";
-            this.PosicionnumericUpDown.Size = new System.Drawing.Size(44, 20);
-            this.PosicionnumericUpDown.TabIndex = 49;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(146, 300);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(86, 13);
-            this.label4.TabIndex = 55;
-            this.label4.Text = "Digite o = normal";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(146, 313);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(117, 13);
-            this.label8.TabIndex = 56;
-            this.label8.Text = "Digite 1 = administrador";
             // 
             // UsuariotextBox
             // 
@@ -269,21 +226,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(353, 411);
+            this.ClientSize = new System.Drawing.Size(353, 374);
             this.Controls.Add(this.UsuariotextBox);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.NombretextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.PosicionnumericUpDown);
             this.Controls.Add(this.Buscarbutton);
             this.Controls.Add(this.Eliminarbutton);
             this.Controls.Add(this.Guardarbutton);
             this.Controls.Add(this.Nuevobutton);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.IDnumericUpDown);
             this.Controls.Add(this.ContraseñatextBox);
             this.Controls.Add(this.label3);
@@ -294,7 +247,6 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PosicionnumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -312,15 +264,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox NombretextBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown PosicionnumericUpDown;
         private System.Windows.Forms.Button Eliminarbutton;
         private System.Windows.Forms.Button Guardarbutton;
         private System.Windows.Forms.Button Nuevobutton;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox UsuariotextBox;
         private System.Windows.Forms.Label label6;
     }

@@ -15,9 +15,9 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
 {
     public partial class ConsultaProducto : Form
     {
-        //private List<Producto> producto = new List<Producto>();
+        private List<Producto> producto = new List<Producto>();
         Expression<Func<Producto, bool>> filtro = x => true;
-        RepositoryBase<Producto> repositoryBase;
+        private RepositoryBase<Producto> repositoryBase;
         public ConsultaProducto()
         {
             InitializeComponent();
@@ -25,8 +25,8 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
-            RepositoryBase<Producto> repositorio;
-            repositorio = new RepositoryBase<Producto>();
+            RepositoryBase<Producto> repository;
+            repository = new RepositoryBase<Producto>();
             var listado = new List<Producto>();
             if (CriteriotextBox.Text.Trim().Length >= 0)
             {
@@ -54,7 +54,7 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
                         filtro = x => true;
                         break;
                 }
-                listado = listado.Where(c => c.Fecha >= DesdedateTimePicker.Value.Date && c.Fecha <= HastadateTimePicker.Value.Date).ToList();
+                listado = listado.Where(c => c.FechaDeRegistro >= DesdedateTimePicker.Value.Date && c.FechaDeRegistro <= HastadateTimePicker.Value.Date).ToList();
             }
 
 
