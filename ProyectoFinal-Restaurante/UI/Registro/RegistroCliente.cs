@@ -1,5 +1,5 @@
-﻿using ProyectoFinal.BLL;
-using ProyectoFinal.Entidades;
+﻿using ProyectoFinal_Restaurante.BLL;
+using ProyectoFinal_Restaurante.Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,10 +35,10 @@ namespace ProyectoFinal.UI.Registro
         private Cliente LlenarClase()
         {
             Cliente cliente = new Cliente();
-            cliente.IDCliente = Convert.ToInt32(IDnumericUpDown.Value);
+            cliente.ClienteID = Convert.ToInt32(IDnumericUpDown.Value);
             cliente.Nombre = NombretextBox.Text;
             cliente.Cedula = CedulamaskedTextBox.Text;
-            cliente.Direccion = DirecciontextBox.Text;
+            cliente.Email = DirecciontextBox.Text;
             cliente.Telefono = TelefonomaskedTextBox.Text;
             cliente.Telefono2 = TelefonomaskedTextBox.Text;
             return cliente;
@@ -46,10 +46,10 @@ namespace ProyectoFinal.UI.Registro
 
         public void LlenarCampo(Cliente cliente)
         {
-            IDnumericUpDown.Value = cliente.IDCliente;
+            IDnumericUpDown.Value = cliente.ClienteID;
             NombretextBox.Text = cliente.Nombre;
             CedulamaskedTextBox.Text = cliente.Cedula;
-            DirecciontextBox.Text = cliente.Direccion;
+            DirecciontextBox.Text = cliente.Email;
             TelefonomaskedTextBox.Text = cliente.Telefono;
             Telefono2maskedTextBox.Text = cliente.Telefono2;
         }
@@ -126,6 +126,11 @@ namespace ProyectoFinal.UI.Registro
             }
         }
 
+
+
+
+
+
         private void EliminarButton_Click(object sender, EventArgs e)
         {
             repository = new RepositoryBase<Cliente>();
@@ -147,6 +152,7 @@ namespace ProyectoFinal.UI.Registro
                 MessageBox.Show("No Exite No se puede Eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void BuscarButton_Click(object sender, EventArgs e)
         {

@@ -1,5 +1,5 @@
-﻿using ProyectoFinal.BLL;
-using ProyectoFinal.Entidades;
+﻿using ProyectoFinal_Restaurante.BLL;
+using ProyectoFinal_Restaurante.Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,15 +10,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProyectoFinal.UI.Registro
+namespace ProyectoFinal_Restaurante.UI.Registro
 {
-    public partial class RegistroArticulos : Form
+    public partial class RegistroProducto : Form
     {
-        RepositoryBase<Articulos> repository;
-        public RegistroArticulos()
+        RepositoryBase<Producto> repository;
+        public RegistroProducto()
         {
             InitializeComponent();
-            repository = new RepositoryBase<Articulos>();
+            repository = new RepositoryBase<Producto>();
         }
 
 
@@ -34,32 +34,40 @@ namespace ProyectoFinal.UI.Registro
             GanancianumericUpDown.Value = 0;
         }
 
-        private Articulos LlenarClase()
+        private Producto LlenarClase()
         {
-            Articulos articulos = new Articulos();
-            articulos.IDArticulos = Convert.ToInt32(IDnumericUpDown.Value);
+            Producto articulos = new Producto();
+            articulos.ProductoID = Convert.ToInt32(IDnumericUpDown.Value);
             articulos.Descripcion = DescripciontextBox.Text;
             articulos.Cantidad = Convert.ToInt32(CantidadnumericUpDown.Value);
             articulos.Precio = Convert.ToSingle(PrecionumericUpDown.Value);
-            articulos.FechaDevencimineto = FechadateTimePicker.Value;
-            articulos.Itebis = Convert.ToSingle(ItbnumericUpDown.Value);
+            articulos.FechaDeRegistro = FechadateTimePicker.Value;
+            articulos.Iterbis = Convert.ToSingle(ItbnumericUpDown.Value);
             articulos.Costo = Convert.ToSingle(CostonumericUpDown.Value);
             articulos.Ganancia = Convert.ToSingle(GanancianumericUpDown.Value);
 
             return articulos;
         }
-        private void LlenarCampo(Articulos articulos)
+
+
+
+
+        private void LlenarCampo(Producto articulos)
         {
-            IDnumericUpDown.Value = articulos.IDArticulos;
+            IDnumericUpDown.Value = articulos.ProductoID;
             DescripciontextBox.Text = articulos.Descripcion;
             CantidadnumericUpDown.Value = articulos.Cantidad;
             PrecionumericUpDown.Value = Convert.ToDecimal(articulos.Precio);
-            FechadateTimePicker.Value = articulos.FechaDevencimineto;
-            ItbnumericUpDown.Value = Convert.ToDecimal(articulos.Itebis);
+            FechadateTimePicker.Value = articulos.FechaDeRegistro;
+            ItbnumericUpDown.Value = Convert.ToDecimal(articulos.Iterbis);
             CostonumericUpDown.Value = Convert.ToDecimal(articulos.Costo);
             GanancianumericUpDown.Value = Convert.ToDecimal(articulos.Ganancia);
 
         }
+
+
+
+
         public bool Validar(int error)
         {
             bool paso = false;
@@ -109,13 +117,11 @@ namespace ProyectoFinal.UI.Registro
 
         public bool ExiteEnLaDb()
         {
-            repository = new RepositoryBase<Articulos>();
-            Articulos articulos = new Articulos();
+            repository = new RepositoryBase<Producto>();
+            Producto articulos = new Producto();
             articulos = repository.Buscar((int)IDnumericUpDown.Value);
             return (articulos != null);
         }
-
-        
 
         private void Nuevobutton_Click(object sender, EventArgs e)
         {
@@ -125,9 +131,9 @@ namespace ProyectoFinal.UI.Registro
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
             bool paso = false;
-            repository = new RepositoryBase<Articulos>();
+            repository = new RepositoryBase<Producto>();
 
-            Articulos articulos;
+            Producto articulos;
 
             if (!Validar(2))
                 return;
@@ -164,7 +170,7 @@ namespace ProyectoFinal.UI.Registro
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
         {
-            repository = new RepositoryBase<Articulos>();
+            repository = new RepositoryBase<Producto>();
             int id;
             int.TryParse(IDnumericUpDown.Text, out id);
             if (!ExiteEnLaDb())
@@ -186,9 +192,9 @@ namespace ProyectoFinal.UI.Registro
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
-            repository = new RepositoryBase<Articulos>();
+            repository = new RepositoryBase<Producto>();
             int id;
-            Articulos articulos = new Articulos();
+            Producto articulos = new Producto();
 
             int.TryParse(IDnumericUpDown.Text, out id);
             repository.Buscar(id);
