@@ -199,11 +199,11 @@ namespace ProyectoFinal_Restaurante.UI.Registro
 
         }
 
-        private void ProductocomboBox_SelectedValueChanged(object sender, EventArgs e)
-        {
-            RepositoryBase<Producto> repository = new RepositoryBase<Producto>();
-            Producto p =repository.Buscar(Convert.ToInt32(1));
-            PreciotextBox.Text = p.Precio.ToString();
-        }
+        //private void ProductocomboBox_SelectedValueChanged(object sender, EventArgs e)
+        //{
+        //    RepositoryBase<Producto> repository = new RepositoryBase<Producto>();
+        //    Producto p =repository.Buscar(Convert.ToInt32(1));
+        //    PreciotextBox.Text = p.Precio.ToString();
+        //}
     }
 }

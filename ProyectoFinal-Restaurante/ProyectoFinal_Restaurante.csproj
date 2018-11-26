@@ -107,6 +107,18 @@
     <Compile Include="Reportes\UsuarioReview.Designer.cs">
       <DependentUpon>UsuarioReview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\ProductoCrystalReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductoCrystalReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\ProductoReview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\ProductoReview.Designer.cs">
+      <DependentUpon>ProductoReview.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Consulta\ConsultaCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +190,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\UsuarioReview.resx">
       <DependentUpon>UsuarioReview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ProductoCrystalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ProductoCrystalReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ProductoReview.resx">
+      <DependentUpon>ProductoReview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Consulta\ConsultaCliente.resx">
       <DependentUpon>ConsultaCliente.cs</DependentUpon>
