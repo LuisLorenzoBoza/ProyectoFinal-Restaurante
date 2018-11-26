@@ -32,6 +32,7 @@
             this.ProductocomboBox = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Imprimirlabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.ImportetextBox = new System.Windows.Forms.TextBox();
             this.Facturarbutton = new System.Windows.Forms.Button();
@@ -59,7 +60,6 @@
             this.Agregarbutton = new System.Windows.Forms.Button();
             this.Removerbutton = new System.Windows.Forms.Button();
             this.Buscarbutton = new System.Windows.Forms.Button();
-            this.Imprimirlabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).BeginInit();
@@ -86,7 +86,7 @@
             this.ProductocomboBox.Name = "ProductocomboBox";
             this.ProductocomboBox.Size = new System.Drawing.Size(92, 21);
             this.ProductocomboBox.TabIndex = 68;
-            this.ProductocomboBox.SelectedIndexChanged += new System.EventHandler(this.ProductocomboBox_SelectedIndexChanged_1);
+            this.ProductocomboBox.SelectedValueChanged += new System.EventHandler(this.ProductocomboBox_SelectedValueChanged);
             // 
             // label12
             // 
@@ -122,6 +122,16 @@
             this.groupBox1.TabIndex = 64;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle";
+            // 
+            // Imprimirlabel
+            // 
+            this.Imprimirlabel.AutoSize = true;
+            this.Imprimirlabel.Location = new System.Drawing.Point(5, 244);
+            this.Imprimirlabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Imprimirlabel.Name = "Imprimirlabel";
+            this.Imprimirlabel.Size = new System.Drawing.Size(42, 13);
+            this.Imprimirlabel.TabIndex = 72;
+            this.Imprimirlabel.Text = "Imprimir";
             // 
             // label7
             // 
@@ -382,16 +392,6 @@
             this.Buscarbutton.Size = new System.Drawing.Size(32, 32);
             this.Buscarbutton.TabIndex = 51;
             this.Buscarbutton.UseVisualStyleBackColor = true;
-            // 
-            // Imprimirlabel
-            // 
-            this.Imprimirlabel.AutoSize = true;
-            this.Imprimirlabel.Location = new System.Drawing.Point(5, 244);
-            this.Imprimirlabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.Imprimirlabel.Name = "Imprimirlabel";
-            this.Imprimirlabel.Size = new System.Drawing.Size(42, 13);
-            this.Imprimirlabel.TabIndex = 72;
-            this.Imprimirlabel.Text = "Imprimir";
             // 
             // RegistroVentas
             // 

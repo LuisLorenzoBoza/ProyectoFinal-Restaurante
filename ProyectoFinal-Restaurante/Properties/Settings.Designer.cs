@@ -26,7 +26,7 @@ namespace ProyectoFinal_Restaurante.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LUISOPC;Initial Catalog=ProyectoFinal;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LUISOPC;Initial Catalog=ProyectoFinalDb;Integrated Security=True")]
         public string ConStr {
             get {
                 return ((string)(this["ConStr"]));

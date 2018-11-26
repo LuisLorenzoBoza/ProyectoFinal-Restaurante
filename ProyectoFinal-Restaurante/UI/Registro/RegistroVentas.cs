@@ -21,7 +21,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             InitializeComponent();
             LlenarImporte();
             repository = new RepositoryBase<Producto>();
-            LlenarCombo();
+           LlenarCombo();
             detalles = new List<FacturaDetalle>();
             //ProductocomboBox.SelectedIndex = 0;
         }
@@ -100,7 +100,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
 
         private void LlenarCombo()
         {
-            RepositoryBase<Usuario> repositoryBase = new RepositoryBase<Usuario>(new Contexto());
+            RepositoryBase<Usuario> repositoryBase = new RepositoryBase<Usuario>();
             UsuariocomboBox.DataSource = repositoryBase.GetList(c => true);
             UsuariocomboBox.ValueMember = "UsuarioID";
             UsuariocomboBox.DisplayMember = "Nombre";
@@ -167,13 +167,6 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             }
         }
 
-        private void ProductocomboBox_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            RepositoryBase<Producto> repository = new RepositoryBase<Producto>();
-            Producto p = repository.Buscar(Convert.ToInt32(ProductocomboBox.SelectedValue));
-            PreciotextBox.Text = p.Precio.ToString();
-        }
-
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
             RepositoryBase<Facturacion> repository = new RepositoryBase<Facturacion>();
@@ -204,6 +197,13 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         private void RegistroVentas_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void ProductocomboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            RepositoryBase<Producto> repository = new RepositoryBase<Producto>();
+            Producto p =repository.Buscar(Convert.ToInt32(1));
+            PreciotextBox.Text = p.Precio.ToString();
         }
     }
 }

@@ -42,7 +42,7 @@ namespace ProyectoFinal_Restaurante.BLL
 
         public static bool Modificar(Facturacion factura)
         {
-            RepositoryBase<Usuario> repository = new RepositoryBase<Usuario>(new Contexto());
+            RepositoryBase<Usuario> repository = new RepositoryBase<Usuario>();
             bool paso = false;
             Contexto contexto = new Contexto();
             try
@@ -83,7 +83,7 @@ namespace ProyectoFinal_Restaurante.BLL
                     decimal diferencia;
 
                     diferencia = factura.ToTal - entradaAnt.ToTal;
-                    RepositoryBase<Usuario> repositoryb = new RepositoryBase<Usuario>(new Contexto());
+                    RepositoryBase<Usuario> repositoryb = new RepositoryBase<Usuario>();
                     Usuario usuarios = repositoryb.Buscar(factura.UsuarioID);
 
                     usuario.TotalVendido += diferencia;

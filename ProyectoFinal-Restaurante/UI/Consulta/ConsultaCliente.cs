@@ -24,7 +24,7 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
         public ConsultaCliente()
         {
             InitializeComponent();
-            repositoryBase = new RepositoryBase<Usuario>(new BLL.Contexto());
+            repositoryBase = new RepositoryBase<Usuario>();
         }
 
         public object RepositoryBase { get; private set; }
@@ -39,6 +39,7 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
                 {
                     case 0://Todo
                         filtro = x => true;
+                        listado = repository.GetList(filtro);
                         break;
                     case 1://Id
                         {
@@ -83,11 +84,7 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
                         break;
                 }
             }
-            else
-            {
-                listado = repositoryBase.GetList(p => true);
-                
-            }
+           
 
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = listado;

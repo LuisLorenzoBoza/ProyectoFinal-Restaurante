@@ -24,7 +24,7 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
         public ConsultaUsuario()
         {
             InitializeComponent();
-            repositoryBase = new RepositoryBase<Usuario>(new BLL.Contexto());
+            repositoryBase = new RepositoryBase<Usuario>();
         }
 
         private void Buscarbutton_Click(object sender, EventArgs e)
