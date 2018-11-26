@@ -27,19 +27,12 @@ namespace ProyectoFinal_Restaurante.Entidades
 
         [ForeignKey("ProductoID")]
         public virtual Producto Producto { get; set; }
-
-
-
-
         public FacturaDetalle()
         {
             FacturaID = 0;
             FacturaDetalleID = 0;
 
         }
-
-
-
         public FacturaDetalle(int facturaDetalleID, int factutaID, int productoiD, string Articulos, int cantidad, int precio)
         {
             FacturaDetalleID = facturaDetalleID;

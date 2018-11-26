@@ -17,7 +17,8 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
     {
         private List<Producto> producto = new List<Producto>();
         Expression<Func<Producto, bool>> filtro = x => true;
-        private RepositoryBase<Producto> repositoryBase;
+        RepositoryBase<Producto> repository = new  RepositoryBase<Producto>();
+        
         public ConsultaProducto()
         {
             InitializeComponent();
@@ -25,36 +26,33 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
-            RepositoryBase<Producto> repository;
-            repository = new RepositoryBase<Producto>();
+            RepositoryBase<Producto> repository = new RepositoryBase<Producto>();
             var listado = new List<Producto>();
             if (CriteriotextBox.Text.Trim().Length >= 0)
             {
                 switch (FiltrocomboBox.SelectedIndex)
                 {
                     case 0:
-                        listado = repositoryBase.GetList(p => true);
+                        listado = repository.GetList(p => true);
                         break;
                     case 1://Id
                         int id = Convert.ToInt32(CriteriotextBox.Text);
-                        listado = repositoryBase.GetList(p => p.ProductoID == id);
+                        listado = repository.GetList(p => p.ProductoID == id);
                         break;
                     case 2://Descripcion
-                        listado = repositoryBase.GetList(p => p.Descripcion.Contains(CriteriotextBox.Text));
+                        listado = repository.GetList(p => p.Descripcion.Contains(CriteriotextBox.Text));
                         break;
                     case 3://Cantidad
                         float cantidad = Convert.ToSingle(CriteriotextBox.Text);
-                        listado = repositoryBase.GetList(p => p.Cantidad == cantidad);
+                        listado = repository.GetList(p => p.Cantidad == cantidad);
                         break;
                     case 4://Precio
                         float precio = Convert.ToSingle(CriteriotextBox.Text);
-                        listado = repositoryBase.GetList(p => p.Precio == precio);
+                        listado = repository.GetList(p => p.Precio == precio);
                         break;
-                    case 5://Todo
-                        filtro = x => true;
-                        break;
+                   
                 }
-                listado = listado.Where(c => c.FechaDeRegistro >= DesdedateTimePicker.Value.Date && c.FechaDeRegistro <= HastadateTimePicker.Value.Date).ToList();
+                listado = listado.Where(c => c.FechaDeRegistro.Date >= DesdedateTimePicker.Value.Date && c.FechaDeRegistro.Date <= HastadateTimePicker.Value.Date).ToList();
             }
 
 
@@ -62,10 +60,15 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
 
             else
             {
-                listado = repositoryBase.GetList(p => true);
+                listado = repository.GetList(p => true);
             }
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = listado;
+        }
+
+        private void Imprimirbutton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

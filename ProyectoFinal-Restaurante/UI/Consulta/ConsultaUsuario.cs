@@ -1,5 +1,6 @@
 ﻿using ProyectoFinal_Restaurante.BLL;
 using ProyectoFinal_Restaurante.Entidades;
+using ProyectoFinal_Restaurante.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,20 +14,18 @@ using System.Windows.Forms;
 
 namespace ProyectoFinal_Restaurante.UI.Consulta
 {
+    
     public partial class ConsultaUsuario : Form
     {
+        List<Usuario> usuario = new List<Usuario>();
         RepositoryBase<Usuario> repositoryBase;
         Expression<Func<Usuario, bool>> filtro = x => true;
 
         public ConsultaUsuario()
         {
             InitializeComponent();
-            repositoryBase = new RepositoryBase<Usuario>(new DAL.Contexto());
+            repositoryBase = new RepositoryBase<Usuario>();
         }
-
-
-
-
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
@@ -77,7 +76,21 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
             }
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = listado;
+            usuario = listado;
             CriteriotextBox.Clear();
+
+        }
+
+        private void Imprimirbutton_Click(object sender, EventArgs e)
+        {
+            if (usuario.Count == 0)
+            {
+                MessageBox.Show("No encontrado");
+                return;
+            }
+            UsuarioReview usuarioReview = new UsuarioReview(usuario);
+            usuarioReview.Show();
+
         }
     }
 }

@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.BuscarButton = new System.Windows.Forms.Button();
-            this.EliminarButton = new System.Windows.Forms.Button();
-            this.GuardarButton = new System.Windows.Forms.Button();
-            this.NuevoButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TelefonomaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.EmailtextBox = new System.Windows.Forms.TextBox();
             this.NombretextBox = new System.Windows.Forms.TextBox();
@@ -43,72 +38,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.BuscarButton = new System.Windows.Forms.Button();
+            this.EliminarButton = new System.Windows.Forms.Button();
+            this.GuardarButton = new System.Windows.Forms.Button();
+            this.NuevoButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // BuscarButton
-            // 
-            this.BuscarButton.Location = new System.Drawing.Point(189, 56);
-            this.BuscarButton.Margin = new System.Windows.Forms.Padding(2);
-            this.BuscarButton.Name = "BuscarButton";
-            this.BuscarButton.Size = new System.Drawing.Size(56, 55);
-            this.BuscarButton.TabIndex = 31;
-            this.BuscarButton.Text = "Buscar";
-            this.BuscarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.BuscarButton.UseVisualStyleBackColor = true;
-            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
-            // 
-            // EliminarButton
-            // 
-            this.EliminarButton.Location = new System.Drawing.Point(266, 282);
-            this.EliminarButton.Margin = new System.Windows.Forms.Padding(2);
-            this.EliminarButton.Name = "EliminarButton";
-            this.EliminarButton.Size = new System.Drawing.Size(56, 54);
-            this.EliminarButton.TabIndex = 30;
-            this.EliminarButton.Text = "Eliminar";
-            this.EliminarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.EliminarButton.UseVisualStyleBackColor = true;
-            this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
-            // 
-            // GuardarButton
-            // 
-            this.GuardarButton.Location = new System.Drawing.Point(159, 282);
-            this.GuardarButton.Margin = new System.Windows.Forms.Padding(2);
-            this.GuardarButton.Name = "GuardarButton";
-            this.GuardarButton.Size = new System.Drawing.Size(56, 54);
-            this.GuardarButton.TabIndex = 29;
-            this.GuardarButton.Text = "Guardar";
-            this.GuardarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.GuardarButton.UseVisualStyleBackColor = true;
-            this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
-            // 
-            // NuevoButton
-            // 
-            this.NuevoButton.Location = new System.Drawing.Point(45, 282);
-            this.NuevoButton.Margin = new System.Windows.Forms.Padding(2);
-            this.NuevoButton.Name = "NuevoButton";
-            this.NuevoButton.Size = new System.Drawing.Size(60, 54);
-            this.NuevoButton.TabIndex = 28;
-            this.NuevoButton.Text = "Nuevo";
-            this.NuevoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.NuevoButton.UseVisualStyleBackColor = true;
-            this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(270, 11);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(98, 100);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 27;
-            this.pictureBox1.TabStop = false;
             // 
             // TelefonomaskedTextBox
             // 
-            this.TelefonomaskedTextBox.Location = new System.Drawing.Point(101, 228);
+            this.TelefonomaskedTextBox.Location = new System.Drawing.Point(101, 144);
             this.TelefonomaskedTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.TelefonomaskedTextBox.Mask = "(999)-999-9999";
             this.TelefonomaskedTextBox.Name = "TelefonomaskedTextBox";
@@ -117,23 +59,23 @@
             // 
             // EmailtextBox
             // 
-            this.EmailtextBox.Location = new System.Drawing.Point(99, 186);
+            this.EmailtextBox.Location = new System.Drawing.Point(99, 102);
             this.EmailtextBox.Margin = new System.Windows.Forms.Padding(2);
             this.EmailtextBox.Name = "EmailtextBox";
-            this.EmailtextBox.Size = new System.Drawing.Size(201, 20);
+            this.EmailtextBox.Size = new System.Drawing.Size(162, 20);
             this.EmailtextBox.TabIndex = 25;
             // 
             // NombretextBox
             // 
-            this.NombretextBox.Location = new System.Drawing.Point(99, 143);
+            this.NombretextBox.Location = new System.Drawing.Point(99, 59);
             this.NombretextBox.Margin = new System.Windows.Forms.Padding(2);
             this.NombretextBox.Name = "NombretextBox";
-            this.NombretextBox.Size = new System.Drawing.Size(201, 20);
+            this.NombretextBox.Size = new System.Drawing.Size(162, 20);
             this.NombretextBox.TabIndex = 23;
             // 
             // IDnumericUpDown
             // 
-            this.IDnumericUpDown.Location = new System.Drawing.Point(99, 88);
+            this.IDnumericUpDown.Location = new System.Drawing.Point(99, 27);
             this.IDnumericUpDown.Margin = new System.Windows.Forms.Padding(2);
             this.IDnumericUpDown.Name = "IDnumericUpDown";
             this.IDnumericUpDown.Size = new System.Drawing.Size(61, 20);
@@ -142,7 +84,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 230);
+            this.label5.Location = new System.Drawing.Point(12, 146);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 13);
@@ -152,7 +94,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 191);
+            this.label4.Location = new System.Drawing.Point(10, 107);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(32, 13);
@@ -162,7 +104,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 148);
+            this.label2.Location = new System.Drawing.Point(10, 64);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
@@ -172,7 +114,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 88);
+            this.label1.Location = new System.Drawing.Point(12, 34);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(18, 13);
@@ -183,11 +125,70 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // BuscarButton
+            // 
+            this.BuscarButton.BackgroundImage = global::ProyectoFinal_Restaurante.Properties.Resources.iconfinder_eccomerce___search_3440910;
+            this.BuscarButton.Location = new System.Drawing.Point(183, 15);
+            this.BuscarButton.Margin = new System.Windows.Forms.Padding(2);
+            this.BuscarButton.Name = "BuscarButton";
+            this.BuscarButton.Size = new System.Drawing.Size(32, 32);
+            this.BuscarButton.TabIndex = 31;
+            this.BuscarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.BuscarButton.UseVisualStyleBackColor = true;
+            this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
+            // 
+            // EliminarButton
+            // 
+            this.EliminarButton.BackgroundImage = global::ProyectoFinal_Restaurante.Properties.Resources.if_basket_1814090;
+            this.EliminarButton.Location = new System.Drawing.Point(270, 184);
+            this.EliminarButton.Margin = new System.Windows.Forms.Padding(2);
+            this.EliminarButton.Name = "EliminarButton";
+            this.EliminarButton.Size = new System.Drawing.Size(32, 32);
+            this.EliminarButton.TabIndex = 30;
+            this.EliminarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.EliminarButton.UseVisualStyleBackColor = true;
+            this.EliminarButton.Click += new System.EventHandler(this.EliminarButton_Click);
+            // 
+            // GuardarButton
+            // 
+            this.GuardarButton.BackgroundImage = global::ProyectoFinal_Restaurante.Properties.Resources.iconfinder_Save_70652;
+            this.GuardarButton.Location = new System.Drawing.Point(159, 184);
+            this.GuardarButton.Margin = new System.Windows.Forms.Padding(2);
+            this.GuardarButton.Name = "GuardarButton";
+            this.GuardarButton.Size = new System.Drawing.Size(32, 32);
+            this.GuardarButton.TabIndex = 29;
+            this.GuardarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.GuardarButton.UseVisualStyleBackColor = true;
+            this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
+            // 
+            // NuevoButton
+            // 
+            this.NuevoButton.BackgroundImage = global::ProyectoFinal_Restaurante.Properties.Resources.if_window_new_3671912;
+            this.NuevoButton.Location = new System.Drawing.Point(45, 184);
+            this.NuevoButton.Margin = new System.Windows.Forms.Padding(2);
+            this.NuevoButton.Name = "NuevoButton";
+            this.NuevoButton.Size = new System.Drawing.Size(32, 32);
+            this.NuevoButton.TabIndex = 28;
+            this.NuevoButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.NuevoButton.UseVisualStyleBackColor = true;
+            this.NuevoButton.Click += new System.EventHandler(this.NuevoButton_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ProyectoFinal_Restaurante.Properties.Resources.if_users_61816;
+            this.pictureBox1.Location = new System.Drawing.Point(270, 11);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(98, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 27;
+            this.pictureBox1.TabStop = false;
+            // 
             // RegistroCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(379, 353);
+            this.ClientSize = new System.Drawing.Size(379, 232);
             this.Controls.Add(this.BuscarButton);
             this.Controls.Add(this.EliminarButton);
             this.Controls.Add(this.GuardarButton);
@@ -202,10 +203,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "RegistroCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegistroCliente";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -14,7 +14,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
 {
     public partial class RegistroUsuario : Form
     {
-        RepositoryBase<Usuario> repository;
+        
         public RegistroUsuario()
         {
             InitializeComponent();
@@ -39,7 +39,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             usuario.UsuarioID = Convert.ToInt32(IDnumericUpDown.Value);
             usuario.Nombre = NombretextBox.Text;
             usuario.Contraseña = ContraseñatextBox.Text;
-            //usuario.Pocision = Convert.ToBoolean(PosicionnumericUpDown.Value);
+            usuario.Pocision = true;
             return usuario;
         }
 
@@ -86,7 +86,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
 
         public bool ExiteEnLaDb()
         {
-            repository = new RepositoryBase<Usuario>();
+            RepositoryBase<Usuario> repository = new RepositoryBase<Usuario>();
             Usuario usuario = repository.Buscar((int)IDnumericUpDown.Value);
             return (usuario != null);
         }
@@ -106,7 +106,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
 
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
-            repository = new RepositoryBase<Usuario>();
+            RepositoryBase<Usuario> repository = new RepositoryBase<Usuario>();
             bool paso = false;
             Usuario usuario;
             if (!Validar())
@@ -141,7 +141,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
         {
-            repository = new RepositoryBase<Usuario>();
+            RepositoryBase<Usuario> repository = new RepositoryBase<Usuario>();
             int id;
             int.TryParse(IDnumericUpDown.Text, out id);
             if (!ExiteEnLaDb())
@@ -165,7 +165,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
-            repository = new RepositoryBase<Usuario>();
+            RepositoryBase<Usuario> repository = new RepositoryBase<Usuario>();
             int id;
             Usuario usuario = new Usuario();
             int.TryParse(IDnumericUpDown.Text, out id);

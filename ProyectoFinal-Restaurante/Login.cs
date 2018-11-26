@@ -25,7 +25,7 @@ namespace ProyectoFinal_Restaurante
         {
             string usuario = UsariotextBox.Text;
             string contraseña = ContraseñatextBox.Text;
-            RepositoryBase<Usuario> repositorio = new RepositoryBase<Usuario>(new DAL.Contexto());
+            RepositoryBase<Usuario> repositorio = new RepositoryBase<Usuario>();
             List<Usuario> lista = repositorio.GetList(x => true);
             foreach (var item in lista)
             {

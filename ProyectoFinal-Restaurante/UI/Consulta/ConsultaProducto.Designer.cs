@@ -40,24 +40,27 @@
             this.FiltrocomboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Imprimirbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.MenuBar;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(18, 149);
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.MenuBar;
+            this.dataGridView1.Location = new System.Drawing.Point(14, 142);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(598, 223);
+            this.dataGridView1.Size = new System.Drawing.Size(329, 158);
             this.dataGridView1.TabIndex = 39;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(332, 106);
+            this.label4.Location = new System.Drawing.Point(148, 85);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
@@ -67,16 +70,16 @@
             // HastadateTimePicker
             // 
             this.HastadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.HastadateTimePicker.Location = new System.Drawing.Point(404, 102);
+            this.HastadateTimePicker.Location = new System.Drawing.Point(151, 99);
             this.HastadateTimePicker.Margin = new System.Windows.Forms.Padding(2);
             this.HastadateTimePicker.Name = "HastadateTimePicker";
-            this.HastadateTimePicker.Size = new System.Drawing.Size(129, 20);
+            this.HastadateTimePicker.Size = new System.Drawing.Size(127, 20);
             this.HastadateTimePicker.TabIndex = 37;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(70, 107);
+            this.label3.Location = new System.Drawing.Point(11, 85);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 13);
@@ -86,20 +89,20 @@
             // DesdedateTimePicker
             // 
             this.DesdedateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DesdedateTimePicker.Location = new System.Drawing.Point(142, 103);
+            this.DesdedateTimePicker.Location = new System.Drawing.Point(14, 100);
             this.DesdedateTimePicker.Margin = new System.Windows.Forms.Padding(2);
             this.DesdedateTimePicker.Name = "DesdedateTimePicker";
-            this.DesdedateTimePicker.Size = new System.Drawing.Size(129, 20);
+            this.DesdedateTimePicker.Size = new System.Drawing.Size(124, 20);
             this.DesdedateTimePicker.TabIndex = 35;
             // 
             // Buscarbutton
             // 
-            this.Buscarbutton.Location = new System.Drawing.Point(560, 17);
+            this.Buscarbutton.Image = global::ProyectoFinal_Restaurante.Properties.Resources.iconfinder_eccomerce___search_3440910;
+            this.Buscarbutton.Location = new System.Drawing.Point(308, 31);
             this.Buscarbutton.Margin = new System.Windows.Forms.Padding(2);
             this.Buscarbutton.Name = "Buscarbutton";
-            this.Buscarbutton.Size = new System.Drawing.Size(56, 55);
+            this.Buscarbutton.Size = new System.Drawing.Size(32, 32);
             this.Buscarbutton.TabIndex = 34;
-            this.Buscarbutton.Text = "Buscar";
             this.Buscarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.Buscarbutton.UseVisualStyleBackColor = true;
             this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
@@ -107,7 +110,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(70, 27);
+            this.label2.Location = new System.Drawing.Point(11, 27);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 13);
@@ -116,10 +119,10 @@
             // 
             // CriteriotextBox
             // 
-            this.CriteriotextBox.Location = new System.Drawing.Point(326, 46);
+            this.CriteriotextBox.Location = new System.Drawing.Point(151, 43);
             this.CriteriotextBox.Margin = new System.Windows.Forms.Padding(2);
             this.CriteriotextBox.Name = "CriteriotextBox";
-            this.CriteriotextBox.Size = new System.Drawing.Size(211, 20);
+            this.CriteriotextBox.Size = new System.Drawing.Size(127, 20);
             this.CriteriotextBox.TabIndex = 32;
             // 
             // FiltrocomboBox
@@ -127,24 +130,21 @@
             this.FiltrocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FiltrocomboBox.FormattingEnabled = true;
             this.FiltrocomboBox.Items.AddRange(new object[] {
-            "IDArticulos",
-            " Descripcion",
-            "Costo ",
-            "Ganancia",
+            "Todos",
+            "ProductoID",
+            "Descripcion",
             "Precio ",
-            "Cantidad ",
-            "Cantidad ",
-            "Todos"});
-            this.FiltrocomboBox.Location = new System.Drawing.Point(70, 44);
+            "Cantidad "});
+            this.FiltrocomboBox.Location = new System.Drawing.Point(11, 42);
             this.FiltrocomboBox.Margin = new System.Windows.Forms.Padding(2);
             this.FiltrocomboBox.Name = "FiltrocomboBox";
-            this.FiltrocomboBox.Size = new System.Drawing.Size(201, 21);
+            this.FiltrocomboBox.Size = new System.Drawing.Size(127, 21);
             this.FiltrocomboBox.TabIndex = 31;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(323, 28);
+            this.label1.Location = new System.Drawing.Point(148, 28);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 13);
@@ -155,11 +155,25 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // Imprimirbutton
+            // 
+            this.Imprimirbutton.Image = global::ProyectoFinal_Restaurante.Properties.Resources.iconfinder_Print_1493286;
+            this.Imprimirbutton.Location = new System.Drawing.Point(308, 88);
+            this.Imprimirbutton.Margin = new System.Windows.Forms.Padding(2);
+            this.Imprimirbutton.Name = "Imprimirbutton";
+            this.Imprimirbutton.Size = new System.Drawing.Size(32, 32);
+            this.Imprimirbutton.TabIndex = 40;
+            this.Imprimirbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.Imprimirbutton.UseVisualStyleBackColor = true;
+            this.Imprimirbutton.Click += new System.EventHandler(this.Imprimirbutton_Click);
+            // 
             // ConsultaProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(638, 450);
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.ClientSize = new System.Drawing.Size(356, 311);
+            this.Controls.Add(this.Imprimirbutton);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.HastadateTimePicker);
@@ -170,7 +184,9 @@
             this.Controls.Add(this.CriteriotextBox);
             this.Controls.Add(this.FiltrocomboBox);
             this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.SystemColors.Highlight;
             this.Name = "ConsultaProducto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConsultaProducto";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
@@ -192,5 +208,6 @@
         private System.Windows.Forms.ComboBox FiltrocomboBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button Imprimirbutton;
     }
 }

@@ -1,13 +1,7 @@
 ﻿using ProyectoFinal_Restaurante.BLL;
 using ProyectoFinal_Restaurante.Entidades;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
 namespace ProyectoFinal_Restaurante.UI.Registro
@@ -20,33 +14,25 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             InitializeComponent();
             repository = new RepositoryBase<Producto>();
         }
-
-
         private void Limpiar()
         {
             IDnumericUpDown.Value = 0;
             DescripciontextBox.Text = string.Empty;
             CantidadnumericUpDown.Value = 0;
             PrecionumericUpDown.Value = 0;
-            FechadateTimePicker.Value = DateTime.Now;
-            ItbnumericUpDown.Value = 0;
+            FechaRegistrodateTimePicker.Value = DateTime.Now;
         }
 
         private Producto LlenarClase()
         {
-            Producto articulos = new Producto();
-            articulos.ProductoID = Convert.ToInt32(IDnumericUpDown.Value);
-            articulos.Descripcion = DescripciontextBox.Text;
-            articulos.Cantidad = Convert.ToInt32(CantidadnumericUpDown.Value);
-            articulos.Precio = Convert.ToSingle(PrecionumericUpDown.Value);
-            articulos.FechaDeRegistro = FechadateTimePicker.Value;
-           // articulos.Iterbis = Convert.ToSingle(ItbnumericUpDown.Value);
-      
-            return articulos;
+            Producto producto = new Producto();
+            producto.ProductoID = Convert.ToInt32(IDnumericUpDown.Value);
+            producto.Descripcion = DescripciontextBox.Text;
+            producto.Cantidad = Convert.ToInt32(CantidadnumericUpDown.Value);
+            producto.Precio = Convert.ToSingle(PrecionumericUpDown.Value);
+            producto.FechaDeRegistro = FechaRegistrodateTimePicker.Value;
+            return producto;
         }
-
-
-
 
         private void LlenarCampo(Producto articulos)
         {
@@ -54,36 +40,16 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             DescripciontextBox.Text = articulos.Descripcion;
             CantidadnumericUpDown.Value = articulos.Cantidad;
             PrecionumericUpDown.Value = Convert.ToDecimal(articulos.Precio);
-            FechadateTimePicker.Value = articulos.FechaDeRegistro;
-            //ItbnumericUpDown.Value = Convert.ToDecimal(articulos.Iterbis);
+            FechaRegistrodateTimePicker.Value = articulos.FechaDeRegistro;  
         }
-
-
-
-
         public bool Validar(int error)
         {
             bool paso = false;
-
-
-
-            if (error == 2 && FechadateTimePicker.Value == DateTime.Now || FechadateTimePicker.Value < DateTime.Now)
+            if (string.IsNullOrWhiteSpace(DescripciontextBox.Text))
             {
-                errorProvider1.SetError(FechadateTimePicker, "Fecha Fuera De Rango");
+                errorProvider1.SetError(DescripciontextBox, "Campo Vacio");
                 paso = true;
             }
-            if (error == 2 && GanancianumericUpDown.Value == 0)
-            {
-                errorProvider1.SetError(GanancianumericUpDown, "Ganancia en 0");
-                paso = true;
-            }
-
-            if (error == 2 && CostonumericUpDown.Value == 0)
-            {
-                errorProvider1.SetError(CostonumericUpDown, "Costo en 0");
-                paso = true;
-            }
-
             if (error == 2 && PrecionumericUpDown.Value == 0)
             {
                 errorProvider1.SetError(PrecionumericUpDown, "Precio en 0");
@@ -95,25 +61,19 @@ namespace ProyectoFinal_Restaurante.UI.Registro
                 errorProvider1.SetError(CantidadnumericUpDown, "Cantidad En 0");
                 paso = true;
             }
-
-            if (string.IsNullOrWhiteSpace(DescripciontextBox.Text))
+            if (error == 2 && FechaRegistrodateTimePicker.Value == DateTime.Now || FechaRegistrodateTimePicker.Value < DateTime.Now)
             {
-                errorProvider1.SetError(DescripciontextBox, "Campo Vacio");
+                errorProvider1.SetError(FechaRegistrodateTimePicker, "Fecha Fuera De Rango");
                 paso = true;
             }
             return paso;
         }
-
-
-
-
-
         public bool ExiteEnLaDb()
         {
             repository = new RepositoryBase<Producto>();
-            Producto articulos = new Producto();
-            articulos = repository.Buscar((int)IDnumericUpDown.Value);
-            return (articulos != null);
+            Producto producto = new Producto();
+            producto = repository.Buscar((int)IDnumericUpDown.Value);
+            return (producto != null);
         }
 
         private void Nuevobutton_Click(object sender, EventArgs e)
@@ -126,24 +86,24 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             bool paso = false;
             repository = new RepositoryBase<Producto>();
 
-            Producto articulos;
+            Producto producto;
 
             if (!Validar(2))
                 return;
-            articulos = LlenarClase();
+            producto = LlenarClase();
 
             if (IDnumericUpDown.Value == 0)
             {
-                paso = repository.Guardar(articulos);
+                paso = repository.Guardar(producto);
 
             }
             else
             {
-                int id = Convert.ToInt32(IDnumericUpDown.Value);
-                var articulo = repository.Buscar(id);
-                if (articulo != null)
+                
+                var productos = LlenarClase();
+                if (productos != null)
                 {
-                    paso = repository.Modificar(articulo);
+                    paso = repository.Modificar(productos);
                 }
                 else
                 {
@@ -168,7 +128,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             int.TryParse(IDnumericUpDown.Text, out id);
             if (!ExiteEnLaDb())
             {
-                errorProvider1.SetError(IDnumericUpDown, "Artuculo no Exite");
+                errorProvider1.SetError(IDnumericUpDown, "El producto no Exite");
                 IDnumericUpDown.Focus();
                 return;
             }
@@ -190,16 +150,16 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             Producto articulos = new Producto();
 
             int.TryParse(IDnumericUpDown.Text, out id);
-            repository.Buscar(id);
+            articulos = repository.Buscar(id);
 
             if (articulos != null)
             {
-                MessageBox.Show("Articulos Encotrado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Producto Encotrado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LlenarCampo(articulos);
             }
             else
             {
-                MessageBox.Show("Cliente no Exite", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Producto no Exite", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -46,7 +46,6 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         {
             IDnumericUpDown.Value = cliente.ClienteID;
             NombretextBox.Text = cliente.Nombre;
-            
             EmailtextBox.Text = cliente.Email;
             TelefonomaskedTextBox.Text = cliente.Telefono;
             
@@ -113,8 +112,10 @@ namespace ProyectoFinal_Restaurante.UI.Registro
                     return;
                 }
             }
+            Limpiar();
             if (paso)
             {
+
                 MessageBox.Show("Se Guardo Con Exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
@@ -158,13 +159,13 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             Cliente cliente = new Cliente();
 
             int.TryParse(IDnumericUpDown.Text, out id);
-            repository.Buscar(id);
-
+            cliente = repository.Buscar(id);
 
             if (cliente != null)
             {
-                MessageBox.Show("Cliente Encotrado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LlenarCampo(cliente);
+                MessageBox.Show("Cliente Encotrado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               
             }
             else
             {
