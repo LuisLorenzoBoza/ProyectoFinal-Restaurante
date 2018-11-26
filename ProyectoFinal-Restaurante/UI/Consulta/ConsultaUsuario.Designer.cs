@@ -114,10 +114,10 @@
             this.FiltrocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FiltrocomboBox.FormattingEnabled = true;
             this.FiltrocomboBox.Items.AddRange(new object[] {
-            "Todos",
             "UsuarioID",
             "Contraseña ",
-            "Nombre "});
+            "Nombre ",
+            "Todos"});
             this.FiltrocomboBox.Location = new System.Drawing.Point(13, 32);
             this.FiltrocomboBox.Margin = new System.Windows.Forms.Padding(2);
             this.FiltrocomboBox.Name = "FiltrocomboBox";

@@ -19,11 +19,16 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
         List<Cliente> cliente = new List<Cliente>();
         Expression<Func<Cliente, bool>> filtro = x => true;
         RepositoryBase<Cliente> repository;
+        private object repositoryBase;
 
         public ConsultaCliente()
         {
             InitializeComponent();
+            repositoryBase = new RepositoryBase<Usuario>(new BLL.Contexto());
         }
+
+        public object RepositoryBase { get; private set; }
+
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
             repository = new RepositoryBase<Cliente>();
@@ -41,7 +46,7 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
                             listado = repository.GetList(p => p.ClienteID == id);
                             if (repository.GetList(filtro).Count() == 0)
                             {
-                                MessageBox.Show("Este Articulo no Exite", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Este cliente no Exite", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
                             break;
@@ -76,8 +81,12 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
                             }
                         }
                         break;
-                    
                 }
+            }
+            else
+            {
+                listado = repositoryBase.GetList(p => true);
+                
             }
 
             dataGridView1.DataSource = null;

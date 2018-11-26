@@ -34,6 +34,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.ImportetextBox = new System.Windows.Forms.TextBox();
+            this.Facturarbutton = new System.Windows.Forms.Button();
             this.TotaltextBox = new System.Windows.Forms.TextBox();
             this.ITBtextBox = new System.Windows.Forms.TextBox();
             this.SubTotaltextBox = new System.Windows.Forms.TextBox();
@@ -55,10 +56,10 @@
             this.FechadateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.IDnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
-            this.Facturarbutton = new System.Windows.Forms.Button();
             this.Agregarbutton = new System.Windows.Forms.Button();
             this.Removerbutton = new System.Windows.Forms.Button();
             this.Buscarbutton = new System.Windows.Forms.Button();
+            this.Imprimirlabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).BeginInit();
@@ -99,6 +100,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.Imprimirlabel);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.ImportetextBox);
             this.groupBox1.Controls.Add(this.Facturarbutton);
@@ -139,6 +141,16 @@
             this.ImportetextBox.Name = "ImportetextBox";
             this.ImportetextBox.Size = new System.Drawing.Size(92, 20);
             this.ImportetextBox.TabIndex = 27;
+            // 
+            // Facturarbutton
+            // 
+            this.Facturarbutton.BackgroundImage = global::ProyectoFinal_Restaurante.Properties.Resources.iconfinder_bill_416404;
+            this.Facturarbutton.Location = new System.Drawing.Point(8, 259);
+            this.Facturarbutton.Margin = new System.Windows.Forms.Padding(2);
+            this.Facturarbutton.Name = "Facturarbutton";
+            this.Facturarbutton.Size = new System.Drawing.Size(32, 32);
+            this.Facturarbutton.TabIndex = 26;
+            this.Facturarbutton.UseVisualStyleBackColor = true;
             // 
             // TotaltextBox
             // 
@@ -340,16 +352,6 @@
             this.label1.TabIndex = 49;
             this.label1.Text = "Factura ID";
             // 
-            // Facturarbutton
-            // 
-            this.Facturarbutton.BackgroundImage = global::ProyectoFinal_Restaurante.Properties.Resources.iconfinder_bill_416404;
-            this.Facturarbutton.Location = new System.Drawing.Point(7, 250);
-            this.Facturarbutton.Margin = new System.Windows.Forms.Padding(2);
-            this.Facturarbutton.Name = "Facturarbutton";
-            this.Facturarbutton.Size = new System.Drawing.Size(32, 32);
-            this.Facturarbutton.TabIndex = 26;
-            this.Facturarbutton.UseVisualStyleBackColor = true;
-            // 
             // Agregarbutton
             // 
             this.Agregarbutton.BackgroundImage = global::ProyectoFinal_Restaurante.Properties.Resources.if_sign_add_299068;
@@ -380,6 +382,16 @@
             this.Buscarbutton.Size = new System.Drawing.Size(32, 32);
             this.Buscarbutton.TabIndex = 51;
             this.Buscarbutton.UseVisualStyleBackColor = true;
+            // 
+            // Imprimirlabel
+            // 
+            this.Imprimirlabel.AutoSize = true;
+            this.Imprimirlabel.Location = new System.Drawing.Point(5, 244);
+            this.Imprimirlabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Imprimirlabel.Name = "Imprimirlabel";
+            this.Imprimirlabel.Size = new System.Drawing.Size(42, 13);
+            this.Imprimirlabel.TabIndex = 72;
+            this.Imprimirlabel.Text = "Imprimir";
             // 
             // RegistroVentas
             // 
@@ -451,5 +463,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox ImportetextBox;
+        private System.Windows.Forms.Label Imprimirlabel;
     }
 }

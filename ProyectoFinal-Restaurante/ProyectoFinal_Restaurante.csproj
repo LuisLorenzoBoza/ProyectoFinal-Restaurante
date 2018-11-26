@@ -271,5 +271,8 @@
   <ItemGroup>
     <None Include="Resources\iconfinder_Delete_1493279.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="DAL\Scripts\SQLQuery2.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

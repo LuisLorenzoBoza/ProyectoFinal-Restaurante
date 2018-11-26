@@ -70,7 +70,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         }
         public bool ExiteEnLaDb()
         {
-            repository = new RepositoryBase<Producto>();
+            repository = new RepositoryBase<Producto>(new BLL.Contexto());
             Producto producto = new Producto();
             producto = repository.Buscar((int)IDnumericUpDown.Value);
             return (producto != null);
@@ -84,7 +84,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
             bool paso = false;
-            repository = new RepositoryBase<Producto>();
+            repository = new RepositoryBase<Producto>(new BLL.Contexto());
 
             Producto producto;
 
@@ -123,7 +123,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
         {
-            repository = new RepositoryBase<Producto>();
+            repository = new RepositoryBase<Producto>(new BLL.Contexto());
             int id;
             int.TryParse(IDnumericUpDown.Text, out id);
             if (!ExiteEnLaDb())
@@ -145,7 +145,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
-            repository = new RepositoryBase<Producto>();
+            repository = new RepositoryBase<Producto>(new BLL.Contexto());
             int id;
             Producto articulos = new Producto();
 

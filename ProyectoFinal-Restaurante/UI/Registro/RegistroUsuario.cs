@@ -86,7 +86,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
 
         public bool ExiteEnLaDb()
         {
-            RepositoryBase<Usuario> repository = new RepositoryBase<Usuario>();
+            RepositoryBase<Usuario> repository = new RepositoryBase<Usuario>(new BLL.Contexto());
             Usuario usuario = repository.Buscar((int)IDnumericUpDown.Value);
             return (usuario != null);
         }
@@ -106,7 +106,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
 
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
-            RepositoryBase<Usuario> repository = new RepositoryBase<Usuario>();
+            RepositoryBase<Usuario> repository = new RepositoryBase<Usuario>(new BLL.Contexto());
             bool paso = false;
             Usuario usuario;
             if (!Validar())
@@ -141,7 +141,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
         {
-            RepositoryBase<Usuario> repository = new RepositoryBase<Usuario>();
+            RepositoryBase<Usuario> repository = new RepositoryBase<Usuario>(new BLL.Contexto());
             int id;
             int.TryParse(IDnumericUpDown.Text, out id);
             if (!ExiteEnLaDb())
@@ -165,7 +165,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
-            RepositoryBase<Usuario> repository = new RepositoryBase<Usuario>();
+            RepositoryBase<Usuario> repository = new RepositoryBase<Usuario>(new BLL.Contexto());
             int id;
             Usuario usuario = new Usuario();
             int.TryParse(IDnumericUpDown.Text, out id);

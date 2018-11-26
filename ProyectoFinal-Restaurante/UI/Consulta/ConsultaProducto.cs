@@ -17,7 +17,7 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
     {
         private List<Producto> producto = new List<Producto>();
         Expression<Func<Producto, bool>> filtro = x => true;
-        RepositoryBase<Producto> repository = new  RepositoryBase<Producto>();
+        //RepositoryBase<Producto> repository = new  RepositoryBase<Producto>();
         
         public ConsultaProducto()
         {
@@ -28,6 +28,7 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
         {
             RepositoryBase<Producto> repository = new RepositoryBase<Producto>();
             var listado = new List<Producto>();
+            
             if (CriteriotextBox.Text.Trim().Length >= 0)
             {
                 switch (FiltrocomboBox.SelectedIndex)

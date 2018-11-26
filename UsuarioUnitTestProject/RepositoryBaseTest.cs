@@ -26,7 +26,7 @@ namespace ProyectoFinal_Restaurante.BLL.Tests
             usuario.Nombre = "Luis";
             usuario.Contraseña = "123";
             usuario.Pocision = true;
-            RepositoryBase<Usuario> repository = new RepositoryBase<Usuario>(new DAL.Contexto());
+            RepositoryBase<Usuario> repository = new RepositoryBase<Usuario>(new BLL.Contexto());
             Assert.IsTrue(repository.Guardar(usuario));
         }
 

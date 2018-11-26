@@ -1,5 +1,4 @@
 ﻿using ProyectoFinal_Restaurante.BLL;
-using ProyectoFinal_Restaurante.DAL;
 using ProyectoFinal_Restaurante.Entidades;
 using System;
 using System.Collections.Generic;
@@ -33,7 +32,6 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         {
             IDnumericUpDown.Value = 0;
             FechadateTimePicker.Value = DateTime.Now;
-            // DescripciontextBox.Clear();
             CantidadnumericUpDown.Value = 0;
             SubTotaltextBox.Text = 0.ToString();
             ITBtextBox.Text = 0.ToString();
@@ -67,9 +65,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             Facturacion factura = new Facturacion();
             factura.FactutaID = Convert.ToInt32(IDnumericUpDown.Value);
             factura.UsuarioID = Convert.ToInt32((UsuariocomboBox.SelectedValue));
-            //factura.FechaDeFactura = FechadateTimePicker.Value;
-           
-            // factura.Descripcion = DescripciontextBox.Text;
+            factura.FechaDeFactura = FechadateTimePicker.Value;
             factura.Cantidad = Convert.ToInt32(CantidadnumericUpDown.Value);
             factura.SubTotal = Convert.ToSingle(SubTotaltextBox.Text);
             factura.Iterbis = Convert.ToDecimal(ITBtextBox.Text);
@@ -96,7 +92,6 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         {
             IDnumericUpDown.Value = factura.FactutaID;
             FechadateTimePicker.Value = factura.FechaDeFactura;
-            //DescripciontextBox.Text = factura.Descripcion;
             SubTotaltextBox.Text = factura.SubTotal.ToString();
             ITBtextBox.Text = factura.Iterbis.ToString();
             TotaltextBox.Text = factura.ToTal.ToString();
@@ -105,7 +100,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
 
         private void LlenarCombo()
         {
-            RepositoryBase<Usuario> repositoryBase = new RepositoryBase<Usuario>();
+            RepositoryBase<Usuario> repositoryBase = new RepositoryBase<Usuario>(new Contexto());
             UsuariocomboBox.DataSource = repositoryBase.GetList(c => true);
             UsuariocomboBox.ValueMember = "UsuarioID";
             UsuariocomboBox.DisplayMember = "Nombre";

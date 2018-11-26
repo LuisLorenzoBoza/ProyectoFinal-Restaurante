@@ -24,7 +24,7 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
         public ConsultaUsuario()
         {
             InitializeComponent();
-            repositoryBase = new RepositoryBase<Usuario>();
+            repositoryBase = new RepositoryBase<Usuario>(new BLL.Contexto());
         }
 
         private void Buscarbutton_Click(object sender, EventArgs e)
@@ -34,18 +34,19 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
            {
             switch (FiltrocomboBox.SelectedIndex)
                   {
-                    case 0://Id
+
+                    case 1://Id
                         {
                             int id = Convert.ToInt32(CriteriotextBox.Text);
                             listado = repositoryBase.GetList(p => p.UsuarioID == id);
                             if (repositoryBase.GetList(filtro).Count() == 0)
                             {
-                                MessageBox.Show("Este Articulo no Exite", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Este id de usuario no Exite", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
                             break;
                         }
-                    case 1://Nombre
+                    case 2://Nombre
                         {
                             listado = repositoryBase.GetList(p => p.Nombre.Contains(CriteriotextBox.Text));
                             if (repositoryBase.GetList(filtro).Count() == 0)
@@ -55,7 +56,7 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
                             }
                             break;
                         }
-                    case 2://Contraseña
+                    case 3://Contraseña
                         {
                             listado = repositoryBase.GetList(p => p.Contraseña.Contains(CriteriotextBox.Text));
                             if (repositoryBase.GetList(filtro).Count() == 0)
@@ -65,7 +66,7 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
                             }
                         }
                         break;
-                    case 3://todo
+                    case 0://todo
                         filtro = x => true;
                         break;
                 }

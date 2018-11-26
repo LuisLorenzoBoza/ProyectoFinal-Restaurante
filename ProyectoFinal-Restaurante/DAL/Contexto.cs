@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProyectoFinal_Restaurante.DAL
+namespace ProyectoFinal_Restaurante.BLL
 {
     public class Contexto : DbContext
     {

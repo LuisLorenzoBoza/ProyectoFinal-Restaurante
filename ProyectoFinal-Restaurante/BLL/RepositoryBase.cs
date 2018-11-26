@@ -1,4 +1,4 @@
-﻿using ProyectoFinal_Restaurante.DAL;
+﻿using ProyectoFinal_Restaurante.BLL;
 using ProyectoFinal_Restaurante.Entidades;
 using System;
 using System.Collections.Generic;
@@ -17,6 +17,11 @@ namespace ProyectoFinal_Restaurante.BLL
         {
             _contexto = new Contexto();
         }
+
+        public RepositoryBase()
+        {
+        }
+
         public virtual bool Guardar(T entity)
         {
             bool paso = true;
