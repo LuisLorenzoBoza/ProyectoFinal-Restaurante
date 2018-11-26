@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinal_Restaurante.Entidades
 {
-    public class Factura
+    public class Facturacion
     {
         [Key]
         public int FactutaID { get; set; }
@@ -24,7 +24,7 @@ namespace ProyectoFinal_Restaurante.Entidades
         public virtual ICollection<FacturaDetalle> Detalle { get; set; }
 
 
-        public Factura()
+        public Facturacion()
         {
             this.Detalle = new List<FacturaDetalle>();
             FechaDeFactura = DateTime.Now;

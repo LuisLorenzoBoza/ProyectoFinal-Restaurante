@@ -262,5 +262,14 @@
   <ItemGroup>
     <None Include="Resources\iconfinder_bill_416404.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_user-group_285648.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_lock_511942.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_Delete_1493279.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

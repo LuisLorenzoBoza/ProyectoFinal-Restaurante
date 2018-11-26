@@ -241,7 +241,7 @@
             // PreciotextBox
             // 
             this.PreciotextBox.Enabled = false;
-            this.PreciotextBox.Location = new System.Drawing.Point(405, 116);
+            this.PreciotextBox.Location = new System.Drawing.Point(469, 114);
             this.PreciotextBox.Margin = new System.Windows.Forms.Padding(2);
             this.PreciotextBox.Name = "PreciotextBox";
             this.PreciotextBox.Size = new System.Drawing.Size(94, 20);
@@ -250,7 +250,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(364, 123);
+            this.label6.Location = new System.Drawing.Point(417, 118);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(37, 13);
@@ -259,7 +259,7 @@
             // 
             // CantidadnumericUpDown
             // 
-            this.CantidadnumericUpDown.Location = new System.Drawing.Point(261, 116);
+            this.CantidadnumericUpDown.Location = new System.Drawing.Point(298, 116);
             this.CantidadnumericUpDown.Margin = new System.Windows.Forms.Padding(2);
             this.CantidadnumericUpDown.Name = "CantidadnumericUpDown";
             this.CantidadnumericUpDown.Size = new System.Drawing.Size(90, 20);
@@ -268,7 +268,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(208, 122);
+            this.label5.Location = new System.Drawing.Point(231, 123);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 13);
@@ -306,7 +306,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(397, 6);
+            this.label2.Location = new System.Drawing.Point(417, 6);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 13);
@@ -316,7 +316,7 @@
             // FechadateTimePicker
             // 
             this.FechadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.FechadateTimePicker.Location = new System.Drawing.Point(498, 4);
+            this.FechadateTimePicker.Location = new System.Drawing.Point(515, 0);
             this.FechadateTimePicker.Margin = new System.Windows.Forms.Padding(2);
             this.FechadateTimePicker.Name = "FechadateTimePicker";
             this.FechadateTimePicker.Size = new System.Drawing.Size(120, 20);
@@ -353,7 +353,7 @@
             // Agregarbutton
             // 
             this.Agregarbutton.BackgroundImage = global::ProyectoFinal_Restaurante.Properties.Resources.if_sign_add_299068;
-            this.Agregarbutton.Location = new System.Drawing.Point(527, 103);
+            this.Agregarbutton.Location = new System.Drawing.Point(567, 103);
             this.Agregarbutton.Margin = new System.Windows.Forms.Padding(2);
             this.Agregarbutton.Name = "Agregarbutton";
             this.Agregarbutton.Size = new System.Drawing.Size(32, 32);
@@ -364,7 +364,7 @@
             // Removerbutton
             // 
             this.Removerbutton.BackgroundImage = global::ProyectoFinal_Restaurante.Properties.Resources.if_minus_square_black_243656;
-            this.Removerbutton.Location = new System.Drawing.Point(576, 104);
+            this.Removerbutton.Location = new System.Drawing.Point(603, 104);
             this.Removerbutton.Margin = new System.Windows.Forms.Padding(2);
             this.Removerbutton.Name = "Removerbutton";
             this.Removerbutton.Size = new System.Drawing.Size(32, 32);

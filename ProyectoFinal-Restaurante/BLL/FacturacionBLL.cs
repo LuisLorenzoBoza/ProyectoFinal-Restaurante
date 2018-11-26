@@ -12,7 +12,7 @@ namespace ProyectoFinal_Restaurante.BLL
 {
     public class FacturacionBLL
     {
-        public static bool Guardar(Factura factura)
+        public static bool Guardar(Facturacion factura)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
@@ -40,7 +40,7 @@ namespace ProyectoFinal_Restaurante.BLL
 
 
 
-        public static bool Modificar(Factura factura)
+        public static bool Modificar(Facturacion factura)
         {
             RepositoryBase<Usuario> repository = new RepositoryBase<Usuario>();
             bool paso = false;
@@ -78,7 +78,7 @@ namespace ProyectoFinal_Restaurante.BLL
                         var estado = item.FacturaDetalleID > 0 ? EntityState.Modified : EntityState.Added;
                         contexto.Entry(item).State = estado;
                     }
-                    Factura entradaAnt = Buscar(factura.FactutaID);
+                    Facturacion entradaAnt = Buscar(factura.FactutaID);
 
                     decimal diferencia;
 
@@ -118,7 +118,7 @@ namespace ProyectoFinal_Restaurante.BLL
             Contexto contexto = new Contexto();
             try
             {
-                Factura factura = new Factura();
+                Facturacion factura = new Facturacion();
                 if (factura != null)
                 {
                     foreach (var item in factura.Detalle)
@@ -147,9 +147,9 @@ namespace ProyectoFinal_Restaurante.BLL
 
 
 
-        public static Factura Buscar(int id)
+        public static Facturacion Buscar(int id)
         {
-            Factura factura = new Factura();
+            Facturacion factura = new Facturacion();
             Contexto contexto = new Contexto();
             try
             {
@@ -174,9 +174,9 @@ namespace ProyectoFinal_Restaurante.BLL
 
 
 
-        public static List<Factura> GetList(Expression<Func<Factura, bool>> expression)
+        public static List<Facturacion> GetList(Expression<Func<Facturacion, bool>> expression)
         {
-            List<Factura> facturas = new List<Factura>();
+            List<Facturacion> facturas = new List<Facturacion>();
             Contexto contexto = new Contexto();
 
             try

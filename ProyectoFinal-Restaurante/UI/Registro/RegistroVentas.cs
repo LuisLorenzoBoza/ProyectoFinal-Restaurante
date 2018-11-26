@@ -62,9 +62,9 @@ namespace ProyectoFinal_Restaurante.UI.Registro
 
         }
 
-        private Factura LlenarClase()
+        private Facturacion LlenarClase()
         {
-            Factura factura = new Factura();
+            Facturacion factura = new Facturacion();
             factura.FactutaID = Convert.ToInt32(IDnumericUpDown.Value);
             factura.UsuarioID = Convert.ToInt32((UsuariocomboBox.SelectedValue));
             //factura.FechaDeFactura = FechadateTimePicker.Value;
@@ -92,7 +92,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             return factura;
         }
 
-        private void Llenarcampo(Factura factura)
+        private void Llenarcampo(Facturacion factura)
         {
             IDnumericUpDown.Value = factura.FactutaID;
             FechadateTimePicker.Value = factura.FechaDeFactura;
@@ -181,14 +181,14 @@ namespace ProyectoFinal_Restaurante.UI.Registro
 
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
-            RepositoryBase<Factura> repository = new RepositoryBase<Factura>();
+            RepositoryBase<Facturacion> repository = new RepositoryBase<Facturacion>();
             bool paso;
-            Factura factura = LlenarClase();
+            Facturacion facturacion = LlenarClase();
             if (IDnumericUpDown.Value == 0)
-                paso = repository.Guardar(factura);
+                paso = repository.Guardar(facturacion);
             else
             {
-                paso = repository.Modificar(factura);
+                paso = repository.Modificar(facturacion);
                 if (paso)
                 {
                     MessageBox.Show("Modificado");

@@ -83,6 +83,16 @@ namespace ProyectoFinal_Restaurante.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap iconfinder_Delete_1493279 {
+            get {
+                object obj = ResourceManager.GetObject("iconfinder_Delete_1493279", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap iconfinder_eccomerce___search_3440910 {
             get {
                 object obj = ResourceManager.GetObject("iconfinder_eccomerce_-_search_3440910", resourceCulture);
@@ -96,6 +106,16 @@ namespace ProyectoFinal_Restaurante.Properties {
         internal static System.Drawing.Bitmap iconfinder_eccomerce___search_34409101 {
             get {
                 object obj = ResourceManager.GetObject("iconfinder_eccomerce_-_search_34409101", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconfinder_lock_511942 {
+            get {
+                object obj = ResourceManager.GetObject("iconfinder_lock_511942", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -126,6 +146,16 @@ namespace ProyectoFinal_Restaurante.Properties {
         internal static System.Drawing.Bitmap iconfinder_Save_70652 {
             get {
                 object obj = ResourceManager.GetObject("iconfinder_Save_70652", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconfinder_user_group_285648 {
+            get {
+                object obj = ResourceManager.GetObject("iconfinder_user-group_285648", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
