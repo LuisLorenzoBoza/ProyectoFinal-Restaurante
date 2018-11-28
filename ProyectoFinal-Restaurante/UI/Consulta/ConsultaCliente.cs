@@ -3,13 +3,8 @@ using ProyectoFinal_Restaurante.Entidades;
 using ProyectoFinal_Restaurante.Reportes;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoFinal_Restaurante.UI.Consulta
@@ -18,27 +13,27 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
     {
         List<Cliente> cliente = new List<Cliente>();
         Expression<Func<Cliente, bool>> filtro = x => true;
-        RepositoryBase<Cliente> repository;
-        private object repositoryBase;
+       // RepositoryBase<Cliente> repository;
+        //private object repositoryBase;
 
         public ConsultaCliente()
         {
             InitializeComponent();
-            repositoryBase = new RepositoryBase<Usuario>();
+            //repositoryBase = new RepositoryBase<Usuario>();
         }
 
         public object RepositoryBase { get; private set; }
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
-            repository = new RepositoryBase<Cliente>();
+            RepositoryBase<Cliente> repository = new RepositoryBase<Cliente>();
             var listado = new List<Cliente>();
-            if (CriteriotextBox.Text.Trim().Length > 0)
+            if (CriteriotextBox.Text.Trim().Length >= 0)
             {
                 switch (FiltrocomboBox.SelectedIndex)
                 {
                     case 0://Todo
-                        filtro = x => true;
+                        //filtro = x => true;
                         listado = repository.GetList(filtro);
                         break;
                     case 1://Id

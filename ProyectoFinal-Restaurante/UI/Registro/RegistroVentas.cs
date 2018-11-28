@@ -18,13 +18,13 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         List<FacturaDetalle> Detalle = new List<FacturaDetalle>(); 
         public RepositoryBase<Producto> repository;
         public int index { get; set; }
-        bool Eliminar = false;
+        public bool Eliminar = false;
         public RegistroVentas()
         {
             InitializeComponent();
             LlenarImporte();
             repository = new RepositoryBase<Producto>();
-           LlenarCombo();
+            LlenarCombo();
             ProductocomboBox.SelectedIndex = 0;
         }
         decimal itebis = 0;
