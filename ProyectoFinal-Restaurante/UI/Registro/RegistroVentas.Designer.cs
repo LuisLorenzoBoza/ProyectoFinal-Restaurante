@@ -32,6 +32,8 @@
             this.ProductocomboBox = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.IdDetallenumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
             this.Imprimirlabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.ImportetextBox = new System.Windows.Forms.TextBox();
@@ -45,7 +47,13 @@
             this.Eliminarbutton = new System.Windows.Forms.Button();
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.Nuevobutton = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DetalledataGridView = new System.Windows.Forms.DataGridView();
+            this.productosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.importeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iterbisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaDeFacturaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PreciotextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.CantidadnumericUpDown = new System.Windows.Forms.NumericUpDown();
@@ -60,11 +68,14 @@
             this.Agregarbutton = new System.Windows.Forms.Button();
             this.Removerbutton = new System.Windows.Forms.Button();
             this.Buscarbutton = new System.Windows.Forms.Button();
+            this.proyectoFinalDbDataSet = new ProyectoFinal_Restaurante.ProyectoFinalDbDataSet();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdDetallenumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DetalledataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IDProductonumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoFinalDbDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // UsuariocomboBox
@@ -100,6 +111,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.IdDetallenumericUpDown);
+            this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.Imprimirlabel);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.ImportetextBox);
@@ -113,7 +126,7 @@
             this.groupBox1.Controls.Add(this.Eliminarbutton);
             this.groupBox1.Controls.Add(this.Guardarbutton);
             this.groupBox1.Controls.Add(this.Nuevobutton);
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.DetalledataGridView);
             this.groupBox1.Location = new System.Drawing.Point(17, 149);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
@@ -122,6 +135,25 @@
             this.groupBox1.TabIndex = 64;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle";
+            // 
+            // IdDetallenumericUpDown
+            // 
+            this.IdDetallenumericUpDown.Enabled = false;
+            this.IdDetallenumericUpDown.Location = new System.Drawing.Point(274, 0);
+            this.IdDetallenumericUpDown.Margin = new System.Windows.Forms.Padding(2);
+            this.IdDetallenumericUpDown.Name = "IdDetallenumericUpDown";
+            this.IdDetallenumericUpDown.Size = new System.Drawing.Size(100, 20);
+            this.IdDetallenumericUpDown.TabIndex = 73;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(176, 7);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(54, 13);
+            this.label11.TabIndex = 72;
+            this.label11.Text = "ID Detalle";
             // 
             // Imprimirlabel
             // 
@@ -250,20 +282,66 @@
             this.Nuevobutton.TabIndex = 18;
             this.Nuevobutton.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // DetalledataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 37);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(614, 205);
-            this.dataGridView1.TabIndex = 0;
+            this.DetalledataGridView.AllowUserToDeleteRows = false;
+            this.DetalledataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DetalledataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.productosDataGridViewTextBoxColumn,
+            this.cantidadDataGridViewTextBoxColumn,
+            this.precioDataGridViewTextBoxColumn,
+            this.importeDataGridViewTextBoxColumn,
+            this.iterbisDataGridViewTextBoxColumn,
+            this.fechaDeFacturaDataGridViewTextBoxColumn});
+            this.DetalledataGridView.Location = new System.Drawing.Point(4, 37);
+            this.DetalledataGridView.Margin = new System.Windows.Forms.Padding(2);
+            this.DetalledataGridView.Name = "DetalledataGridView";
+            this.DetalledataGridView.ReadOnly = true;
+            this.DetalledataGridView.RowTemplate.Height = 24;
+            this.DetalledataGridView.Size = new System.Drawing.Size(614, 205);
+            this.DetalledataGridView.TabIndex = 0;
+            this.DetalledataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DetalledataGridView_CellClick);
+            // 
+            // productosDataGridViewTextBoxColumn
+            // 
+            this.productosDataGridViewTextBoxColumn.DataPropertyName = "Productos";
+            this.productosDataGridViewTextBoxColumn.HeaderText = "Productos";
+            this.productosDataGridViewTextBoxColumn.Name = "productosDataGridViewTextBoxColumn";
+            // 
+            // cantidadDataGridViewTextBoxColumn
+            // 
+            this.cantidadDataGridViewTextBoxColumn.DataPropertyName = "Cantidad";
+            this.cantidadDataGridViewTextBoxColumn.HeaderText = "Cantidad";
+            this.cantidadDataGridViewTextBoxColumn.Name = "cantidadDataGridViewTextBoxColumn";
+            // 
+            // precioDataGridViewTextBoxColumn
+            // 
+            this.precioDataGridViewTextBoxColumn.DataPropertyName = "precio";
+            this.precioDataGridViewTextBoxColumn.HeaderText = "precio";
+            this.precioDataGridViewTextBoxColumn.Name = "precioDataGridViewTextBoxColumn";
+            // 
+            // importeDataGridViewTextBoxColumn
+            // 
+            this.importeDataGridViewTextBoxColumn.DataPropertyName = "Importe";
+            this.importeDataGridViewTextBoxColumn.HeaderText = "Importe";
+            this.importeDataGridViewTextBoxColumn.Name = "importeDataGridViewTextBoxColumn";
+            // 
+            // iterbisDataGridViewTextBoxColumn
+            // 
+            this.iterbisDataGridViewTextBoxColumn.DataPropertyName = "iterbis";
+            this.iterbisDataGridViewTextBoxColumn.HeaderText = "iterbis";
+            this.iterbisDataGridViewTextBoxColumn.Name = "iterbisDataGridViewTextBoxColumn";
+            // 
+            // fechaDeFacturaDataGridViewTextBoxColumn
+            // 
+            this.fechaDeFacturaDataGridViewTextBoxColumn.DataPropertyName = "FechaDeFactura";
+            this.fechaDeFacturaDataGridViewTextBoxColumn.HeaderText = "FechaDeFactura";
+            this.fechaDeFacturaDataGridViewTextBoxColumn.Name = "fechaDeFacturaDataGridViewTextBoxColumn";
             // 
             // PreciotextBox
             // 
             this.PreciotextBox.Enabled = false;
-            this.PreciotextBox.Location = new System.Drawing.Point(469, 114);
+            this.PreciotextBox.Location = new System.Drawing.Point(458, 120);
             this.PreciotextBox.Margin = new System.Windows.Forms.Padding(2);
             this.PreciotextBox.Name = "PreciotextBox";
             this.PreciotextBox.Size = new System.Drawing.Size(94, 20);
@@ -281,7 +359,7 @@
             // 
             // CantidadnumericUpDown
             // 
-            this.CantidadnumericUpDown.Location = new System.Drawing.Point(298, 116);
+            this.CantidadnumericUpDown.Location = new System.Drawing.Point(270, 120);
             this.CantidadnumericUpDown.Margin = new System.Windows.Forms.Padding(2);
             this.CantidadnumericUpDown.Name = "CantidadnumericUpDown";
             this.CantidadnumericUpDown.Size = new System.Drawing.Size(90, 20);
@@ -290,7 +368,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(231, 123);
+            this.label5.Location = new System.Drawing.Point(217, 123);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 13);
@@ -299,6 +377,7 @@
             // 
             // IDProductonumericUpDown
             // 
+            this.IDProductonumericUpDown.Enabled = false;
             this.IDProductonumericUpDown.Location = new System.Drawing.Point(112, 83);
             this.IDProductonumericUpDown.Margin = new System.Windows.Forms.Padding(2);
             this.IDProductonumericUpDown.Name = "IDProductonumericUpDown";
@@ -328,7 +407,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(417, 6);
+            this.label2.Location = new System.Drawing.Point(417, 9);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 13);
@@ -337,8 +416,9 @@
             // 
             // FechadateTimePicker
             // 
+            this.FechadateTimePicker.Enabled = false;
             this.FechadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.FechadateTimePicker.Location = new System.Drawing.Point(515, 0);
+            this.FechadateTimePicker.Location = new System.Drawing.Point(506, 4);
             this.FechadateTimePicker.Margin = new System.Windows.Forms.Padding(2);
             this.FechadateTimePicker.Name = "FechadateTimePicker";
             this.FechadateTimePicker.Size = new System.Drawing.Size(120, 20);
@@ -382,6 +462,7 @@
             this.Removerbutton.Size = new System.Drawing.Size(32, 32);
             this.Removerbutton.TabIndex = 17;
             this.Removerbutton.UseVisualStyleBackColor = true;
+            this.Removerbutton.Click += new System.EventHandler(this.Removerbutton_Click);
             // 
             // Buscarbutton
             // 
@@ -392,6 +473,11 @@
             this.Buscarbutton.Size = new System.Drawing.Size(32, 32);
             this.Buscarbutton.TabIndex = 51;
             this.Buscarbutton.UseVisualStyleBackColor = true;
+            // 
+            // proyectoFinalDbDataSet
+            // 
+            this.proyectoFinalDbDataSet.DataSetName = "ProyectoFinalDbDataSet";
+            this.proyectoFinalDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // RegistroVentas
             // 
@@ -418,13 +504,14 @@
             this.Controls.Add(this.label1);
             this.Name = "RegistroVentas";
             this.Text = "RegistroVentas";
-            this.Load += new System.EventHandler(this.RegistroVentas_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IdDetallenumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DetalledataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IDProductonumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proyectoFinalDbDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -446,7 +533,7 @@
         private System.Windows.Forms.Button Eliminarbutton;
         private System.Windows.Forms.Button Guardarbutton;
         private System.Windows.Forms.Button Nuevobutton;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView DetalledataGridView;
         private System.Windows.Forms.Button Removerbutton;
         private System.Windows.Forms.Button Agregarbutton;
         private System.Windows.Forms.TextBox PreciotextBox;
@@ -464,5 +551,14 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox ImportetextBox;
         private System.Windows.Forms.Label Imprimirlabel;
+        private System.Windows.Forms.NumericUpDown IdDetallenumericUpDown;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productosDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn precioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn importeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iterbisDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaDeFacturaDataGridViewTextBoxColumn;
+        private ProyectoFinalDbDataSet proyectoFinalDbDataSet;
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinal_Restaurante.Entidades
 {
-    public class Facturacion
+    public class Factura
     {
         [Key]
         public int FactutaID { get; set; }
@@ -21,19 +21,21 @@ namespace ProyectoFinal_Restaurante.Entidades
         public decimal Iterbis { get; set; }
         public decimal ToTal { get; set; }
 
-        public virtual ICollection<FacturaDetalle> Detalle { get; set; }
+        public virtual List<FacturaDetalle> Detalle { get; set; }
 
-
-        public Facturacion()
+        public Factura()
         {
-            this.Detalle = new List<FacturaDetalle>();
+            FactutaID = 0;
+            UsuarioID = 0;
+            ProductoID = 0;
+            Descripcion = string.Empty;
+            Cantidad = 0;
+            SubTotal = 0;
+            Iterbis = 0;
+            ToTal = 0;
             FechaDeFactura = DateTime.Now;
+            Detalle = new List<FacturaDetalle>();
         }
 
-
-        public void AgregarDetalle(int FacturaDetalleID, int FacturaID, int ProductoID, string Productos, int Cantidad, int precio, int v)
-        {
-            Detalle.Add(new FacturaDetalle(FacturaDetalleID, FactutaID, ProductoID, Productos, Cantidad, precio));
-        }
     }
 }

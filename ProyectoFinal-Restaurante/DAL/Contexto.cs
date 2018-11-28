@@ -10,10 +10,10 @@ namespace ProyectoFinal_Restaurante.BLL
 {
     public class Contexto : DbContext
     {
-        public DbSet<Usuario> Usario { get; set; }
+        public DbSet<Usuario> Usuario { get; set; }
         public DbSet<Producto> Producto { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
-        public DbSet<Facturacion> Factura { get; set; }
+        public DbSet<Factura> Factura { get; set; }
 
 
 

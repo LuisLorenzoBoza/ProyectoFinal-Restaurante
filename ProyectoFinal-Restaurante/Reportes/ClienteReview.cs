@@ -1,12 +1,7 @@
 ﻿using ProyectoFinal_Restaurante.Entidades;
+using ProyectoFinal_Restaurante.Reportes;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoFinal_Restaurante.Reportes
@@ -23,7 +18,7 @@ namespace ProyectoFinal_Restaurante.Reportes
 
         private void crystalReportViewer1_Load(object sender, EventArgs e)
         {
-            ClienteCrystalReporte clienteCrystalReporte = new ClienteCrystalReporte();
+            ClienteCrystalReport clienteCrystalReporte = new ClienteCrystalReport();
             clienteCrystalReporte.SetDataSource(cliente);
             ClientecrystalReportViewer.ReportSource = clienteCrystalReporte;
             clienteCrystalReporte.Refresh();

@@ -14,16 +14,18 @@ namespace ProyectoFinal_Restaurante.UI.Registro
 {
     public partial class RegistroVentas : Form
     {
-        List<FacturaDetalle> detalles;
+        Factura facturaGlobal = new Factura();
+        List<FacturaDetalle> Detalle = new List<FacturaDetalle>(); 
         public RepositoryBase<Producto> repository;
+        public int index { get; set; }
+        bool Eliminar = false;
         public RegistroVentas()
         {
             InitializeComponent();
             LlenarImporte();
             repository = new RepositoryBase<Producto>();
            LlenarCombo();
-            detalles = new List<FacturaDetalle>();
-            //ProductocomboBox.SelectedIndex = 0;
+            ProductocomboBox.SelectedIndex = 0;
         }
         decimal itebis = 0;
         decimal total = 0;
@@ -40,7 +42,8 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             CantidadnumericUpDown.Value = 0;
             itebis = 0;
             ImportetextBox.Text = 0.ToString();
-
+            IdDetallenumericUpDown.Value = 0;
+            facturaGlobal.Detalle = new List<FacturaDetalle>();
         }
 
         private int ToInt(object valor)
@@ -60,9 +63,9 @@ namespace ProyectoFinal_Restaurante.UI.Registro
 
         }
 
-        private Facturacion LlenarClase()
+        private Factura LlenarClase()
         {
-            Facturacion factura = new Facturacion();
+            Factura factura = new Factura();
             factura.FactutaID = Convert.ToInt32(IDnumericUpDown.Value);
             factura.UsuarioID = Convert.ToInt32((UsuariocomboBox.SelectedValue));
             factura.FechaDeFactura = FechadateTimePicker.Value;
@@ -70,34 +73,26 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             factura.SubTotal = Convert.ToSingle(SubTotaltextBox.Text);
             factura.Iterbis = Convert.ToDecimal(ITBtextBox.Text);
             factura.ToTal = Convert.ToDecimal(TotaltextBox.Text);
-
-            foreach (DataGridViewRow item in dataGridView1.Rows)
-            {
-                factura.AgregarDetalle
-                 (
-                 ToInt(item.Cells["FacturaDetalleID"].Value),
-                 factura.FactutaID,
-                 ToInt(item.Cells["ProductoID"].Value),
-                 Convert.ToString(item.Cells["Productos"].Value),
-                 ToInt(item.Cells["Cantidad"].Value),
-                 ToInt(item.Cells["Precio"].Value),
-                 ToInt(item.Cells["Importe"].Value)
-                 );
-
-            }
+            factura.Detalle = facturaGlobal.Detalle;
+            
+           
             return factura;
         }
 
-        private void Llenarcampo(Facturacion factura)
+        private void Llenarcampo(Factura factura)
         {
             IDnumericUpDown.Value = factura.FactutaID;
             FechadateTimePicker.Value = factura.FechaDeFactura;
             SubTotaltextBox.Text = factura.SubTotal.ToString();
             ITBtextBox.Text = factura.Iterbis.ToString();
             TotaltextBox.Text = factura.ToTal.ToString();
-            dataGridView1.DataSource = factura.Detalle;
+            DetalledataGridView.DataSource = factura.Detalle;
         }
-
+        private void CargarGrid()
+        {
+            DetalledataGridView.DataSource = null;
+            DetalledataGridView.DataSource = Detalle;
+        }
         private void LlenarCombo()
         {
             RepositoryBase<Usuario> repositoryBase = new RepositoryBase<Usuario>();
@@ -113,9 +108,9 @@ namespace ProyectoFinal_Restaurante.UI.Registro
 
         public void QuitarCulumnas()
         {
-            dataGridView1.Columns["Producto"].Visible = false;
-            dataGridView1.Columns["FacturaID"].Visible = false;
-            dataGridView1.Columns["FacturaDetalleID"].Visible = false;
+            DetalledataGridView.Columns["Producto"].Visible = false;
+            DetalledataGridView.Columns["FacturaID"].Visible = false;
+            DetalledataGridView.Columns["FacturaDetalleID"].Visible = false;
 
         }
 
@@ -136,18 +131,28 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         private void Agregarbutton_Click(object sender, EventArgs e)
         {
             FacturaDetalle facturaDetalle = new FacturaDetalle();
-            facturaDetalle.ProductoID = ProductocomboBox.SelectedIndex;
+            facturaDetalle.ProductoID = (int)IDProductonumericUpDown.Value;
+            facturaDetalle.Productos = ProductocomboBox.Text;
             facturaDetalle.Cantidad = (int)CantidadnumericUpDown.Value;
-            facturaDetalle.FacturaID = (int)IDnumericUpDown.Value;
+            facturaDetalle.facturaID = (int)IDnumericUpDown.Value;
             facturaDetalle.Importe = Convert.ToInt32(ImportetextBox.Text);
             facturaDetalle.precio = Convert.ToInt32(PreciotextBox.Text);
+            facturaDetalle.FacturaDetalleID = (int)IdDetallenumericUpDown.Value;
+            if(IdDetallenumericUpDown.Value == 0)
+            {
+                facturaGlobal.Detalle.Add(new FacturaDetalle(0,0.0f,(int)IDnumericUpDown.Value,1,DateTime.Now,(int)IDProductonumericUpDown.Value
+                    ,ProductocomboBox.Text,(int)CantidadnumericUpDown.Value,Convert.ToInt32(PreciotextBox.Text),Convert.ToInt32(ImportetextBox.Text)));
+            }
+            else
+            {
+                //facturaGlobal.Detalle.Add(facturaDetalle);
+            }
 
-            detalles.Add(facturaDetalle);
 
-            dataGridView1.DataSource = detalles.ToList();
-
+            DetalledataGridView.DataSource = null;
+            DetalledataGridView.DataSource = facturaGlobal.Detalle;
             decimal subtotal = 0;
-            foreach (var item in detalles)
+            foreach (var item in Detalle)
             {
                 subtotal += item.Importe;
             }
@@ -158,20 +163,11 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             TotaltextBox.Text = total.ToString();
         }
 
-        private void ProductocomboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            RepositoryBase<Producto> repository = new RepositoryBase<Producto>();
-            foreach (var item in repository.GetList(x => x.Descripcion == ProductocomboBox.Text))
-            {
-                PreciotextBox.Text = item.Precio.ToString();
-            }
-        }
-
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
-            RepositoryBase<Facturacion> repository = new RepositoryBase<Facturacion>();
+            RepositoryBase<Factura> repository = new RepositoryBase<Factura>();
             bool paso;
-            Facturacion facturacion = LlenarClase();
+            Factura facturacion = LlenarClase();
             if (IDnumericUpDown.Value == 0)
                 paso = repository.Guardar(facturacion);
             else
@@ -193,17 +189,44 @@ namespace ProyectoFinal_Restaurante.UI.Registro
 
                 
         }
-
-        private void RegistroVentas_Load(object sender, EventArgs e)
+      
+        private void ProductocomboBox_SelectedValueChanged(object sender, EventArgs e)
         {
-
+            RepositoryBase<Producto> repository = new RepositoryBase<Producto>();
+            foreach (var item in repository.GetList(x => x.Descripcion == ProductocomboBox.Text))
+            {
+                PreciotextBox.Text = item.Precio.ToString();
+                IDProductonumericUpDown.Value = item.ProductoID;
+            }
         }
 
-        //private void ProductocomboBox_SelectedValueChanged(object sender, EventArgs e)
-        //{
-        //    RepositoryBase<Producto> repository = new RepositoryBase<Producto>();
-        //    Producto p =repository.Buscar(Convert.ToInt32(1));
-        //    PreciotextBox.Text = p.Precio.ToString();
-        //}
+        private void DetalledataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            index = e.RowIndex;
+        }
+
+        private void Removerbutton_Click(object sender, EventArgs e)
+        {
+            if (index >= 0)
+            {
+                Eliminar = true;
+                FacturaDetalle detalle = facturaGlobal.Detalle.ElementAt(index);
+                
+                Detalle.Add(new FacturaDetalle(detalle.FacturaDetalleID, detalle.iterbis, detalle.facturaID, detalle.UsuarioID, detalle.FechaDeFactura, detalle.ProductoID
+                    , detalle.Productos, detalle.Cantidad, detalle.precio, detalle.precio));
+                facturaGlobal.Detalle.RemoveAt(index);
+                
+                DetalledataGridView.DataSource = null;
+                DetalledataGridView.DataSource = facturaGlobal.Detalle;
+
+                index = -1;
+                MessageBox.Show("Eliminado", "Carne", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (DetalledataGridView.Rows.Count == 0)
+                    MessageBox.Show("No Hay Detalle Seleccionado", "Carne", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

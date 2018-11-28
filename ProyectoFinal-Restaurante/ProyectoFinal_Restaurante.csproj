@@ -83,10 +83,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reportes\ClienteCrystalReporte.cs">
+    <Compile Include="ProyectoFinalDbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ClienteCrystalReporte.rpt</DependentUpon>
+      <DependentUpon>ProyectoFinalDbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\ClienteCrystalReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClienteCrystalReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\ClienteReview.cs">
@@ -177,9 +182,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Reportes\ClienteCrystalReporte.rpt">
+    <EmbeddedResource Include="Reportes\ClienteCrystalReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ClienteCrystalReporte.cs</LastGenOutput>
+      <LastGenOutput>ClienteCrystalReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ClienteReview.resx">
       <DependentUpon>ClienteReview.cs</DependentUpon>
@@ -234,6 +239,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ProyectoFinalDbDataSet.xsc">
+      <DependentUpon>ProyectoFinalDbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ProyectoFinalDbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProyectoFinalDbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProyectoFinalDbDataSet.xss">
+      <DependentUpon>ProyectoFinalDbDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Resources\iconfinder_Print_1493286.png" />
   </ItemGroup>
   <ItemGroup>

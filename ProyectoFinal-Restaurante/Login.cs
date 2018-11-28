@@ -27,14 +27,25 @@ namespace ProyectoFinal_Restaurante
             string contraseña = ContraseñatextBox.Text;
             RepositoryBase<Usuario> repositorio = new RepositoryBase<Usuario>();
             List<Usuario> lista = repositorio.GetList(x => true);
+            if (lista.Count==0)
+            {
+                Usuario usuarios = new Usuario();
+                usuarios.Nombre = "Admin";
+                usuarios.Contraseña = "1234";
+                usuarios.CuentaUsua = "root";
+                RepositoryBase<Usuario> repository = new RepositoryBase<Usuario>();
+                repository.Guardar(usuarios);
+            }
+            lista = repositorio.GetList(x => true);
             foreach (var item in lista)
             {
+                
                 if (usuario == item.CuentaUsua && contraseña == item.Contraseña)
                 {
                     new MainForm().Show();
                     Program.usuario = item;
                     this.Visible = false;
-                    MessageBox.Show("Bienbenido ", item.Nombre);
+                    MessageBox.Show("Bienvenido ", item.Nombre);
                 }
                 else
                 {

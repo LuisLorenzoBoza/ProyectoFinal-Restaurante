@@ -11,10 +11,9 @@ namespace ProyectoFinal_Restaurante.Entidades
     public class FacturaDetalle
     {
         [Key]
-        private int facturaID { get; set; }
-        private float iterbis { get; set; }
         public int FacturaDetalleID { get; set; }
-        public int FacturaID { get; set; }
+        public float iterbis { get; set; }
+        public int facturaID { get; set; }
         public int UsuarioID { get; set; }
         public DateTime FechaDeFactura { get; set; }
         public int ProductoID { get; set; }
@@ -23,24 +22,32 @@ namespace ProyectoFinal_Restaurante.Entidades
         public int precio { get; set; }
         public int Importe { get; set; }
 
-
-
-        [ForeignKey("ProductoID")]
-        public virtual Producto Producto { get; set; }
         public FacturaDetalle()
         {
-            FacturaID = 0;
             FacturaDetalleID = 0;
-
+            iterbis = 0;
+            facturaID = 0;
+            UsuarioID = 0;
+            FechaDeFactura = DateTime.Now;
+            ProductoID = 0;
+            Productos = string.Empty;
+            Cantidad = 0;
+            precio = 0;
+            Importe = 0;
         }
-        public FacturaDetalle(int facturaDetalleID, int factutaID, int productoiD, string Articulos, int cantidad, int precio)
+
+        public FacturaDetalle(int facturaDetalleID, float iterbis, int facturaID, int usuarioID, DateTime fechaDeFactura, int productoID, string productos, int cantidad, int precio, int importe)
         {
             FacturaDetalleID = facturaDetalleID;
-            this.facturaID = factutaID;
-            ProductoID = productoiD;
-            Producto = Producto;
+            this.iterbis = iterbis;
+            this.facturaID = facturaID;
+            UsuarioID = usuarioID;
+            FechaDeFactura = fechaDeFactura;
+            ProductoID = productoID;
+            Productos = productos;
             Cantidad = cantidad;
             this.precio = precio;
+            Importe = importe;
         }
     }
 }

@@ -1,19 +1,15 @@
-﻿using System;
+﻿using ProyectoFinal_Restaurante.Entidades;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
-namespace ProyectoFinal_Restaurante.Reportes
+ namespace ProyectoFinal_Restaurante.Reportes
 {
-    private List<Producto> producto = new List<Producto>();
     public partial class ProductoReview : Form
     {
-        public ProductoReview()
+        public List<Producto> producto;
+        public ProductoReview(List<Producto> pr)
         {
             InitializeComponent();
             this.producto = pr;
@@ -21,7 +17,7 @@ namespace ProyectoFinal_Restaurante.Reportes
 
         private void crystalReportViewer1_Load(object sender, EventArgs e)
         {
-            ProductoCrystalReporte productoCrystalReporte = new ProductoCrystalReporte();
+            ProductoCrystalReport productoCrystalReporte = new ProductoCrystalReport();
             productoCrystalReporte.SetDataSource(producto);
             ProductocrystalReportViewer.ReportSource = productoCrystalReporte;
             productoCrystalReporte.Refresh();

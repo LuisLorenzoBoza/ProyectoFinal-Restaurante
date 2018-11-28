@@ -44,6 +44,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         }
         public bool Validar(int error)
         {
+            errorProvider1.Clear();
             bool paso = false;
             if (string.IsNullOrWhiteSpace(DescripciontextBox.Text))
             {
@@ -61,11 +62,11 @@ namespace ProyectoFinal_Restaurante.UI.Registro
                 errorProvider1.SetError(CantidadnumericUpDown, "Cantidad En 0");
                 paso = true;
             }
-            if (error == 2 && FechaRegistrodateTimePicker.Value == DateTime.Now || FechaRegistrodateTimePicker.Value < DateTime.Now)
+            if (error == 2 && FechaRegistrodateTimePicker.Value < DateTime.Now)
             {
                 errorProvider1.SetError(FechaRegistrodateTimePicker, "Fecha Fuera De Rango");
                 paso = true;
-            }
+            } 
             return paso;
         }
         public bool ExiteEnLaDb()
@@ -99,8 +100,8 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             }
             else
             {
-                
-                var productos = LlenarClase();
+                 var productos = LlenarClase();
+               
                 if (productos != null)
                 {
                     paso = repository.Modificar(productos);

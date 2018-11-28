@@ -133,8 +133,8 @@
             "Todos",
             "ProductoID",
             "Descripcion",
-            "Precio ",
-            "Cantidad "});
+            "Cantidad ",
+            "Precio "});
             this.FiltrocomboBox.Location = new System.Drawing.Point(11, 42);
             this.FiltrocomboBox.Margin = new System.Windows.Forms.Padding(2);
             this.FiltrocomboBox.Name = "FiltrocomboBox";
