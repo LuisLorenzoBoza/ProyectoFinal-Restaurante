@@ -1,14 +1,11 @@
 ﻿using ProyectoFinal_Restaurante.BLL;
 using ProyectoFinal_Restaurante.Entidades;
+using ProyectoFinal_Restaurante.Reportes;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoFinal_Restaurante.UI.Consulta
@@ -17,7 +14,6 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
     {
         private List<Producto> producto = new List<Producto>();
         Expression<Func<Producto, bool>> filtro = x => true;
-        //RepositoryBase<Producto> repository = new  RepositoryBase<Producto>();
         
         public ConsultaProducto()
         {
@@ -33,7 +29,7 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
             {
                 switch (FiltrocomboBox.SelectedIndex)
                 {
-                    case 0:
+                    case 0://Todo
                         listado = repository.GetList(p => true);
                         break;
                     case 1://Id
@@ -55,10 +51,6 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
                 }
                 listado = listado.Where(c => c.FechaDeRegistro.Date >= DesdedateTimePicker.Value.Date && c.FechaDeRegistro.Date <= HastadateTimePicker.Value.Date).ToList();
             }
-
-
-
-
             else
             {
                 listado = repository.GetList(p => true);
@@ -69,7 +61,13 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
 
         private void Imprimirbutton_Click(object sender, EventArgs e)
         {
-
+            if (producto.Count == 0)
+            {
+                MessageBox.Show("No encontrado");
+                return;
+            }
+            ProductoReview clienteReview = new ProductoReview(producto);
+            clienteReview.Show();
         }
     }
 }

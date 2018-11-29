@@ -13,13 +13,11 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
     {
         List<Cliente> cliente = new List<Cliente>();
         Expression<Func<Cliente, bool>> filtro = x => true;
-       // RepositoryBase<Cliente> repository;
-        //private object repositoryBase;
+       
 
         public ConsultaCliente()
         {
             InitializeComponent();
-            //repositoryBase = new RepositoryBase<Usuario>();
         }
 
         public object RepositoryBase { get; private set; }
@@ -33,13 +31,10 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
                 switch (FiltrocomboBox.SelectedIndex)
                 {
                     case 0://Todo
-                        //filtro = x => true;
-                        listado = repository.GetList(filtro);
+                         listado = repository.GetList(filtro);
                         break;
                     case 1://Id
                         {
-                            int id = Convert.ToInt32(CriteriotextBox.Text);
-                            listado = repository.GetList(p => p.ClienteID == id);
                             if (repository.GetList(filtro).Count() == 0)
                             {
                                 MessageBox.Show("Este cliente no Exite", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
