@@ -12,39 +12,39 @@ namespace ProyectoFinal_Restaurante.Entidades
     {
         [Key]
         public int FacturaDetalleID { get; set; }
-        public float iterbis { get; set; }
+        //public decimal iterbis { get; set; }
         public int facturaID { get; set; }
-        public int UsuarioID { get; set; }
-        public DateTime FechaDeFactura { get; set; }
+       // public int UsuarioID { get; set; }
+       // public DateTime FechaDeFactura { get; set; }
         public int ProductoID { get; set; }
-        public string Productos { get; set; }
+        //public string Productos { get; set; }
         public int Cantidad { get; set; }
-        public int precio { get; set; }
-        public int Importe { get; set; }
+        public decimal precio { get; set; }
+        public decimal Importe { get; set; }
 
         public FacturaDetalle()
         {
             FacturaDetalleID = 0;
-            iterbis = 0;
+           // iterbis = 0;
             facturaID = 0;
-            UsuarioID = 0;
-            FechaDeFactura = DateTime.Now;
+           // UsuarioID = 0;
+           // FechaDeFactura = DateTime.Now;
             ProductoID = 0;
-            Productos = string.Empty;
+           // Productos = string.Empty;
             Cantidad = 0;
             precio = 0;
             Importe = 0;
         }
 
-        public FacturaDetalle(int facturaDetalleID, float iterbis, int facturaID, int usuarioID, DateTime fechaDeFactura, int productoID, string productos, int cantidad, int precio, int importe)
+        public FacturaDetalle(int facturaDetalleID, decimal iterbis, int facturaID, int usuarioID, DateTime fechaDeFactura, int productoID, string productos, int cantidad, decimal precio, decimal importe)
         {
             FacturaDetalleID = facturaDetalleID;
-            this.iterbis = iterbis;
+           // this.iterbis = iterbis;
             this.facturaID = facturaID;
-            UsuarioID = usuarioID;
-            FechaDeFactura = fechaDeFactura;
+           // UsuarioID = usuarioID;
+          //  FechaDeFactura = fechaDeFactura;
             ProductoID = productoID;
-            Productos = productos;
+          //  Productos = productos;
             Cantidad = cantidad;
             this.precio = precio;
             Importe = importe;

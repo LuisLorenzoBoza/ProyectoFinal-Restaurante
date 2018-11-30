@@ -36,7 +36,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.Imprimirlabel = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.ImportetextBox = new System.Windows.Forms.TextBox();
             this.Facturarbutton = new System.Windows.Forms.Button();
             this.TotaltextBox = new System.Windows.Forms.TextBox();
             this.ITBtextBox = new System.Windows.Forms.TextBox();
@@ -48,12 +47,6 @@
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.Nuevobutton = new System.Windows.Forms.Button();
             this.DetalledataGridView = new System.Windows.Forms.DataGridView();
-            this.productosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.importeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iterbisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaDeFacturaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PreciotextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.CantidadnumericUpDown = new System.Windows.Forms.NumericUpDown();
@@ -69,6 +62,15 @@
             this.Removerbutton = new System.Windows.Forms.Button();
             this.Buscarbutton = new System.Windows.Forms.Button();
             this.proyectoFinalDbDataSet = new ProyectoFinal_Restaurante.ProyectoFinalDbDataSet();
+            this.productosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iterbisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.importeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaDeFacturaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.CambiotextBox = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IdDetallenumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DetalledataGridView)).BeginInit();
@@ -76,6 +78,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.IDProductonumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoFinalDbDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // UsuariocomboBox
@@ -111,11 +114,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.CambiotextBox);
+            this.groupBox1.Controls.Add(this.numericUpDown1);
             this.groupBox1.Controls.Add(this.IdDetallenumericUpDown);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.Imprimirlabel);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.ImportetextBox);
             this.groupBox1.Controls.Add(this.Facturarbutton);
             this.groupBox1.Controls.Add(this.TotaltextBox);
             this.groupBox1.Controls.Add(this.ITBtextBox);
@@ -168,21 +173,12 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(469, 264);
+            this.label7.Location = new System.Drawing.Point(413, 304);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 13);
+            this.label7.Size = new System.Drawing.Size(91, 13);
             this.label7.TabIndex = 28;
-            this.label7.Text = "Importe";
-            // 
-            // ImportetextBox
-            // 
-            this.ImportetextBox.Enabled = false;
-            this.ImportetextBox.Location = new System.Drawing.Point(526, 257);
-            this.ImportetextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.ImportetextBox.Name = "ImportetextBox";
-            this.ImportetextBox.Size = new System.Drawing.Size(92, 20);
-            this.ImportetextBox.TabIndex = 27;
+            this.label7.Text = "Efectivo Recibido";
             // 
             // Facturarbutton
             // 
@@ -197,34 +193,34 @@
             // TotaltextBox
             // 
             this.TotaltextBox.Enabled = false;
-            this.TotaltextBox.Location = new System.Drawing.Point(526, 333);
+            this.TotaltextBox.Location = new System.Drawing.Point(508, 273);
             this.TotaltextBox.Margin = new System.Windows.Forms.Padding(2);
             this.TotaltextBox.Name = "TotaltextBox";
-            this.TotaltextBox.Size = new System.Drawing.Size(92, 20);
+            this.TotaltextBox.Size = new System.Drawing.Size(110, 20);
             this.TotaltextBox.TabIndex = 19;
             // 
             // ITBtextBox
             // 
             this.ITBtextBox.Enabled = false;
-            this.ITBtextBox.Location = new System.Drawing.Point(526, 306);
+            this.ITBtextBox.Location = new System.Drawing.Point(508, 249);
             this.ITBtextBox.Margin = new System.Windows.Forms.Padding(2);
             this.ITBtextBox.Name = "ITBtextBox";
-            this.ITBtextBox.Size = new System.Drawing.Size(92, 20);
+            this.ITBtextBox.Size = new System.Drawing.Size(110, 20);
             this.ITBtextBox.TabIndex = 25;
             // 
             // SubTotaltextBox
             // 
             this.SubTotaltextBox.Enabled = false;
-            this.SubTotaltextBox.Location = new System.Drawing.Point(526, 281);
+            this.SubTotaltextBox.Location = new System.Drawing.Point(508, 224);
             this.SubTotaltextBox.Margin = new System.Windows.Forms.Padding(2);
             this.SubTotaltextBox.Name = "SubTotaltextBox";
-            this.SubTotaltextBox.Size = new System.Drawing.Size(92, 20);
+            this.SubTotaltextBox.Size = new System.Drawing.Size(110, 20);
             this.SubTotaltextBox.TabIndex = 24;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(475, 308);
+            this.label10.Location = new System.Drawing.Point(472, 256);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(32, 13);
@@ -234,7 +230,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(475, 335);
+            this.label9.Location = new System.Drawing.Point(472, 280);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(31, 13);
@@ -244,7 +240,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(475, 285);
+            this.label8.Location = new System.Drawing.Point(451, 231);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 13);
@@ -290,53 +286,17 @@
             this.productosDataGridViewTextBoxColumn,
             this.cantidadDataGridViewTextBoxColumn,
             this.precioDataGridViewTextBoxColumn,
-            this.importeDataGridViewTextBoxColumn,
             this.iterbisDataGridViewTextBoxColumn,
+            this.importeDataGridViewTextBoxColumn,
             this.fechaDeFacturaDataGridViewTextBoxColumn});
             this.DetalledataGridView.Location = new System.Drawing.Point(4, 37);
             this.DetalledataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.DetalledataGridView.Name = "DetalledataGridView";
             this.DetalledataGridView.ReadOnly = true;
             this.DetalledataGridView.RowTemplate.Height = 24;
-            this.DetalledataGridView.Size = new System.Drawing.Size(614, 205);
+            this.DetalledataGridView.Size = new System.Drawing.Size(614, 180);
             this.DetalledataGridView.TabIndex = 0;
             this.DetalledataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DetalledataGridView_CellClick);
-            // 
-            // productosDataGridViewTextBoxColumn
-            // 
-            this.productosDataGridViewTextBoxColumn.DataPropertyName = "Productos";
-            this.productosDataGridViewTextBoxColumn.HeaderText = "Productos";
-            this.productosDataGridViewTextBoxColumn.Name = "productosDataGridViewTextBoxColumn";
-            // 
-            // cantidadDataGridViewTextBoxColumn
-            // 
-            this.cantidadDataGridViewTextBoxColumn.DataPropertyName = "Cantidad";
-            this.cantidadDataGridViewTextBoxColumn.HeaderText = "Cantidad";
-            this.cantidadDataGridViewTextBoxColumn.Name = "cantidadDataGridViewTextBoxColumn";
-            // 
-            // precioDataGridViewTextBoxColumn
-            // 
-            this.precioDataGridViewTextBoxColumn.DataPropertyName = "precio";
-            this.precioDataGridViewTextBoxColumn.HeaderText = "precio";
-            this.precioDataGridViewTextBoxColumn.Name = "precioDataGridViewTextBoxColumn";
-            // 
-            // importeDataGridViewTextBoxColumn
-            // 
-            this.importeDataGridViewTextBoxColumn.DataPropertyName = "Importe";
-            this.importeDataGridViewTextBoxColumn.HeaderText = "Importe";
-            this.importeDataGridViewTextBoxColumn.Name = "importeDataGridViewTextBoxColumn";
-            // 
-            // iterbisDataGridViewTextBoxColumn
-            // 
-            this.iterbisDataGridViewTextBoxColumn.DataPropertyName = "iterbis";
-            this.iterbisDataGridViewTextBoxColumn.HeaderText = "iterbis";
-            this.iterbisDataGridViewTextBoxColumn.Name = "iterbisDataGridViewTextBoxColumn";
-            // 
-            // fechaDeFacturaDataGridViewTextBoxColumn
-            // 
-            this.fechaDeFacturaDataGridViewTextBoxColumn.DataPropertyName = "FechaDeFactura";
-            this.fechaDeFacturaDataGridViewTextBoxColumn.HeaderText = "FechaDeFactura";
-            this.fechaDeFacturaDataGridViewTextBoxColumn.Name = "fechaDeFacturaDataGridViewTextBoxColumn";
             // 
             // PreciotextBox
             // 
@@ -479,6 +439,76 @@
             this.proyectoFinalDbDataSet.DataSetName = "ProyectoFinalDbDataSet";
             this.proyectoFinalDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // productosDataGridViewTextBoxColumn
+            // 
+            this.productosDataGridViewTextBoxColumn.DataPropertyName = "Productos";
+            this.productosDataGridViewTextBoxColumn.HeaderText = "Productos";
+            this.productosDataGridViewTextBoxColumn.Name = "productosDataGridViewTextBoxColumn";
+            this.productosDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cantidadDataGridViewTextBoxColumn
+            // 
+            this.cantidadDataGridViewTextBoxColumn.DataPropertyName = "Cantidad";
+            this.cantidadDataGridViewTextBoxColumn.HeaderText = "Cantidad";
+            this.cantidadDataGridViewTextBoxColumn.Name = "cantidadDataGridViewTextBoxColumn";
+            this.cantidadDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // precioDataGridViewTextBoxColumn
+            // 
+            this.precioDataGridViewTextBoxColumn.DataPropertyName = "precio";
+            this.precioDataGridViewTextBoxColumn.HeaderText = "precio";
+            this.precioDataGridViewTextBoxColumn.Name = "precioDataGridViewTextBoxColumn";
+            this.precioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // iterbisDataGridViewTextBoxColumn
+            // 
+            this.iterbisDataGridViewTextBoxColumn.DataPropertyName = "iterbis";
+            this.iterbisDataGridViewTextBoxColumn.HeaderText = "iterbis";
+            this.iterbisDataGridViewTextBoxColumn.Name = "iterbisDataGridViewTextBoxColumn";
+            this.iterbisDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // importeDataGridViewTextBoxColumn
+            // 
+            this.importeDataGridViewTextBoxColumn.DataPropertyName = "Importe";
+            this.importeDataGridViewTextBoxColumn.HeaderText = "Importe";
+            this.importeDataGridViewTextBoxColumn.Name = "importeDataGridViewTextBoxColumn";
+            this.importeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fechaDeFacturaDataGridViewTextBoxColumn
+            // 
+            this.fechaDeFacturaDataGridViewTextBoxColumn.DataPropertyName = "FechaDeFactura";
+            this.fechaDeFacturaDataGridViewTextBoxColumn.HeaderText = "FechaDeFactura";
+            this.fechaDeFacturaDataGridViewTextBoxColumn.Name = "fechaDeFacturaDataGridViewTextBoxColumn";
+            this.fechaDeFacturaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Enabled = false;
+            this.numericUpDown1.Location = new System.Drawing.Point(508, 297);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(110, 20);
+            this.numericUpDown1.TabIndex = 74;
+            // 
+            // CambiotextBox
+            // 
+            this.CambiotextBox.Enabled = false;
+            this.CambiotextBox.Location = new System.Drawing.Point(508, 321);
+            this.CambiotextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.CambiotextBox.Name = "CambiotextBox";
+            this.CambiotextBox.Size = new System.Drawing.Size(110, 20);
+            this.CambiotextBox.TabIndex = 75;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(462, 328);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(42, 13);
+            this.label13.TabIndex = 76;
+            this.label13.Text = "Cambio";
+            // 
             // RegistroVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -512,6 +542,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.IDProductonumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proyectoFinalDbDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -549,16 +580,18 @@
         private System.Windows.Forms.NumericUpDown IDnumericUpDown;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox ImportetextBox;
         private System.Windows.Forms.Label Imprimirlabel;
         private System.Windows.Forms.NumericUpDown IdDetallenumericUpDown;
         private System.Windows.Forms.Label label11;
+        private ProyectoFinalDbDataSet proyectoFinalDbDataSet;
         private System.Windows.Forms.DataGridViewTextBoxColumn productosDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidadDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn precioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn importeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iterbisDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn importeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaDeFacturaDataGridViewTextBoxColumn;
-        private ProyectoFinalDbDataSet proyectoFinalDbDataSet;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox CambiotextBox;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }

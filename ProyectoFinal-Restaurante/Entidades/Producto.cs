@@ -13,7 +13,7 @@ namespace ProyectoFinal_Restaurante.Entidades
         public int ProductoID { get; set; }
         public string Descripcion { get; set; }
         public int Cantidad { get; set; }
-        public float Precio { get; set; }
+        public decimal Precio { get; set; }
         public DateTime FechaDeRegistro { get; set; }
 
 
@@ -27,7 +27,7 @@ namespace ProyectoFinal_Restaurante.Entidades
         }
 
 
-        public Producto(int ProductoID, string Descripcion, int Cantidad, float Precio, DateTime FechaDeRegistro)
+        public Producto(int ProductoID, string Descripcion, int Cantidad, decimal Precio, DateTime FechaDeRegistro)
         {
             this.ProductoID = ProductoID;
             this.Descripcion = Descripcion;
