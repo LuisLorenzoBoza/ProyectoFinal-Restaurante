@@ -11,35 +11,40 @@ namespace ProyectoFinal_Restaurante.Entidades
     public class Factura
     {
         [Key]
-        public int FactutaID { get; set; }
+        public int FacturaID { get; set; }
+        public decimal Monto { get; set; }
         public int UsuarioID { get; set; }
-        public DateTime FechaDeFactura { get; set; }
-        public int  ClienteID { get; set; }
-        // public int ProductoID { get; set; }
+        public int ClienteID { get; set; }
+        public DateTime Fecha { get; set; }
         public string Descripcion { get; set; }
-        // public int Cantidad { get; set; }
-        // public decimal SubTotal { get; set; }
-        // public decimal Iterbis { get; set; }
-        public decimal  Devuelta { get; set; }
-        public decimal ToTal { get; set; }
-        public decimal  EfectivoRecibido { get; set; }
+        public decimal Devuelta { get; set; }
+        public decimal EfectivoRecibido { get; set; }
 
         public virtual List<FacturaDetalle> Detalle { get; set; }
 
+        public Factura(int idFactura, decimal monto, int usuarioId, int clienteId, DateTime fecha, string descripcion, decimal devuelta, decimal efectivoRecibido, List<FacturaDetalle> Detalle)
+        {
+            this.FacturaID = idFactura;
+            this.Monto = monto;
+            this.UsuarioID = usuarioId;
+            this.ClienteID = clienteId;
+            this.Fecha = fecha;
+            this.Descripcion = descripcion;
+            this.Devuelta = devuelta;
+            this.EfectivoRecibido = efectivoRecibido;
+            this.Detalle = Detalle;
+        }
+
         public Factura()
         {
-            FactutaID = 0;
-            UsuarioID = 0;
-            ClienteID = 0;
-            //ProductoID = 0;
-            Descripcion = string.Empty;
-           // Cantidad = 0;
-           // SubTotal = 0;
-           // Iterbis = 0;
-            Devuelta = 0;
-            EfectivoRecibido = 0;
-            ToTal = 0;
-            FechaDeFactura = DateTime.Now;
+            this.FacturaID = 0;
+            this.Monto = 0;
+            this.UsuarioID = 0;
+            this.ClienteID = 0;
+            this.Fecha = DateTime.Now;
+            this.Descripcion = string.Empty;
+            this.Devuelta = 0;
+            this.EfectivoRecibido = 0;
             Detalle = new List<FacturaDetalle>();
         }
 

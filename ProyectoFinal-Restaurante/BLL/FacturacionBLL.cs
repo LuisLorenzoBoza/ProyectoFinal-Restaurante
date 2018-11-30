@@ -1,32 +1,27 @@
-﻿using ProyectoFinal_Restaurante.BLL;
-using ProyectoFinal_Restaurante.Entidades;
+﻿using ProyectoFinal_Restaurante.Entidades;
+using ProyectoFinal_Restaurante.DAL;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ProyectoFinal_Restaurante.BLL
 {
     public class FacturacionBLL
     {
+        private static Usuario usuario = new Usuario();
         public static bool Guardar(Factura factura)
         {
             bool paso = false;
-            Contexto contexto = new Contexto();
-            Usuario usuario = new Usuario();
+            Contexto db = new Contexto();
             try
             {
-                if (contexto.Factura.Add(factura) != null)
+                if (db.factura.Add(factura) != null)
                 {
-                    foreach (var item in factura.Detalle)
-                    {
-                        contexto.Producto.Find(item.ProductoID).Cantidad -= item.Cantidad;
-                    }
-                    contexto.Usuario.Find(factura.UsuarioID).TotalVendido += factura.ToTal;
-                    contexto.SaveChanges();
+                    db.SaveChanges();
+                    db.Dispose();
                     paso = true;
                 }
             }
@@ -36,71 +31,85 @@ namespace ProyectoFinal_Restaurante.BLL
             }
             return paso;
         }
-
-
-
-
+        public static bool GuardarDetalle(FacturaDetalle factura)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
+            try
+            {
+                if (db.Facturas.Add(factura) != null)
+                {
+                    db.SaveChanges();
+                    db.Dispose();
+                    paso = true;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return paso;
+        }
+        public static bool Eliminar(int Id)
+        {
+            bool paso = false;
+            Contexto db = new Contexto();
+            try
+            {
+                var eliminar = db.factura.Find(Id);
+                if (eliminar != null)
+                {
+                    db.Facturas.RemoveRange(db.Facturas.Where(x => x.FacturaID == eliminar.FacturaID));
+                    db.Entry(eliminar).State = EntityState.Deleted;
+                    if (db.SaveChanges() > 0)
+                    {
+                        db.Dispose();
+                        paso = true;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return paso;
+        }
         public static bool Modificar(Factura factura)
         {
-            RepositoryBase<Usuario> repository = new RepositoryBase<Usuario>();
             bool paso = false;
-            Contexto contexto = new Contexto();
+            bool paso1 = false;
+            Contexto db = new Contexto();
             try
             {
-                var facturas = Buscar(factura.FactutaID);
-                var usuario = contexto.Usuario.Find(factura.UsuarioID);
-                var usuarioAnterior = contexto.Usuario.Find(factura.UsuarioID);
-
-                if (factura.UsuarioID != factura.UsuarioID)
+                var facturas = Buscar(factura.FacturaID);
+                db.Entry(facturas).State = EntityState.Modified;
+                ArreglarProducto(facturas);
+                foreach (var item in facturas.Detalle)
                 {
-                    usuario.TotalVendido += factura.ToTal;
-                    usuario.TotalVendido -= factura.ToTal;
-                    repository.Modificar(usuario);
-                    repository.Modificar(usuarioAnterior);
-
-                }
-                if (factura != null)
-                {
-                    foreach (var item in factura.Detalle)
+                    if (item.Id == 0)
                     {
-                        contexto.Producto.Find(item.ProductoID).Cantidad += item.Cantidad;
-                        if (!factura.Detalle.ToList().Exists(x => x.FacturaDetalleID == item.FacturaDetalleID))
+                        GuardarDetalle(item);
+                    }
+                    else
+                    {                    
+                        db.Entry(item).State = System.Data.Entity.EntityState.Modified;
+                        if (db.SaveChanges() > 0)
                         {
-                            item.Productos = null;
-                            contexto.Entry(item).State = EntityState.Deleted;
-
+                            paso1 = true;
+                            paso = true;
                         }
-
                     }
-                    foreach (var item in factura.Detalle)
+                }
+                if (paso1 == false)
+                {
+                    if (db.SaveChanges() > 0)
                     {
-                        contexto.Producto.Find(item.Productos).Cantidad -= item.Cantidad;
-                        var estado = item.FacturaDetalleID > 0 ? EntityState.Modified : EntityState.Added;
-                        contexto.Entry(item).State = estado;
-                    }
-                    Factura entradaAnt = Buscar(factura.FactutaID);
 
-                    decimal diferencia;
-
-                    diferencia = factura.ToTal - entradaAnt.ToTal;
-                    RepositoryBase<Usuario> repositoryb = new RepositoryBase<Usuario>();
-                    Usuario usuarios = repositoryb.Buscar(factura.UsuarioID);
-
-                    usuario.TotalVendido += diferencia;
-
-                    repositoryb.Modificar(usuario);
-
-                    contexto.Entry(factura).State = EntityState.Modified;
-                    if (contexto.SaveChanges() > 0)
-                    {
                         paso = true;
-
                     }
-                    contexto.Dispose();
-
-
                 }
-
+                DescontarProductos(Buscar(facturas.FacturaID).Detalle);
+                db.Dispose();
             }
             catch (Exception)
             {
@@ -108,56 +117,18 @@ namespace ProyectoFinal_Restaurante.BLL
             }
             return paso;
         }
-
-
-
-
-        public static bool Eliminar(int id)
-        {
-            bool paso = false;
-            Contexto contexto = new Contexto();
-            try
-            {
-                Factura factura = new Factura();
-                if (factura != null)
-                {
-                    foreach (var item in factura.Detalle)
-                    {
-                        contexto.Producto.Find(item.ProductoID).Cantidad += item.Cantidad;
-                    }
-                    contexto.Usuario.Find(factura.UsuarioID).TotalVendido -= factura.Cantidad;
-                    factura.Detalle.Count();
-                    contexto.Factura.Remove(factura);
-                }
-                if (contexto.SaveChanges() > 0)
-                {
-                    paso = true;
-                }
-                contexto.Dispose();
-
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            return paso;
-        }
-
-
-
-
-
         public static Factura Buscar(int id)
         {
             Factura factura = new Factura();
-            Contexto contexto = new Contexto();
+            Contexto db = new Contexto();
             try
             {
-                factura = contexto.Factura.Find(id);
-                if (factura == null)
-                    return factura;
-                factura.Detalle.Count();
-                contexto.Dispose();
+                factura = db.factura.Find(id);
+                if (factura != null)
+                {
+                    factura.Detalle.Count();
+                }
+                db.Dispose();
             }
             catch (Exception)
             {
@@ -165,24 +136,18 @@ namespace ProyectoFinal_Restaurante.BLL
             }
             return factura;
         }
-
-
-
-
-        public static List<Factura> GetList(Expression<Func<Factura, bool>> expression)
+        public static List<Factura> GetList(Expression<Func<Factura, bool>> factura)
         {
             List<Factura> facturas = new List<Factura>();
-            Contexto contexto = new Contexto();
-
+            Contexto db = new Contexto();
             try
             {
-                facturas = contexto.Factura.Where(expression).ToList();
+                facturas = db.factura.Where(factura).ToList();
                 foreach (var item in facturas)
                 {
                     item.Detalle.Count();
-
                 }
-                contexto.Dispose();
+                db.Dispose();
             }
             catch (Exception)
             {
@@ -190,28 +155,135 @@ namespace ProyectoFinal_Restaurante.BLL
             }
             return facturas;
         }
-
-
-
-        public static int CacularImporte(int precio, int cantidad)
+        public static decimal devuelta(decimal monto, decimal efectivo)
         {
-            return precio = cantidad;
+            decimal devuelta = 0;
+            devuelta = efectivo - monto;
+            return devuelta;
         }
-
-
-
-        public static decimal CacularItebis(decimal subTotal)
+        public static decimal CalcularMonto(decimal importe)
         {
-
-            return Convert.ToDecimal(subTotal) + Convert.ToDecimal(0.18);
-
+            decimal monto = 0;
+            monto += importe;
+            return monto;
         }
-
-
-
-        public static decimal CarcularTotal(decimal subTotal, decimal itebis)
+        public static decimal Importe(decimal cantidadDefecto, decimal cantidad, decimal precio, int id, int ID)
         {
-            return Convert.ToDecimal(subTotal) + Convert.ToDecimal(itebis);
+            decimal importe = 0;
+            if (ID == id)
+            {
+                importe = cantidad * precio;
+            }
+            else
+            {
+                importe = cantidadDefecto * precio;
+            }
+            return importe;
+        }
+        public static decimal Importedemas(decimal cantidad, decimal precio)
+        {
+            decimal importe = 0;
+            importe = cantidad * precio;
+            return importe;
+        }
+        public static void DescontarProductos(List<FacturaDetalle> bill)
+        {
+            // Descontar cantidad a productos
+            foreach (var item in bill)
+            {
+                var producto = BLL.RepositoryBase.Buscar(item.ProductoID);
+                producto.Cantidad -= item.Cantidad;
+                BLL.RepositoryBase.Modificar(producto);
+            }
+        }
+        public static void ArreglarProducto(Factura factura)
+        {
+            foreach (var item in factura.Detalle)
+            {
+                var producto = BLL.RepositoryBase.Buscar(item.ProductoID);
+                producto.Cantidad += item.Cantidad;
+                BLL.RepositoryBase.Modificar(producto);
+            }
+        }
+        public static void ArreglarProductoList(List<FacturaDetalle> factura)
+        {
+            foreach (var item in factura)
+            {
+                var producto = BLL.RepositoryBase.Buscar(item.ProductoID);
+                producto.Cantidad += item.Cantidad;
+                BLL.RepositoryBase.Modificar(producto);
+            }
+        }
+        public static List<FacturaDetalle> Editar(List<FacturaDetalle> list, FacturaDetalle factura)
+        {
+            foreach (var item in list)
+            {
+                if (item.Id == factura.Id)
+                {
+                    item.Cantidad = factura.Cantidad;
+                }
+            }
+            return list;
+        }
+        public static decimal DescontarImporte(List<FacturaDetalle> list, int id)
+        {
+            decimal monto = 0;
+            foreach (var item in list)
+            {
+                if (item.Id == id)
+                {
+                  item.Importe = item.Cantidad * item.Precio;
+                  monto = item.Importe;
+                }
+            }
+            return monto;
+        }
+        public static decimal RecalcularImporte(List<FacturaDetalle> list, int row)
+        {
+            decimal monto = 0;
+            FacturaDetalle factura = list.ElementAt(row);
+            factura.Importe = factura.Cantidad * factura.Precio;
+            monto = factura.Importe;
+            return monto;
+        }
+        public static decimal CalcularDevuelta(decimal efectivo, decimal monto)
+        {
+            decimal devuelta = 0;
+            devuelta = efectivo - monto;
+            return devuelta;
+        }
+        public static int Mayor(List<Factura> bill)
+        {
+            int mayor = 0;
+            foreach (var item in bill)
+            {
+                if (mayor == 0)
+                {
+                  mayor = item.FacturaID;
+                }
+                else
+                {
+                  if (mayor < item.FacturaID)
+                  {
+                    mayor = item.FacturaID;
+                  }
+                }
+            }
+            return mayor;
+        }
+        public static void NombreLogin(string nombre, int id)
+        {
+            usuario.Nombre = nombre;
+            usuario.UsuarioID = id;
+        }
+        public static Usuario returnUsuario()
+        {
+            return usuario;
+        }
+        public static decimal RetornarDevuelta(decimal efectivo, decimal monto)
+        {
+            decimal devuelta = CalcularDevuelta(efectivo, monto);
+            return devuelta;
         }
 
     }

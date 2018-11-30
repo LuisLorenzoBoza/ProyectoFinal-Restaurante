@@ -14,6 +14,16 @@ namespace ProyectoFinal_Restaurante.Entidades
         public string Nombre { get; set; }
         public string Email { get; set; }
         public string Telefono { get; set; }
+        
+
+        public Cliente(int ClienteID, string Nombre, string Email, string Telefono)
+        {
+            this.ClienteID = ClienteID;
+            this.Nombre = Nombre;
+            this.Email = Email;
+            
+            
+        }
 
         public Cliente()
         {
@@ -21,13 +31,8 @@ namespace ProyectoFinal_Restaurante.Entidades
             Nombre = string.Empty;
             Email = string.Empty;
             Telefono = string.Empty;
-        }
+           
 
-        public Cliente(int ClienteID, string Nombre, string Email, string Telefono)
-        {
-            this.ClienteID = ClienteID;
-            this.Nombre = Nombre;
-            this.Email = Email;
         }
 
     }

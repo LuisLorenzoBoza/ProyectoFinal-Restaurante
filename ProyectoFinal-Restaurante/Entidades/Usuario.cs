@@ -13,27 +13,30 @@ namespace ProyectoFinal_Restaurante.Entidades
         public int UsuarioID { get; set; }
         public string Contraseña { get; set; }
         public string Nombre { get; set; }
-        public string CuentaUsua { get; set; }
-        public decimal TotalVendido { get; set; }
-        public bool Pocision { get; set; }
+        public DateTime Fecha { get; set; }
+        //public string CuentaUsua { get; set; }
+        //public decimal TotalVendido { get; set; }
+        //public bool Pocision { get; set; }
 
-        public Usuario()
+        public Usuario(int UsuarioID, string Contraseña, string Nombre, DateTime Fecha)
         {
-            UsuarioID = 0;
-            Contraseña = string.Empty;
-            Nombre = string.Empty;
-            CuentaUsua = string.Empty;
-            Pocision = false;
+            this.UsuarioID = 0;
+            this.Contraseña = string.Empty;
+            this.Nombre = string.Empty;
+            this.Fecha = DateTime.Now;
+            //CuentaUsua = string.Empty;
+            //Pocision = false;
         }
 
-        public Usuario(int UsuarioID, string Contraseña, string Nombre, string CuentaUsua, decimal TotalVendido, bool Posicion)
+        public Usuario()
         {
             this.UsuarioID = UsuarioID;
             this.Contraseña = Contraseña;
             this.Nombre = Nombre;
-            this.CuentaUsua = CuentaUsua;
-            this.TotalVendido = TotalVendido;
-            this.Pocision = Pocision;
+            this.Fecha = Fecha;
+            //this.CuentaUsua = CuentaUsua;
+            //this.TotalVendido = TotalVendido;
+            //this.Pocision = Pocision;
         }
     }
 }

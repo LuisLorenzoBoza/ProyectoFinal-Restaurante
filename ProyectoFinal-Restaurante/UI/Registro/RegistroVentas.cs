@@ -19,6 +19,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         public RepositoryBase<Producto> repository;
         public int index { get; set; }
         public bool Eliminar = false;
+
         public RegistroVentas()
         {
             InitializeComponent();
@@ -66,13 +67,13 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         private Factura LlenarClase()
         {
             Factura factura = new Factura();
-            factura.FactutaID = Convert.ToInt32(IDnumericUpDown.Value);
+            factura.FacturaID = Convert.ToInt32(IDnumericUpDown.Value);
             factura.UsuarioID = Convert.ToInt32((UsuariocomboBox.SelectedValue));
-            factura.FechaDeFactura = FechadateTimePicker.Value;
+            factura.Fecha = FechadateTimePicker.Value;
             factura.Cantidad = Convert.ToInt32(CantidadnumericUpDown.Value);
             factura.SubTotal = Convert.ToSingle(SubTotaltextBox.Text);
             factura.Iterbis = Convert.ToDecimal(ITBtextBox.Text);
-            factura.ToTal = Convert.ToDecimal(TotaltextBox.Text);
+            factura.Monto = Convert.ToDecimal(TotaltextBox.Text);
             factura.Detalle = facturaGlobal.Detalle;
             
            
@@ -81,11 +82,11 @@ namespace ProyectoFinal_Restaurante.UI.Registro
 
         private void Llenarcampo(Factura factura)
         {
-            IDnumericUpDown.Value = factura.FactutaID;
-            FechadateTimePicker.Value = factura.FechaDeFactura;
+            IDnumericUpDown.Value = factura.FacturaID;
+            FechadateTimePicker.Value = factura.Fecha;
             SubTotaltextBox.Text = factura.SubTotal.ToString();
             ITBtextBox.Text = factura.Iterbis.ToString();
-            TotaltextBox.Text = factura.ToTal.ToString();
+            TotaltextBox.Text = factura.Monto.ToString();
             DetalledataGridView.DataSource = factura.Detalle;
         }
         private void CargarGrid()
@@ -106,7 +107,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             ProductocomboBox.DisplayMember = "Descripcion";
         }
 
-        public void QuitarCulumnas()
+        public void QuitarColumnas()
         {
             DetalledataGridView.Columns["Producto"].Visible = false;
             DetalledataGridView.Columns["FacturaID"].Visible = false;
