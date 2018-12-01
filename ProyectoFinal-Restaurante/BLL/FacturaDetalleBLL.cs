@@ -30,12 +30,10 @@ namespace ProyectoFinal_Restaurante.BLL
             }
             catch (Exception)
             {
-
                 throw;
             }
             return paso;
         }
-
         public static List<FacturaDetalle> GetList(Expression<Func<FacturaDetalle, bool>> bill)
         {
             List<FacturaDetalle> factura = new List<FacturaDetalle>();
@@ -43,30 +41,25 @@ namespace ProyectoFinal_Restaurante.BLL
             try
             {
                 factura = db.Facturas.Where(bill).ToList();
-
                 db.Dispose();
             }
             catch (Exception)
             {
-
                 throw;
             }
             return factura;
         }
-
         public static FacturaDetalle Buscar(int id)
         {
             FacturaDetalle factura = new FacturaDetalle();
             Contexto db = new Contexto();
             try
             {
-
                 factura = db.Facturas.Find(id);
                 db.Dispose();
             }
             catch (Exception)
             {
-
                 throw;
             }
             return factura;
