@@ -1,58 +1,46 @@
 create database ProyectoFinalDb
 go
-
 use ProyectoFinalDb
 go
 Create Table Usuario
 (
-	UsuarioID int primary key identity(1,1),
+	UsuarioId int primary key identity(1,1),
 	Nombre varchar(30),
+	NombreUsuario varchar(15),
 	Contraseña varchar(8),
-	TotalVendido money,
-	Posicion int
+	Fecha date
 );
-
 create table Cliente 
 (
-	ClienteID int primary key identity(1,1),
+	ClienteId int primary key identity(1,1),
 	Nombre varchar(30),
 	Email varchar(max),
 	Telefono varchar(15)
 );
-
 Create Table Producto
 (
-	ProductoID int primary key identity(1,1),
+	ProductoId int primary key identity(1,1),
 	Descripcion varchar(max),
 	Cantidad int,
-	Precio money,
-	FechaDeRegistro date 
+	Precio decimal,
+	Fecha date 
 );
-
 create table Factura
 (
-	FacturaID int primary key identity(1,1),
-	ClienteID int,
-	FechaFactura date,
-	ProductoID int,
-    Descripcion varchar(max),
+	FacturaId int primary key identity(1,1),
+	ClienteId int,
+	Fecha date,
+	Descripcion varchar(max),
 	Cantidad int,
-	SubTotal money,
-	Iterbis money,
-	Total money
+	EfectivoRecibido decimal,
+	Devuelta decimal,
+	Monto decimal
 );
-
 create table FacturaDetalle
 (
-	FacturaID int primary key identity(1,1),
-	Iterbis money,
-	FacturaDetalleID money,
-	IDFactura int,
-	IDUsuario int,
-	FechaFactura date,
-	ProductoID int, 
+	Id int primary key identity(1,1),
+	FacturaId int,
+	ProductoId int, 
 	Cantidad int,
-	Precio money,
-	Importe money
-
+	Precio decimal,
 );
