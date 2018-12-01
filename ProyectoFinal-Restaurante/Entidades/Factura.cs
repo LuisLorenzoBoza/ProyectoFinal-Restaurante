@@ -34,7 +34,6 @@ namespace ProyectoFinal_Restaurante.Entidades
             this.EfectivoRecibido = efectivoRecibido;
             this.Detalle = Detalle;
         }
-
         public Factura()
         {
             this.FacturaId = 0;
@@ -47,6 +46,5 @@ namespace ProyectoFinal_Restaurante.Entidades
             this.EfectivoRecibido = 0;
             Detalle = new List<FacturaDetalle>();
         }
-
     }
 }

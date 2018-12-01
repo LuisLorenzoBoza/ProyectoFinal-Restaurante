@@ -40,11 +40,11 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
                         listado = repository.GetList(p => p.Descripcion.Contains(CriteriotextBox.Text));
                         break;
                     case 3://Cantidad
-                        float cantidad = Convert.ToSingle(CriteriotextBox.Text);
+                        decimal cantidad = Convert.ToInt32(CriteriotextBox.Text);
                         listado = repository.GetList(p => p.Cantidad == cantidad);
                         break;
                     case 4://Precio
-                        float precio = Convert.ToSingle(CriteriotextBox.Text);
+                        decimal precio = Convert.ToInt32(CriteriotextBox.Text);
                         listado = repository.GetList(p => p.Precio == precio);
                         break;
                    

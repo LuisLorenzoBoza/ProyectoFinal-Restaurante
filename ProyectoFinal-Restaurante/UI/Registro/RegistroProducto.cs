@@ -29,7 +29,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             producto.ProductoID = Convert.ToInt32(IDnumericUpDown.Value);
             producto.Descripcion = DescripciontextBox.Text;
             producto.Cantidad = Convert.ToInt32(CantidadnumericUpDown.Value);
-            producto.Precio = Convert.ToSingle(PrecionumericUpDown.Value);
+            producto.Precio = Convert.ToInt32(PrecionumericUpDown.Value);
             producto.FechaDeRegistro = FechaRegistrodateTimePicker.Value;
             return producto;
         }

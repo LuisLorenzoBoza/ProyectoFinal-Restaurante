@@ -1,5 +1,5 @@
 ﻿using ProyectoFinal_Restaurante.Entidades;
-using ProyectoFinal_Restaurante.DAL;
+//using ProyectoFinal_Restaurante.DAL;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -186,32 +186,35 @@ namespace ProyectoFinal_Restaurante.BLL
             importe = cantidad * precio;
             return importe;
         }
-        public static void DescontarProductos(List<FacturaDetalle> bill)
+        public static void DescontarProductos(List<FacturaDetalle> factura)
         {
             // Descontar cantidad a productos
-            foreach (var item in bill)
+            RepositoryBase<Producto> repositoryBase = new RepositoryBase<Producto>(new Contexto());
+            foreach (var item in factura) 
             {
-                var producto = BLL.RepositoryBase.Buscar(item.ProductoId);
+                var producto = repositoryBase.Buscar(item.ProductoId);
                 producto.Cantidad -= item.Cantidad;
-                BLL.RepositoryBase.Modificar(producto);
+                repositoryBase.Modificar(producto);
             }
         }
         public static void ArreglarProducto(Factura factura)
         {
+            RepositoryBase<Producto> repositoryBase = new RepositoryBase<Producto>(new Contexto());
             foreach (var item in factura.Detalle)
             {
-                var producto = BLL.RepositoryBase.Buscar(item.ProductoId);
+                var producto = repositoryBase.Buscar(item.ProductoId);
                 producto.Cantidad += item.Cantidad;
-                BLL.RepositoryBase.Modificar(producto);
+                repositoryBase.Modificar(producto);
             }
         }
         public static void ArreglarProductoList(List<FacturaDetalle> factura)
         {
+            RepositoryBase<Producto> repositoryBase = new RepositoryBase<Producto>(new Contexto());
             foreach (var item in factura)
             {
-                var producto = BLL.RepositoryBase.Buscar(item.ProductoId);
+                var producto = repositoryBase.Buscar(item.ProductoId);
                 producto.Cantidad += item.Cantidad;
-                BLL.RepositoryBase.Modificar(producto);
+                repositoryBase.Modificar(producto);
             }
         }
         public static List<FacturaDetalle> Editar(List<FacturaDetalle> list, FacturaDetalle factura)
@@ -252,10 +255,10 @@ namespace ProyectoFinal_Restaurante.BLL
             devuelta = efectivo - monto;
             return devuelta;
         }
-        public static int Mayor(List<Factura> bill)
+        public static int Mayor(List<Factura> factura)
         {
             int mayor = 0;
-            foreach (var item in bill)
+            foreach (var item in factura)
             {
                 if (mayor == 0)
                 {
@@ -273,18 +276,17 @@ namespace ProyectoFinal_Restaurante.BLL
         }
         public static void NombreLogin(string nombre, int id)
         {
-            usuario.Nombre = nombre;
-            usuario.UsuarioID = id;
+           usuario.Nombre = nombre;
+           usuario.UsuarioID = id;
         }
         public static Usuario returnUsuario()
         {
-            return usuario;
+          return usuario;
         }
         public static decimal RetornarDevuelta(decimal efectivo, decimal monto)
         {
-            decimal devuelta = CalcularDevuelta(efectivo, monto);
-            return devuelta;
+          decimal devuelta = CalcularDevuelta(efectivo, monto);
+          return devuelta;
         }
-
     }
 }

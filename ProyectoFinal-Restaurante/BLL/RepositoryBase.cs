@@ -13,9 +13,13 @@ namespace ProyectoFinal_Restaurante.BLL
     public class RepositoryBase<T> : IDisposable, IRepository<T> where T : class
     {
         internal Contexto _contexto;
+        public RepositoryBase(Contexto contexto)
+        {
+          _contexto = new Contexto();
+        }
+
         public RepositoryBase()
         {
-            _contexto = new Contexto();
         }
 
         public virtual bool Guardar(T entity)
@@ -25,19 +29,15 @@ namespace ProyectoFinal_Restaurante.BLL
             {
                 if (_contexto.Set<T>().Add(entity) != null)
                 {
-                    paso = _contexto.SaveChanges() > 0;
+                  paso = _contexto.SaveChanges() > 0;
                 }
             }
             catch (Exception)
             {
-                throw;
+              throw;
             }
             return paso;
         }
-
-
-
-
         public virtual bool Modificar(T entity)
         {
             _contexto = new Contexto();
@@ -49,14 +49,13 @@ namespace ProyectoFinal_Restaurante.BLL
             }
             catch (Exception)
             {
-                throw;
+              throw;
             }
             return paso;
         }
-
         internal object GetList(List<Producto> filtro)
         {
-            throw new NotImplementedException();
+          throw new NotImplementedException();
         }
 
         public virtual bool Eliminar(int id)
@@ -71,54 +70,40 @@ namespace ProyectoFinal_Restaurante.BLL
             }
             catch (Exception)
             {
-                throw;
+              throw;
             }
             return paso;
         }
-
-
-
-
-
         public virtual T Buscar(int id)
         {
             T entity;
             try
             {
-                entity = _contexto.Set<T>().Find(id);
+              entity = _contexto.Set<T>().Find(id);
             }
             catch (Exception)
             {
-                throw;
+              throw;
             }
             return entity;
         }
-
-
-
-
-
         public List<T> GetList(Expression<Func<T, bool>> expression)
         {
             List<T> lista = new List<T>();
             try
             {
-                lista = _contexto.Set<T>().Where(expression).ToList();
+              lista = _contexto.Set<T>().Where(expression).ToList();
             }
             catch (Exception)
             {
-                throw;
+              throw;
             }
             return lista;
         }
-
-
-
-
         public void Dispose()
         {
-            _contexto.Dispose();
-            throw new NotImplementedException();
+           _contexto.Dispose();
+           throw new NotImplementedException();
         }
     }
 }

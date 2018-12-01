@@ -39,7 +39,6 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             usuario.UsuarioID = Convert.ToInt32(IDnumericUpDown.Value);
             usuario.Nombre = NombretextBox.Text;
             usuario.Contraseña = ContraseñatextBox.Text;
-            usuario.Pocision = true;
             return usuario;
         }
 

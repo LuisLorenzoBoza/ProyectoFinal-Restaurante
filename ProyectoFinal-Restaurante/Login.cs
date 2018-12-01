@@ -32,7 +32,7 @@ namespace ProyectoFinal_Restaurante
                 Usuario usuarios = new Usuario();
                 usuarios.Nombre = "Admin";
                 usuarios.Contraseña = "1234";
-                usuarios.CuentaUsua = "root";
+                //usuarios.CuentaUsua = "root";
                 RepositoryBase<Usuario> repository = new RepositoryBase<Usuario>();
                 repository.Guardar(usuarios);
             }
@@ -40,7 +40,7 @@ namespace ProyectoFinal_Restaurante
             foreach (var item in lista)
             {
                 
-                if (usuario == item.CuentaUsua && contraseña == item.Contraseña)
+                if (usuario == item.Nombre && contraseña == item.Contraseña)
                 {
                     new MainForm().Show();
                     Program.usuario = item;
@@ -52,10 +52,6 @@ namespace ProyectoFinal_Restaurante
                     MessageBox.Show("usuario o password incorrectos ");
                 }
             }
-
-
-
-
         }
     }
 }
