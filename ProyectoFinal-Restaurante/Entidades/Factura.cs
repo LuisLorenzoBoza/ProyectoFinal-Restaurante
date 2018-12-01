@@ -11,10 +11,10 @@ namespace ProyectoFinal_Restaurante.Entidades
     public class Factura
     {
         [Key]
-        public int FacturaID { get; set; }
+        public int FacturaId { get; set; }
         public decimal Monto { get; set; }
-        public int UsuarioID { get; set; }
-        public int ClienteID { get; set; }
+        public int UsuarioId { get; set; }
+        public int ClienteId { get; set; }
         public DateTime Fecha { get; set; }
         public string Descripcion { get; set; }
         public decimal Devuelta { get; set; }
@@ -24,10 +24,10 @@ namespace ProyectoFinal_Restaurante.Entidades
 
         public Factura(int idFactura, decimal monto, int usuarioId, int clienteId, DateTime fecha, string descripcion, decimal devuelta, decimal efectivoRecibido, List<FacturaDetalle> Detalle)
         {
-            this.FacturaID = idFactura;
+            this.FacturaId = idFactura;
             this.Monto = monto;
-            this.UsuarioID = usuarioId;
-            this.ClienteID = clienteId;
+            this.UsuarioId = usuarioId;
+            this.ClienteId = clienteId;
             this.Fecha = fecha;
             this.Descripcion = descripcion;
             this.Devuelta = devuelta;
@@ -37,10 +37,10 @@ namespace ProyectoFinal_Restaurante.Entidades
 
         public Factura()
         {
-            this.FacturaID = 0;
+            this.FacturaId = 0;
             this.Monto = 0;
-            this.UsuarioID = 0;
-            this.ClienteID = 0;
+            this.UsuarioId = 0;
+            this.ClienteId = 0;
             this.Fecha = DateTime.Now;
             this.Descripcion = string.Empty;
             this.Devuelta = 0;

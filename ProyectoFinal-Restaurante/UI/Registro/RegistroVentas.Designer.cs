@@ -35,7 +35,7 @@
             this.NombreCLientetextBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.IDcomboBox = new System.Windows.Forms.ComboBox();
-            this.CLienteIDcomboBox = new System.Windows.Forms.ComboBox();
+            this.CLienteIdcomboBox = new System.Windows.Forms.ComboBox();
             this.ProductoIdcomboBox = new System.Windows.Forms.ComboBox();
             this.DetallecomboBox = new System.Windows.Forms.ComboBox();
             this.UsuariotextBox = new System.Windows.Forms.TextBox();
@@ -130,14 +130,14 @@
             this.IDcomboBox.TabIndex = 97;
             this.IDcomboBox.SelectedIndexChanged += new System.EventHandler(this.IDcomboBox_SelectedIndexChanged);
             // 
-            // CLienteIDcomboBox
+            // CLienteIdcomboBox
             // 
-            this.CLienteIDcomboBox.FormattingEnabled = true;
-            this.CLienteIDcomboBox.Location = new System.Drawing.Point(118, 45);
-            this.CLienteIDcomboBox.Name = "CLienteIDcomboBox";
-            this.CLienteIDcomboBox.Size = new System.Drawing.Size(121, 21);
-            this.CLienteIDcomboBox.TabIndex = 96;
-            this.CLienteIDcomboBox.SelectedIndexChanged += new System.EventHandler(this.CLienteIDcomboBox_SelectedIndexChanged);
+            this.CLienteIdcomboBox.FormattingEnabled = true;
+            this.CLienteIdcomboBox.Location = new System.Drawing.Point(118, 45);
+            this.CLienteIdcomboBox.Name = "CLienteIdcomboBox";
+            this.CLienteIdcomboBox.Size = new System.Drawing.Size(121, 21);
+            this.CLienteIdcomboBox.TabIndex = 96;
+            this.CLienteIdcomboBox.SelectedIndexChanged += new System.EventHandler(this.CLienteIDcomboBox_SelectedIndexChanged);
             // 
             // ProductoIdcomboBox
             // 
@@ -555,7 +555,7 @@
             this.Controls.Add(this.NombreCLientetextBox);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.IDcomboBox);
-            this.Controls.Add(this.CLienteIDcomboBox);
+            this.Controls.Add(this.CLienteIdcomboBox);
             this.Controls.Add(this.ProductoIdcomboBox);
             this.Controls.Add(this.DetallecomboBox);
             this.Controls.Add(this.UsuariotextBox);
@@ -607,7 +607,7 @@
         private System.Windows.Forms.TextBox NombreCLientetextBox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox IDcomboBox;
-        private System.Windows.Forms.ComboBox CLienteIDcomboBox;
+        private System.Windows.Forms.ComboBox CLienteIdcomboBox;
         private System.Windows.Forms.ComboBox ProductoIdcomboBox;
         private System.Windows.Forms.ComboBox DetallecomboBox;
         private System.Windows.Forms.TextBox UsuariotextBox;

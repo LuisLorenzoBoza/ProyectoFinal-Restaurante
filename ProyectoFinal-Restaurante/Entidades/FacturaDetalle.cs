@@ -12,8 +12,8 @@ namespace ProyectoFinal_Restaurante.Entidades
     {
         [Key]
         public int Id { get; set; }
-        public int FacturaID { get; set; }
-        public int ProductoID { get; set; }
+        public int FacturaId { get; set; }
+        public int ProductoId { get; set; }
         public int Cantidad { get; set; }
         public decimal Precio { get; set; }
         public string Descripcion { get; set; }
@@ -23,8 +23,8 @@ namespace ProyectoFinal_Restaurante.Entidades
         public FacturaDetalle(int id, int facturaId, int productoId, int cantidad, decimal precio, string descripcion, decimal importe)
         {
             this.Id = id;
-            this.FacturaID = facturaId;
-            this.ProductoID = productoId;
+            this.FacturaId = facturaId;
+            this.ProductoId = productoId;
             this.Cantidad = cantidad;
             this.Precio = precio;
             this.Descripcion = descripcion;
@@ -35,8 +35,8 @@ namespace ProyectoFinal_Restaurante.Entidades
         {
 
             this.Id = 0;
-            this.FacturaID = 0;
-            this.ProductoID = 0;
+            this.FacturaId = 0;
+            this.ProductoId = 0;
             this.Cantidad = 0;
             this.Precio = 0;
             this.Descripcion = string.Empty;

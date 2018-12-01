@@ -24,26 +24,26 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         {
             InitializeComponent();
             LlenarComboBox();
-            UsuariotextBox.Text = BLL.FacturacionBLL.returnUsuario().Nombre;
+            UsuariotextBox.Text = FacturacionBLL.returnUsuario().Nombre;
         }
         private void LlenarComboBox()
         {
             DevueltatextBox.Text = "0";
             IDcomboBox.Items.Clear();
-            CLienteIDcomboBox.Items.Clear();
+            CLienteIdcomboBox.Items.Clear();
             ProductoIdcomboBox.Items.Clear();
 
-            foreach (var item in RepositoryBase.GetList(x => true))
+            foreach (var item in BLL.RepositoryBase.GetList(x => true))
             {
                 ProductoIdcomboBox.Items.Add(item.Idproducto);
             }
-            foreach (var item in BLL.FacturacionBLL.GetList(x => true))
+            foreach (var item in FacturacionBLL.GetList(x => true))
             {
-                IDcomboBox.Items.Add(item.FacturaID);
+                IDcomboBox.Items.Add(item.FacturaId);
             }
-            foreach (var item in RepositoryBase.GetList(x => true))
+            foreach (var item in BLL.RepositoryBase.GetList(x => true))
             {
-                CLienteIDcomboBox.Items.Add(item.IdCliente);
+                CLienteIdcomboBox.Items.Add(item.IdCliente);
             }
         }
         private void LimpiarProvider()
@@ -60,9 +60,9 @@ namespace ProyectoFinal_Restaurante.UI.Registro
                 IDerrorProvider.SetError(IDcomboBox, "Llenar Id");
                 paso = true;
             }
-            if (error == 2 && CLienteIDcomboBox.Text == string.Empty)
+            if (error == 2 && CLienteIdcomboBox.Text == string.Empty)
             {
-                DemaserrorProvider.SetError(CLienteIDcomboBox, "Llenar Cliente Id");
+                DemaserrorProvider.SetError(CLienteIdcomboBox, "Llenar Cliente Id");
                 paso = true;
             }
             if (error == 2 && DescripciponFacturatextBox.Text == string.Empty)
@@ -102,7 +102,6 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             }
             return paso;
         }
-
         private void Agregarbutton_Click(object sender, EventArgs e)
         {
             LimpiarProvider();
@@ -119,45 +118,45 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             }
             if (IDcomboBox.Text == string.Empty)
             {
-                facturas.Detalle.Add(new FacturaDetalle(0, facturas.FacturaID, Convert.ToInt32(ProductoIdcomboBox.Text), Convert.ToInt32(CantidadnumericUpDown.Value), Convert.ToDecimal(PreciotextBox.Text), DescripcionProductotextBox.Text, Convert.ToDecimal(ImportetextBox.Text)));
+                facturas.Detalle.Add(new FacturaDetalle(0, facturas.FacturaId, Convert.ToInt32(ProductoIdcomboBox.Text), Convert.ToInt32(CantidadnumericUpDown.Value), Convert.ToDecimal(PreciotextBox.Text), DescripcionProductotextBox.Text, Convert.ToDecimal(ImportetextBox.Text)));
             }
             else
             {
                 int idfactura = Convert.ToInt32(IDcomboBox.Text);
                 if (facturas.Detalle.Count == 0)
                 {
-                    facturas.Detalle = BLL.FacturaDetalleBLL.GetList(x => x.FacturaID == idfactura);
+                  facturas.Detalle = BLL.FacturaDetalleBLL.GetList(x => x.FacturaId == idfactura);
                 }
                 if (DetallecomboBox.Text == string.Empty)
                 {
                     var Idproducto = Convert.ToInt32(ProductoIdcomboBox.Text);
-                    if (facturas.Detalle.Exists(x => x.ProductoID == Idproducto))
+                    if (facturas.Detalle.Exists(x => x.ProductoId == Idproducto))
                     {
                         foreach (var item in facturas.Detalle)
                         {
-                            if (item.ProductoID == Idproducto)
+                            if (item.ProductoId == Idproducto)
                             {
-                                item.Cantidad += Convert.ToInt32(CantidadnumericUpDown.Value);
+                              item.Cantidad += Convert.ToInt32(CantidadnumericUpDown.Value);
                             }
                         }
                     }
                     else
                     {
-                        facturas.Detalle.Add(new FacturaDetalle(0, Convert.ToInt32(IDcomboBox.Text), Convert.ToInt32(ProductoIdcomboBox.Text), Convert.ToInt32(CantidadnumericUpDown.Value), Convert.ToDecimal(PreciotextBox.Text), DescripcionProductotextBox.Text, Convert.ToDecimal(ImportetextBox.Text)));
+                      facturas.Detalle.Add(new FacturaDetalle(0, Convert.ToInt32(IDcomboBox.Text), Convert.ToInt32(ProductoIdcomboBox.Text), Convert.ToInt32(CantidadnumericUpDown.Value), Convert.ToDecimal(PreciotextBox.Text), DescripcionProductotextBox.Text, Convert.ToDecimal(ImportetextBox.Text)));
                     }
                 }
                 else
                 {
-                    Monto -= BLL.FacturacionBLL.DescontarImporte(facturas.Detalle, Convert.ToInt32(DetallecomboBox.Text));
+                    Monto -= FacturacionBLL.DescontarImporte(facturas.Detalle, Convert.ToInt32(DetallecomboBox.Text));
 
                     foreach (var item in facturas.Detalle)
                     {
-                        item.Importe = BLL.FacturacionBLL.Importe(item.Cantidad, CantidadnumericUpDown.Value, item.Precio, Convert.ToInt32(ProductoIdcomboBox.Text), item.ProductoID);
+                      item.Importe = FacturacionBLL.Importe(item.Cantidad, CantidadnumericUpDown.Value, item.Precio, Convert.ToInt32(ProductoIdcomboBox.Text), item.ProductoId);
                     }
-                    facturas.Detalle = BLL.FacturacionBLL.Editar(facturas.Detalle, new FacturaDetalle(Convert.ToInt32(DetallecomboBox.Text), Convert.ToInt32(IDcomboBox.Text), Convert.ToInt32(ProductoIdcomboBox.Text), Convert.ToInt32(CantidadnumericUpDown.Value), Convert.ToDecimal(PreciotextBox.Text), DescripcionProductotextBox.Text, Convert.ToDecimal(ImportetextBox.Text)));
+                    facturas.Detalle = FacturacionBLL.Editar(facturas.Detalle, new FacturaDetalle(Convert.ToInt32(DetallecomboBox.Text), Convert.ToInt32(IDcomboBox.Text), Convert.ToInt32(ProductoIdcomboBox.Text), Convert.ToInt32(CantidadnumericUpDown.Value), Convert.ToDecimal(PreciotextBox.Text), DescripcionProductotextBox.Text, Convert.ToDecimal(ImportetextBox.Text)));
                 }
             }
-            Monto += BLL.FacturacionBLL.CalcularMonto(Convert.ToDecimal(ImportetextBox.Text));
+            Monto += FacturacionBLL.CalcularMonto(Convert.ToDecimal(ImportetextBox.Text));
             MontotextBox.Text = Monto.ToString();
             if (paso)
             {
@@ -184,14 +183,14 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             Factura factura = new Factura();
             if (IDcomboBox.Text == string.Empty)
             {
-                factura.FacturaID = 0;
+                factura.FacturaId = 0;
             }
             else
             {
-                factura.FacturaID = Convert.ToInt32(IDcomboBox.Text);
+                factura.FacturaId = Convert.ToInt32(IDcomboBox.Text);
             }
-            factura.ClienteID = Convert.ToInt32(CLienteIDcomboBox.Text);
-            factura.UsuarioID = BLL.FacturacionBLL.returnUsuario().UsuarioID;
+            factura.ClienteId = Convert.ToInt32(CLienteIdcomboBox.Text);
+            factura.UsuarioId = BLL.FacturacionBLL.returnUsuario().UsuarioID;
             factura.Fecha = FechadateTimePicker.Value;
             factura.Descripcion = DescripciponFacturatextBox.Text;
             factura.EfectivoRecibido = EfectivonumericUpDown.Value;
@@ -211,18 +210,18 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             Factura factura = LlenaClase();
             if (IDcomboBox.Text == string.Empty)
             {
-                if (BLL.FacturacionBLL.Guardar(factura))
+                if (FacturacionBLL.Guardar(factura))
                 {
                     MessageBox.Show("Guardado!!");
                     LlenarComboBox();
-                    BLL.FacturacionBLL.DescontarProductos(facturas.Detalle);
+                    FacturacionBLL.DescontarProductos(facturas.Detalle);
                     var result = MessageBox.Show("Desea Imprimir un recibo?", "+Ventas",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
                         //La variable mayor me devuelve la ultima factura realizada para poder imprimirla
-                        int mayor = BLL.FacturacionBLL.Mayor(BLL.FacturacionBLL.GetList(y => true));
-                        ReporteFacturasCliente abrir = new ReporteFacturasCliente(BLL.FacturacionBLL.GetList(x => x.FacturaID == mayor));
+                        int mayor = FacturacionBLL.Mayor(FacturacionBLL.GetList(y => true));
+                        ReporteFacturasCliente abrir = new ReporteFacturasCliente(FacturacionBLL.GetList(x => x.FacturaId == mayor));
                         abrir.Show();
                     }
                     Clean();
@@ -235,30 +234,30 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             else
             {
                 var result = MessageBox.Show("Seguro de Modificar?", "+Ventas",
-                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    if (BLL.FacturacionBLL.Modificar(LlenaClase()))
+                    if (FacturacionBLL.Modificar(LlenaClase()))
                     {
                         MessageBox.Show("Modificado!!");
                         if (Detalle.Count != 0)
                         {
                             foreach (var item in Detalle)
                             {
-                                BLL.FacturaDetalleBLL.Eliminar(item.Id);
+                                FacturaDetalleBLL.Eliminar(item.Id);
                             }
                         }
                         if (Arreglar)
                         {
-                            BLL.FacturacionBLL.ArreglarProductoList(Detalle);
+                            FacturacionBLL.ArreglarProductoList(Detalle);
                             Arreglar = false;
                         }
                         var resultado = MessageBox.Show("Desea Imprimir un recibo?", "+Ventas",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (result == DialogResult.Yes)
                         {
-                            int id = LlenaClase().FacturaID;
-                            ReporteFacturasCliente abrir = new ReporteFacturasCliente(BLL.FacturacionBLL.GetList(x => x.FacturaID == id));
+                            int id = LlenaClase().FacturaId;
+                            ReporteFacturasCliente abrir = new ReporteFacturasCliente(FacturacionBLL.GetList(x => x.FacturaId == id));
                             abrir.Show();
                         }
                         Clean();
@@ -277,7 +276,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         private void Clean()
         {
             IDcomboBox.Text = string.Empty;
-            CLienteIDcomboBox.Text = string.Empty;
+            CLienteIdcomboBox.Text = string.Empty;
             DescripciponFacturatextBox.Clear();
             LimpiarProducto();
             NombreCLientetextBox.Text = string.Empty;
@@ -302,11 +301,11 @@ namespace ProyectoFinal_Restaurante.UI.Registro
                 return;
             }
             var result = MessageBox.Show("Seguro de  Eliminar?", "+Ventas",
-                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                BLL.FacturacionBLL.ArreglarProducto(BLL.FacturacionBLL.Buscar(Convert.ToInt32(IDcomboBox.Text)));
-                if (BLL.FacturacionBLL.Eliminar(Convert.ToInt32(IDcomboBox.Text)))
+                FacturacionBLL.ArreglarProducto(FacturacionBLL.Buscar(Convert.ToInt32(IDcomboBox.Text)));
+                if (FacturacionBLL.Eliminar(Convert.ToInt32(IDcomboBox.Text)))
                 {
                     MessageBox.Show("Eliminado");
                     IDcomboBox.DataSource = null;
@@ -328,7 +327,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
                 CantidadnumericUpDown.Value = 0;
                 return;
             }
-            ImportetextBox.Text = BLL.FacturacionBLL.Importedemas(CantidadnumericUpDown.Value, Convert.ToDecimal(PreciotextBox.Text)).ToString();
+            ImportetextBox.Text = FacturacionBLL.Importedemas(CantidadnumericUpDown.Value, Convert.ToDecimal(PreciotextBox.Text)).ToString();
         }
         private void EfectivonumericUpDown_ValueChanged(object sender, EventArgs e)
         {
@@ -336,17 +335,16 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         }
         private void AsignarDevuelta()
         {
-            DevueltatextBox.Text = BLL.FacturacionBLL.RetornarDevuelta(EfectivonumericUpDown.Value, Convert.ToDecimal(MontotextBox.Text)).ToString();
+            DevueltatextBox.Text = FacturacionBLL.RetornarDevuelta(EfectivonumericUpDown.Value, Convert.ToDecimal(MontotextBox.Text)).ToString();
         }
         private void DetallecomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int ID, id;
-
             id = Convert.ToInt32(IDcomboBox.Text);
             ID = Convert.ToInt32(DetallecomboBox.Text);
             if (facturas.Detalle.Count() == 0)
             {
-                facturas.Detalle = BLL.FacturaDetalleBLL.GetList(x => x.FacturaID == id);
+                facturas.Detalle = FacturaDetalleBLL.GetList(x => x.FacturaId == id);
             }
             foreach (var item in facturas.Detalle)
             {
@@ -354,7 +352,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
                 {
                     DescripcionProductotextBox.Text = item.Descripcion;
                     PreciotextBox.Text = item.Precio.ToString();
-                    ProductoIdcomboBox.Text = item.ProductoID.ToString();
+                    ProductoIdcomboBox.Text = item.ProductoId.ToString();
                     CantidadnumericUpDown.Value = item.Cantidad;
                 }
             }
@@ -379,21 +377,21 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         {
             LimpiarProvider();
             int idfactura = Convert.ToInt32(IDcomboBox.Text);
-            facturas = BLL.FacturacionBLL.Buscar(Convert.ToInt32(IDcomboBox.Text));
-            CLienteIDcomboBox.Text = facturas.ClienteID.ToString();
+            facturas = FacturacionBLL.Buscar(Convert.ToInt32(IDcomboBox.Text));
+            CLienteIdcomboBox.Text = facturas.ClienteId.ToString();
             DescripciponFacturatextBox.Text = facturas.Descripcion;
             DevueltatextBox.Text = facturas.Devuelta.ToString();
             MontotextBox.Text = facturas.Monto.ToString();
             Monto = facturas.Monto;
             FechadateTimePicker.Value = facturas.Fecha;
             EfectivonumericUpDown.Value = facturas.EfectivoRecibido;
-            facturas.Detalle = BLL.FacturaDetalleBLL.GetList(x => x.FacturaID == idfactura);
+            facturas.Detalle = FacturaDetalleBLL.GetList(x => x.FacturaId == idfactura);
             LlenarDetalleComboBox();
             DetallecomboBox.Enabled = true;
             EliminarDetalle.Enabled = true;
             foreach (var item in facturas.Detalle)
             {
-                item.Importe = BLL.FacturacionBLL.Importedemas(item.Cantidad, item.Precio);
+                item.Importe = FacturacionBLL.Importedemas(item.Cantidad, item.Precio);
             }
             FacturadataGridView.DataSource = facturas.Detalle;
             Detalle = new List<FacturaDetalle>();
@@ -411,21 +409,21 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         private void CLienteIDcomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             LimpiarProvider();
-            NombreCLientetextBox.Text = RepositoryBase.Buscar(Convert.ToInt32(CLienteIDcomboBox.Text)).Nombre;
+            NombreCLientetextBox.Text = RepositoryBase.Buscar(Convert.ToInt32(CLienteIdcomboBox.Text)).Nombre;
         }
         private void EliminarDetalle_Click(object sender, EventArgs e)
         {
             var result = MessageBox.Show("Desea Eliminar el detalle seleccionado?", "+Ventas",
-                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 if (RowSelected >= 0)
                 {
-                    Monto -= BLL.FacturacionBLL.RecalcularImporte(facturas.Detalle, RowSelected);
+                    Monto -= FacturacionBLL.RecalcularImporte(facturas.Detalle, RowSelected);
                     MontotextBox.Text = Monto.ToString();
                     Arreglar = true;
                     FacturaDetalle factura = facturas.Detalle.ElementAt(RowSelected);
-                    Detalle.Add(new FacturaDetalle(factura.Id, factura.FacturaID, factura.ProductoID, factura.Cantidad, factura.Precio, factura.Descripcion, factura.Importe));
+                    Detalle.Add(new FacturaDetalle(factura.Id, factura.FacturaId, factura.ProductoId, factura.Cantidad, factura.Precio, factura.Descripcion, factura.Importe));
                     facturas.Detalle.RemoveAt(RowSelected);
                     FacturadataGridView.DataSource = null;
                     FacturadataGridView.DataSource = facturas.Detalle;

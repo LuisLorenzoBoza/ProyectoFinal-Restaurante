@@ -59,7 +59,7 @@ namespace ProyectoFinal_Restaurante.BLL
                 var eliminar = db.factura.Find(Id);
                 if (eliminar != null)
                 {
-                    db.Facturas.RemoveRange(db.Facturas.Where(x => x.FacturaID == eliminar.FacturaID));
+                    db.Facturas.RemoveRange(db.Facturas.Where(x => x.FacturaId == eliminar.FacturaId));
                     db.Entry(eliminar).State = EntityState.Deleted;
                     if (db.SaveChanges() > 0)
                     {
@@ -81,7 +81,7 @@ namespace ProyectoFinal_Restaurante.BLL
             Contexto db = new Contexto();
             try
             {
-                var facturas = Buscar(factura.FacturaID);
+                var facturas = Buscar(factura.FacturaId);
                 db.Entry(facturas).State = EntityState.Modified;
                 ArreglarProducto(facturas);
                 foreach (var item in facturas.Detalle)
@@ -108,7 +108,7 @@ namespace ProyectoFinal_Restaurante.BLL
                         paso = true;
                     }
                 }
-                DescontarProductos(Buscar(facturas.FacturaID).Detalle);
+                DescontarProductos(Buscar(facturas.FacturaId).Detalle);
                 db.Dispose();
             }
             catch (Exception)
@@ -191,7 +191,7 @@ namespace ProyectoFinal_Restaurante.BLL
             // Descontar cantidad a productos
             foreach (var item in bill)
             {
-                var producto = BLL.RepositoryBase.Buscar(item.ProductoID);
+                var producto = BLL.RepositoryBase.Buscar(item.ProductoId);
                 producto.Cantidad -= item.Cantidad;
                 BLL.RepositoryBase.Modificar(producto);
             }
@@ -200,7 +200,7 @@ namespace ProyectoFinal_Restaurante.BLL
         {
             foreach (var item in factura.Detalle)
             {
-                var producto = BLL.RepositoryBase.Buscar(item.ProductoID);
+                var producto = BLL.RepositoryBase.Buscar(item.ProductoId);
                 producto.Cantidad += item.Cantidad;
                 BLL.RepositoryBase.Modificar(producto);
             }
@@ -209,7 +209,7 @@ namespace ProyectoFinal_Restaurante.BLL
         {
             foreach (var item in factura)
             {
-                var producto = BLL.RepositoryBase.Buscar(item.ProductoID);
+                var producto = BLL.RepositoryBase.Buscar(item.ProductoId);
                 producto.Cantidad += item.Cantidad;
                 BLL.RepositoryBase.Modificar(producto);
             }
@@ -259,13 +259,13 @@ namespace ProyectoFinal_Restaurante.BLL
             {
                 if (mayor == 0)
                 {
-                  mayor = item.FacturaID;
+                  mayor = item.FacturaId;
                 }
                 else
                 {
-                  if (mayor < item.FacturaID)
+                  if (mayor < item.FacturaId)
                   {
-                    mayor = item.FacturaID;
+                    mayor = item.FacturaId;
                   }
                 }
             }
