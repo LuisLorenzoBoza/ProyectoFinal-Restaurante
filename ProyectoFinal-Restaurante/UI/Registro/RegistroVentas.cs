@@ -111,10 +111,6 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             }
             return paso;
         }
-        private void Agregarbutton_Click(object sender, EventArgs e)
-        {
-
-        }
         private void LimpiarProducto()
         {
             LimpiarProvider();
@@ -146,78 +142,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             factura.Detalle = facturas.Detalle;
             return factura;
         }
-        private void Guardarbutton_Click(object sender, EventArgs e)
-        {
-            LimpiarProvider();
-            if (SetError(2))
-            {
-                MessageBox.Show("Llenar Campos vacios");
-                return;
-            }
-            Factura factura = LlenaClase();
-            if (IDcomboBox.Text == string.Empty)
-            {
-                if (FacturacionBLL.Guardar(factura))
-                {
-                    MessageBox.Show("Guardado!!");
-                    LlenarComboBox();
-                    FacturacionBLL.DescontarProductos(facturas.Detalle);
-                    var result = MessageBox.Show("Desea Imprimir un recibo?", " ",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
-                    {
-                        RepositoryBase<Cliente> repositorio = new RepositoryBase<Cliente>();
-                        var usuario = repositorio.Buscar(factura.ClienteId);
-                        DetalleReporte reporte = new DetalleReporte(facturas.Detalle, UsuariotextBox.Text, usuario.Nombre);
-                        reporte.Show();
-                    }
-                    Clean();
-                }
-                else
-                {
-                    MessageBox.Show("No se pudo Guardar!!");
-                }
-            }
-            else
-            {
-                var result = MessageBox.Show("Seguro de Modificar?", " ",
-                             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
-                {
-                    if (FacturacionBLL.Modificar(LlenaClase()))
-                    {
-                        MessageBox.Show("Modificado!!");
-                        if (Detalle.Count != 0)
-                        {
-                            foreach (var item in Detalle)
-                            {
-                                FacturaDetalleBLL.Eliminar(item.Id);
-                            }
-                        }
-                        if (Arreglar)
-                        {
-                            FacturacionBLL.ArreglarProductoList(Detalle);
-                            Arreglar = false;
-                        }
-                        var resultado = MessageBox.Show("Desea Imprimir un recibo?", " ",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if (result == DialogResult.Yes)
-                        {
-                            Factura facturas = LlenaClase();
-                            RepositoryBase<Cliente> repositorio = new RepositoryBase<Cliente>();
-                            var usuario = repositorio.Buscar(factura.ClienteId);
-                            DetalleReporte reporte = new DetalleReporte(facturas.Detalle,UsuariotextBox.Text,usuario.Nombre );
-                            reporte.Show();
-                        }
-                        Clean();
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se pudo modificar!!");
-                    }
-                }
-            }
-        }
+        
         private void Nuevobutton_Click(object sender, EventArgs e)
         {
             Clean();
@@ -401,18 +326,9 @@ namespace ProyectoFinal_Restaurante.UI.Registro
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
-                        RepositoryBase<Usuario> repositorio = new RepositoryBase<Usuario>();
-                        Usuario usuario = repositorio.Buscar(factura.UsuarioId);
-
-                        if (usuario == null)
-                        {
-                            usuario = new Usuario();
-                            usuario.Nombre = "Guest";
-                        }
-
-                        RepositoryBase<Cliente> reposito = new RepositoryBase<Cliente>();
-                        Cliente cliente = reposito.Buscar(factura.ClienteId);
-                        DetalleReporte reporte = new DetalleReporte(factura.Detalle, usuario.Nombre, cliente.Nombre);
+                        RepositoryBase<Cliente> repositorio = new RepositoryBase<Cliente>();
+                        var usuario = repositorio.Buscar(factura.ClienteId);
+                        DetalleReporte reporte = new DetalleReporte(facturas.Detalle, UsuariotextBox.Text, usuario.Nombre);
                         reporte.Show();
                     }
                     Clean();
@@ -447,18 +363,10 @@ namespace ProyectoFinal_Restaurante.UI.Registro
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (result == DialogResult.Yes)
                         {
-                            RepositoryBase<Usuario> repositorio = new RepositoryBase<Usuario>();
-                            Usuario usuario = repositorio.Buscar(factura.UsuarioId);
-
-                            if (usuario == null)
-                            {
-                                usuario = new Usuario();
-                                usuario.Nombre = "Guest";
-                            }
-
-                            RepositoryBase<Cliente> reposito = new RepositoryBase<Cliente>();
-                            Cliente cliente = reposito.Buscar(factura.ClienteId);
-                            DetalleReporte reporte = new DetalleReporte(factura.Detalle, usuario.Nombre, cliente.Nombre);
+                            Factura facturas = LlenaClase();
+                            RepositoryBase<Cliente> repositorio = new RepositoryBase<Cliente>();
+                            var usuario = repositorio.Buscar(factura.ClienteId);
+                            DetalleReporte reporte = new DetalleReporte(facturas.Detalle, UsuariotextBox.Text, usuario.Nombre);
                             reporte.Show();
                         }
                         Clean();
