@@ -189,7 +189,7 @@ namespace ProyectoFinal_Restaurante.BLL
         public static void DescontarProductos(List<FacturaDetalle> factura)
         {
             // Descontar cantidad a productos
-            RepositoryBase<Producto> repositoryBase = new RepositoryBase<Producto>(new Contexto());
+            RepositoryBase<Producto> repositoryBase = new RepositoryBase<Producto>();
             foreach (var item in factura) 
             {
                 var producto = repositoryBase.Buscar(item.ProductoId);
@@ -199,7 +199,7 @@ namespace ProyectoFinal_Restaurante.BLL
         }
         public static void ArreglarProducto(Factura factura)
         {
-            RepositoryBase<Producto> repositoryBase = new RepositoryBase<Producto>(new Contexto());
+            RepositoryBase<Producto> repositoryBase = new RepositoryBase<Producto>();
             foreach (var item in factura.Detalle)
             {
                 var producto = repositoryBase.Buscar(item.ProductoId);
@@ -209,7 +209,7 @@ namespace ProyectoFinal_Restaurante.BLL
         }
         public static void ArreglarProductoList(List<FacturaDetalle> factura)
         {
-            RepositoryBase<Producto> repositoryBase = new RepositoryBase<Producto>(new Contexto());
+            RepositoryBase<Producto> repositoryBase = new RepositoryBase<Producto>();
             foreach (var item in factura)
             {
                 var producto = repositoryBase.Buscar(item.ProductoId);

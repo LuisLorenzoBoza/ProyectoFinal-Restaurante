@@ -10,7 +10,7 @@ namespace ProyectoFinal_Restaurante.Entidades
     public class Cliente
     {
         [Key]
-        public int ClienteID { get; set; }
+        public int ClieteID { get; set; }
         public string Nombre { get; set; }
         public string Email { get; set; }
         public string Telefono { get; set; }
@@ -18,7 +18,7 @@ namespace ProyectoFinal_Restaurante.Entidades
 
         public Cliente(int ClienteID, string Nombre, string Email, string Telefono)
         {
-            this.ClienteID = ClienteID;
+            this.ClieteID = ClienteID;
             this.Nombre = Nombre;
             this.Email = Email;
             
@@ -27,7 +27,7 @@ namespace ProyectoFinal_Restaurante.Entidades
 
         public Cliente()
         {
-            ClienteID = 0;
+            ClieteID = 0;
             Nombre = string.Empty;
             Email = string.Empty;
             Telefono = string.Empty;

@@ -39,6 +39,8 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             usuario.UsuarioID = Convert.ToInt32(IDnumericUpDown.Value);
             usuario.Nombre = NombretextBox.Text;
             usuario.Contraseña = ContraseñatextBox.Text;
+            usuario.CuentaUsua = UsuariotextBox.Text;
+            usuario.Fecha = DateTime.Now;
             return usuario;
         }
 
@@ -107,7 +109,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         {
             RepositoryBase<Usuario> repository = new RepositoryBase<Usuario>();
             bool paso = false;
-            Usuario usuario;
+            Usuario usuario = new Usuario();
             if (!Validar())
                 return;
             usuario = LlenarClase();

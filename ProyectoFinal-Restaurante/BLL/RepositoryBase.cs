@@ -13,14 +13,11 @@ namespace ProyectoFinal_Restaurante.BLL
     public class RepositoryBase<T> : IDisposable, IRepository<T> where T : class
     {
         internal Contexto _contexto;
-        public RepositoryBase(Contexto contexto)
+        public RepositoryBase()
         {
           _contexto = new Contexto();
         }
 
-        public RepositoryBase()
-        {
-        }
 
         public virtual bool Guardar(T entity)
         {

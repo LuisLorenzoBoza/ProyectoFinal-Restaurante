@@ -33,7 +33,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         private Cliente LlenarClase()
         {
             Cliente cliente = new Cliente();
-            cliente.ClienteID = Convert.ToInt32(IDnumericUpDown.Value);
+            cliente.ClieteID = Convert.ToInt32(IDnumericUpDown.Value);
             cliente.Nombre = NombretextBox.Text;
             
             cliente.Email = EmailtextBox.Text;
@@ -44,7 +44,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
 
         public void LlenarCampo(Cliente cliente)
         {
-            IDnumericUpDown.Value = cliente.ClienteID;
+            IDnumericUpDown.Value = cliente.ClieteID;
             NombretextBox.Text = cliente.Nombre;
             EmailtextBox.Text = cliente.Email;
             TelefonomaskedTextBox.Text = cliente.Telefono;

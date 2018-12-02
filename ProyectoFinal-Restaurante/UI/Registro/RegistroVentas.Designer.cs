@@ -35,7 +35,7 @@
             this.NombreCLientetextBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.IDcomboBox = new System.Windows.Forms.ComboBox();
-            this.CLienteIdcomboBox = new System.Windows.Forms.ComboBox();
+            this.CLienteIDcomboBox = new System.Windows.Forms.ComboBox();
             this.ProductoIdcomboBox = new System.Windows.Forms.ComboBox();
             this.DetallecomboBox = new System.Windows.Forms.ComboBox();
             this.UsuariotextBox = new System.Windows.Forms.TextBox();
@@ -108,7 +108,7 @@
             // NombreCLientetextBox
             // 
             this.NombreCLientetextBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.NombreCLientetextBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.NombreCLientetextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.NombreCLientetextBox.Location = new System.Drawing.Point(102, 75);
             this.NombreCLientetextBox.Name = "NombreCLientetextBox";
             this.NombreCLientetextBox.ReadOnly = true;
@@ -118,7 +118,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(13, 75);
+            this.label10.Location = new System.Drawing.Point(9, 82);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(83, 13);
             this.label10.TabIndex = 98;
@@ -133,14 +133,14 @@
             this.IDcomboBox.TabIndex = 97;
             this.IDcomboBox.SelectedIndexChanged += new System.EventHandler(this.IDcomboBox_SelectedIndexChanged);
             // 
-            // CLienteIdcomboBox
+            // CLienteIDcomboBox
             // 
-            this.CLienteIdcomboBox.FormattingEnabled = true;
-            this.CLienteIdcomboBox.Location = new System.Drawing.Point(102, 45);
-            this.CLienteIdcomboBox.Name = "CLienteIdcomboBox";
-            this.CLienteIdcomboBox.Size = new System.Drawing.Size(121, 21);
-            this.CLienteIdcomboBox.TabIndex = 96;
-            this.CLienteIdcomboBox.SelectedIndexChanged += new System.EventHandler(this.CLienteIDcomboBox_SelectedIndexChanged);
+            this.CLienteIDcomboBox.FormattingEnabled = true;
+            this.CLienteIDcomboBox.Location = new System.Drawing.Point(102, 45);
+            this.CLienteIDcomboBox.Name = "CLienteIDcomboBox";
+            this.CLienteIDcomboBox.Size = new System.Drawing.Size(121, 21);
+            this.CLienteIDcomboBox.TabIndex = 96;
+            this.CLienteIDcomboBox.SelectedIndexChanged += new System.EventHandler(this.CLienteIDcomboBox_SelectedIndexChanged);
             // 
             // ProductoIdcomboBox
             // 
@@ -166,7 +166,7 @@
             // UsuariotextBox
             // 
             this.UsuariotextBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.UsuariotextBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.UsuariotextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.UsuariotextBox.Location = new System.Drawing.Point(16, 568);
             this.UsuariotextBox.Name = "UsuariotextBox";
             this.UsuariotextBox.ReadOnly = true;
@@ -177,7 +177,7 @@
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(15, 252);
+            this.label11.Location = new System.Drawing.Point(33, 251);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(54, 13);
             this.label11.TabIndex = 92;
@@ -212,6 +212,7 @@
             this.Agregarbutton.Size = new System.Drawing.Size(32, 32);
             this.Agregarbutton.TabIndex = 89;
             this.Agregarbutton.UseVisualStyleBackColor = true;
+            this.Agregarbutton.Click += new System.EventHandler(this.Agregarbutton_Click_1);
             // 
             // label12
             // 
@@ -271,7 +272,7 @@
             // 
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(243, 248);
+            this.label14.Location = new System.Drawing.Point(243, 251);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(49, 13);
             this.label14.TabIndex = 83;
@@ -281,7 +282,7 @@
             // 
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(10, 213);
+            this.label15.Location = new System.Drawing.Point(33, 216);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(59, 13);
             this.label15.TabIndex = 82;
@@ -311,6 +312,7 @@
             this.Guardarbutton.TabIndex = 80;
             this.Guardarbutton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Guardarbutton.UseVisualStyleBackColor = true;
+            this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click_1);
             // 
             // Nuevobutton
             // 
@@ -329,7 +331,7 @@
             // 
             this.MontotextBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.MontotextBox.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.MontotextBox.Location = new System.Drawing.Point(539, 568);
+            this.MontotextBox.Location = new System.Drawing.Point(265, 566);
             this.MontotextBox.Name = "MontotextBox";
             this.MontotextBox.ReadOnly = true;
             this.MontotextBox.Size = new System.Drawing.Size(87, 20);
@@ -339,7 +341,7 @@
             // 
             this.DevueltatextBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.DevueltatextBox.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.DevueltatextBox.Location = new System.Drawing.Point(389, 568);
+            this.DevueltatextBox.Location = new System.Drawing.Point(544, 568);
             this.DevueltatextBox.Name = "DevueltatextBox";
             this.DevueltatextBox.ReadOnly = true;
             this.DevueltatextBox.Size = new System.Drawing.Size(87, 20);
@@ -348,7 +350,7 @@
             // EfectivonumericUpDown
             // 
             this.EfectivonumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.EfectivonumericUpDown.Location = new System.Drawing.Point(239, 568);
+            this.EfectivonumericUpDown.Location = new System.Drawing.Point(407, 568);
             this.EfectivonumericUpDown.Maximum = new decimal(new int[] {
             1410065408,
             2,
@@ -363,6 +365,7 @@
             // 
             this.FacturadataGridView.AllowUserToAddRows = false;
             this.FacturadataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.FacturadataGridView.BackgroundColor = System.Drawing.SystemColors.Info;
             this.FacturadataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.FacturadataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ProductoId,
@@ -448,7 +451,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(15, 108);
+            this.label6.Location = new System.Drawing.Point(33, 108);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(63, 13);
             this.label6.TabIndex = 72;
@@ -467,7 +470,7 @@
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(235, 552);
+            this.label9.Location = new System.Drawing.Point(403, 552);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(91, 13);
             this.label9.TabIndex = 70;
@@ -477,7 +480,7 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(386, 552);
+            this.label8.Location = new System.Drawing.Point(541, 552);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(50, 13);
             this.label8.TabIndex = 69;
@@ -498,7 +501,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(536, 552);
+            this.label4.Location = new System.Drawing.Point(262, 550);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 66;
@@ -508,7 +511,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 53);
+            this.label3.Location = new System.Drawing.Point(44, 53);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 65;
@@ -528,7 +531,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 18);
+            this.label1.Location = new System.Drawing.Point(76, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(16, 13);
             this.label1.TabIndex = 63;
@@ -553,20 +556,21 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(433, 82);
+            this.label7.Location = new System.Drawing.Point(443, 88);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(114, 52);
+            this.label7.Size = new System.Drawing.Size(173, 39);
             this.label7.TabIndex = 101;
-            this.label7.Text = "\r\nJarabacoa\r\nRepública Dominicana\r\n+1 809-865-4811\r\n";
+            this.label7.Text = "\r\nJarabacoa,República Dominicana, \r\n             +1 809-865-4811\r\n";
             // 
             // label16
             // 
             this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(430, 78);
+            this.label16.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(392, 66);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(143, 13);
+            this.label16.Size = new System.Drawing.Size(254, 22);
             this.label16.TabIndex = 102;
             this.label16.Text = "LAS COSTILLAS DE JESUS";
             // 
@@ -574,6 +578,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(660, 721);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label7);
@@ -581,7 +586,7 @@
             this.Controls.Add(this.NombreCLientetextBox);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.IDcomboBox);
-            this.Controls.Add(this.CLienteIdcomboBox);
+            this.Controls.Add(this.CLienteIDcomboBox);
             this.Controls.Add(this.ProductoIdcomboBox);
             this.Controls.Add(this.DetallecomboBox);
             this.Controls.Add(this.UsuariotextBox);
@@ -613,6 +618,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "RegistroVentas";
             this.Text = "RegistroVentas";
             ((System.ComponentModel.ISupportInitialize)(this.proyectoFinalDbDataSet)).EndInit();
@@ -633,7 +639,7 @@
         private System.Windows.Forms.TextBox NombreCLientetextBox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox IDcomboBox;
-        private System.Windows.Forms.ComboBox CLienteIdcomboBox;
+        private System.Windows.Forms.ComboBox CLienteIDcomboBox;
         private System.Windows.Forms.ComboBox ProductoIdcomboBox;
         private System.Windows.Forms.ComboBox DetallecomboBox;
         private System.Windows.Forms.TextBox UsuariotextBox;
