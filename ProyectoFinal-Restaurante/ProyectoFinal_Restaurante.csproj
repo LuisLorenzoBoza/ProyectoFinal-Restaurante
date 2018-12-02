@@ -101,6 +101,12 @@
     <Compile Include="Reportes\ClienteReview.Designer.cs">
       <DependentUpon>ClienteReview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\ReporteDeFacturaCrystalReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteDeFacturaCrystalReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\UsuarioCrystalReportr.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -189,6 +195,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ClienteReview.resx">
       <DependentUpon>ClienteReview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteDeFacturaCrystalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteDeFacturaCrystalReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\UsuarioCrystalReportr.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
