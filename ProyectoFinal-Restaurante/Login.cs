@@ -16,6 +16,7 @@ namespace ProyectoFinal_Restaurante
 {
     public partial class Login : Form
     {
+        public static string user;
         public Login()
         {
             InitializeComponent();
@@ -40,12 +41,13 @@ namespace ProyectoFinal_Restaurante
             foreach (var item in lista)
             {
                 
-                if (usuario == item.Nombre && contraseña == item.Contraseña)
+                if (usuario == item.CuentaUsua && contraseña == item.Contraseña)
                 {
                     new MainForm().Show();
                     Program.usuario = item;
                     this.Visible = false;
                     MessageBox.Show("Bienvenido ", item.Nombre);
+                    user = item.Nombre;
                 }
                 else
                 {

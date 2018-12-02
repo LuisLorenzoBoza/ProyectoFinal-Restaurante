@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿
 using ProyectoFinal_Restaurante.BLL;
 using ProyectoFinal_Restaurante.Entidades;
 using System;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ProyectoFinal_Restaurante.BLL.Tests
-{
+{/*
     [TestClass()]
     public class FacturacionBLLTests
     {
@@ -32,5 +32,5 @@ namespace ProyectoFinal_Restaurante.BLL.Tests
             bool paso = repository.Guardar(factura);
             Assert.AreEqual(true, paso);
         }
-    }
+    }*/
 }

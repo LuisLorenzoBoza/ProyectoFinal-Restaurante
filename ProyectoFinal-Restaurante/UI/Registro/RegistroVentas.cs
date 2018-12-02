@@ -1,5 +1,6 @@
 ﻿using ProyectoFinal_Restaurante.BLL;
 using ProyectoFinal_Restaurante.Entidades;
+using ProyectoFinal_Restaurante.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,7 +25,8 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         {
             InitializeComponent();
             LlenarComboBox();
-            UsuariotextBox.Text = FacturacionBLL.returnUsuario().Nombre;
+            //UsuariotextBox.Text = FacturacionBLL.returnUsuario().Nombre;
+            UsuariotextBox.Text = Login.user;
         }
         private void LlenarComboBox()
         {
@@ -41,7 +43,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             RepositoryBase<Producto> repositoryBaseA = new RepositoryBase<Producto>();
             foreach (var item in repositoryBaseA.GetList(c => true))
             {
-               ProductoIdcomboBox.Items.Add(item.ProductoID);
+                ProductoIdcomboBox.Items.Add(item.ProductoID);
             }
             foreach (var item in FacturacionBLL.GetList(x => true))
             {
@@ -111,7 +113,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         }
         private void Agregarbutton_Click(object sender, EventArgs e)
         {
-           
+
         }
         private void LimpiarProducto()
         {
@@ -128,11 +130,11 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             Factura factura = new Factura();
             if (IDcomboBox.Text == string.Empty)
             {
-              factura.FacturaId = 0;
+                factura.FacturaId = 0;
             }
             else
             {
-              factura.FacturaId = Convert.ToInt32(IDcomboBox.Text);
+                factura.FacturaId = Convert.ToInt32(IDcomboBox.Text);
             }
             factura.ClienteId = Convert.ToInt32(CLienteIDcomboBox.Text);
             factura.UsuarioId = BLL.FacturacionBLL.returnUsuario().UsuarioID;
@@ -149,8 +151,8 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             LimpiarProvider();
             if (SetError(2))
             {
-              MessageBox.Show("Llenar Campos vacios");
-              return;
+                MessageBox.Show("Llenar Campos vacios");
+                return;
             }
             Factura factura = LlenaClase();
             if (IDcomboBox.Text == string.Empty)
@@ -164,16 +166,16 @@ namespace ProyectoFinal_Restaurante.UI.Registro
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
-                        //La variable mayor me devuelve la ultima factura realizada para poder imprimirla
-                        int mayor = FacturacionBLL.Mayor(FacturacionBLL.GetList(y => true));
-                        /*ReporteFacturasCliente abrir = new ReporteFacturasCliente(FacturacionBLL.GetList(x => x.FacturaId == mayor));
-                        abrir.Show();*/
+                        RepositoryBase<Cliente> repositorio = new RepositoryBase<Cliente>();
+                        var usuario = repositorio.Buscar(factura.ClienteId);
+                        DetalleReporte reporte = new DetalleReporte(facturas.Detalle, UsuariotextBox.Text, usuario.Nombre);
+                        reporte.Show();
                     }
                     Clean();
                 }
                 else
                 {
-                  MessageBox.Show("No se pudo Guardar!!");
+                    MessageBox.Show("No se pudo Guardar!!");
                 }
             }
             else
@@ -189,34 +191,36 @@ namespace ProyectoFinal_Restaurante.UI.Registro
                         {
                             foreach (var item in Detalle)
                             {
-                              FacturaDetalleBLL.Eliminar(item.Id);
+                                FacturaDetalleBLL.Eliminar(item.Id);
                             }
                         }
                         if (Arreglar)
                         {
-                          FacturacionBLL.ArreglarProductoList(Detalle);
-                          Arreglar = false;
+                            FacturacionBLL.ArreglarProductoList(Detalle);
+                            Arreglar = false;
                         }
                         var resultado = MessageBox.Show("Desea Imprimir un recibo?", " ",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (result == DialogResult.Yes)
                         {
-                           /*int id = LlenaClase().FacturaId;
-                           ReporteFacturasCliente abrir = new ReporteFacturasCliente(FacturacionBLL.GetList(x => x.FacturaId == id));
-                           abrir.Show();*/
+                            Factura facturas = LlenaClase();
+                            RepositoryBase<Cliente> repositorio = new RepositoryBase<Cliente>();
+                            var usuario = repositorio.Buscar(factura.ClienteId);
+                            DetalleReporte reporte = new DetalleReporte(facturas.Detalle,UsuariotextBox.Text,usuario.Nombre );
+                            reporte.Show();
                         }
                         Clean();
                     }
                     else
                     {
-                      MessageBox.Show("No se pudo modificar!!");
+                        MessageBox.Show("No se pudo modificar!!");
                     }
                 }
             }
         }
         private void Nuevobutton_Click(object sender, EventArgs e)
         {
-          Clean();
+            Clean();
         }
         private void Clean()
         {
@@ -242,8 +246,8 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             LimpiarProvider();
             if (SetError(1))
             {
-              MessageBox.Show("Llenar campos Vacios");
-              return;
+                MessageBox.Show("Llenar campos Vacios");
+                return;
             }
             var result = MessageBox.Show("Seguro de  Eliminar?", " ",
                          MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -252,14 +256,14 @@ namespace ProyectoFinal_Restaurante.UI.Registro
                 FacturacionBLL.ArreglarProducto(FacturacionBLL.Buscar(Convert.ToInt32(IDcomboBox.Text)));
                 if (FacturacionBLL.Eliminar(Convert.ToInt32(IDcomboBox.Text)))
                 {
-                  MessageBox.Show("Eliminado");
-                  IDcomboBox.DataSource = null;
-                  LlenarComboBox();
-                  Clean();
+                    MessageBox.Show("Eliminado");
+                    IDcomboBox.DataSource = null;
+                    LlenarComboBox();
+                    Clean();
                 }
                 else
                 {
-                  MessageBox.Show("No se pudo eliminar");
+                    MessageBox.Show("No se pudo eliminar");
                 }
             }
         }
@@ -268,28 +272,28 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             LimpiarProvider();
             if (SetError(6))
             {
-              MessageBox.Show("Debe Buscar Antes de poner una cantidad");
-              CantidadnumericUpDown.Value = 0;
-              return;
+                MessageBox.Show("Debe Buscar Antes de poner una cantidad");
+                CantidadnumericUpDown.Value = 0;
+                return;
             }
             ImportetextBox.Text = FacturacionBLL.Importedemas(CantidadnumericUpDown.Value, Convert.ToDecimal(PreciotextBox.Text)).ToString();
         }
         private void EfectivonumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-          AsignarDevuelta();
+            AsignarDevuelta();
         }
         private void AsignarDevuelta()
         {
-          DevueltatextBox.Text = FacturacionBLL.RetornarDevuelta(EfectivonumericUpDown.Value, Convert.ToDecimal(MontotextBox.Text)).ToString();
+            DevueltatextBox.Text = FacturacionBLL.RetornarDevuelta(EfectivonumericUpDown.Value, Convert.ToDecimal(MontotextBox.Text)).ToString();
         }
         private void DetallecomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-           int ID, id;
-           id = Convert.ToInt32(IDcomboBox.Text);
-           ID = Convert.ToInt32(DetallecomboBox.Text);
+            int ID, id;
+            id = Convert.ToInt32(IDcomboBox.Text);
+            ID = Convert.ToInt32(DetallecomboBox.Text);
             if (facturas.Detalle.Count() == 0)
             {
-              facturas.Detalle = FacturaDetalleBLL.GetList(x => x.FacturaId == id);
+                facturas.Detalle = FacturaDetalleBLL.GetList(x => x.FacturaId == id);
             }
             foreach (var item in facturas.Detalle)
             {
@@ -311,8 +315,8 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             int id = Convert.ToInt32(ProductoIdcomboBox.Text);
             foreach (var item in repositoryBase.GetList(c => c.ProductoID == id))
             {
-               DescripcionProductotextBox.Text = item.Descripcion;
-               PreciotextBox.Text = item.Precio.ToString();
+                DescripcionProductotextBox.Text = item.Descripcion;
+                PreciotextBox.Text = item.Precio.ToString();
             }
         }
         private void IDcomboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -333,7 +337,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             EliminarDetalle.Enabled = true;
             foreach (var item in facturas.Detalle)
             {
-              item.Importe = FacturacionBLL.Importedemas(item.Cantidad, item.Precio);
+                item.Importe = FacturacionBLL.Importedemas(item.Cantidad, item.Precio);
             }
             FacturadataGridView.DataSource = facturas.Detalle;
             Detalle = new List<FacturaDetalle>();
@@ -343,14 +347,14 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             DetallecomboBox.Items.Clear();
             foreach (var item in facturas.Detalle)
             {
-              DetallecomboBox.Items.Add(item.Id);
+                DetallecomboBox.Items.Add(item.Id);
             }
         }
         private void CLienteIDcomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-           LimpiarProvider();
-           RepositoryBase<Cliente> repositoryBase = new RepositoryBase<Cliente>();
-           NombreCLientetextBox.Text = repositoryBase.Buscar(Convert.ToInt32(CLienteIDcomboBox.Text)).Nombre;
+            LimpiarProvider();
+            RepositoryBase<Cliente> repositoryBase = new RepositoryBase<Cliente>();
+            NombreCLientetextBox.Text = repositoryBase.Buscar(Convert.ToInt32(CLienteIDcomboBox.Text)).Nombre;
         }
         private void EliminarDetalle_Click(object sender, EventArgs e)
         {
@@ -371,7 +375,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
                     RowSelected = -1;
                     if (paso)
                     {
-                      AsignarDevuelta();
+                        AsignarDevuelta();
                     }
                     MessageBox.Show("Eliminado!");
                 }
@@ -379,74 +383,93 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         }
         private void Guardarbutton_Click_1(object sender, EventArgs e)
         {
-                LimpiarProvider();
-                if (SetError(2))
+            LimpiarProvider();
+            if (SetError(2))
+            {
+                MessageBox.Show("Llenar Campos vacios");
+                return;
+            }
+            Factura factura = LlenaClase();
+            if (IDcomboBox.Text == string.Empty)
+            {
+                if (FacturacionBLL.Guardar(factura))
                 {
-                    MessageBox.Show("Llenar Campos vacios");
-                    return;
-                }
-                Factura factura = LlenaClase();
-                if (IDcomboBox.Text == string.Empty)
-                {
-                    if (FacturacionBLL.Guardar(factura))
+                    MessageBox.Show("Guardado!!");
+                    LlenarComboBox();
+                    FacturacionBLL.DescontarProductos(facturas.Detalle);
+                    var result = MessageBox.Show("Desea Imprimir un recibo?", " ",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
                     {
-                        MessageBox.Show("Guardado!!");
-                        LlenarComboBox();
-                        FacturacionBLL.DescontarProductos(facturas.Detalle);
-                        var result = MessageBox.Show("Desea Imprimir un recibo?", " ",
+                        RepositoryBase<Usuario> repositorio = new RepositoryBase<Usuario>();
+                        Usuario usuario = repositorio.Buscar(factura.UsuarioId);
+
+                        if (usuario == null)
+                        {
+                            usuario = new Usuario();
+                            usuario.Nombre = "Guest";
+                        }
+
+                        RepositoryBase<Cliente> reposito = new RepositoryBase<Cliente>();
+                        Cliente cliente = reposito.Buscar(factura.ClienteId);
+                        DetalleReporte reporte = new DetalleReporte(factura.Detalle, usuario.Nombre, cliente.Nombre);
+                        reporte.Show();
+                    }
+                    Clean();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo Guardar!!");
+                }
+            }
+            else
+            {
+                var result = MessageBox.Show("Seguro de Modificar?", " ",
+                             MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    if (FacturacionBLL.Modificar(LlenaClase()))
+                    {
+                        MessageBox.Show("Modificado !");
+                        if (Detalle.Count != 0)
+                        {
+                            foreach (var item in Detalle)
+                            {
+                                FacturaDetalleBLL.Eliminar(item.Id);
+                            }
+                        }
+                        if (Arreglar)
+                        {
+                            FacturacionBLL.ArreglarProductoList(Detalle);
+                            Arreglar = false;
+                        }
+                        var resultado = MessageBox.Show("Desea Imprimir un recibo?", " ",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (result == DialogResult.Yes)
                         {
-                            //La variable mayor me devuelve la ultima factura realizada para poder imprimirla
-                            int mayor = FacturacionBLL.Mayor(FacturacionBLL.GetList(y => true));
-                            /*ReporteFacturasCliente abrir = new ReporteFacturasCliente(FacturacionBLL.GetList(x => x.FacturaId == mayor));
-                            abrir.Show();*/
+                            RepositoryBase<Usuario> repositorio = new RepositoryBase<Usuario>();
+                            Usuario usuario = repositorio.Buscar(factura.UsuarioId);
+
+                            if (usuario == null)
+                            {
+                                usuario = new Usuario();
+                                usuario.Nombre = "Guest";
+                            }
+
+                            RepositoryBase<Cliente> reposito = new RepositoryBase<Cliente>();
+                            Cliente cliente = reposito.Buscar(factura.ClienteId);
+                            DetalleReporte reporte = new DetalleReporte(factura.Detalle, usuario.Nombre, cliente.Nombre);
+                            reporte.Show();
                         }
                         Clean();
                     }
                     else
                     {
-                        MessageBox.Show("No se pudo Guardar!!");
+                        MessageBox.Show("No se pudo modificar!");
                     }
                 }
-                else
-                {
-                    var result = MessageBox.Show("Seguro de Modificar?", " ",
-                                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (result == DialogResult.Yes)
-                    {
-                        if (FacturacionBLL.Modificar(LlenaClase()))
-                        {
-                            MessageBox.Show("Modificado !");
-                            if (Detalle.Count != 0)
-                            {
-                                foreach (var item in Detalle)
-                                {
-                                    FacturaDetalleBLL.Eliminar(item.Id);
-                                }
-                            }
-                            if (Arreglar)
-                            {
-                                FacturacionBLL.ArreglarProductoList(Detalle);
-                                Arreglar = false;
-                            }
-                            var resultado = MessageBox.Show("Desea Imprimir un recibo?", " ",
-                            MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                            if (result == DialogResult.Yes)
-                            {
-                                /*int id = LlenaClase().FacturaId;
-                                ReporteFacturasCliente abrir = new ReporteFacturasCliente(FacturacionBLL.GetList(x => x.FacturaId == id));
-                                abrir.Show();*/
-                            }
-                            Clean();
-                        }
-                        else
-                        {
-                            MessageBox.Show("No se pudo modificar!");
-                        }
-                    }
-                }
-            
+            }
+
         }
         private void Agregarbutton_Click_1(object sender, EventArgs e)
         {
@@ -472,7 +495,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
                 int idfactura = Convert.ToInt32(IDcomboBox.Text);
                 if (facturas.Detalle.Count == 0)
                 {
-                   facturas.Detalle = FacturaDetalleBLL.GetList(x => x.FacturaId == idfactura);
+                    facturas.Detalle = FacturaDetalleBLL.GetList(x => x.FacturaId == idfactura);
                 }
                 if (DetallecomboBox.Text == string.Empty)
                 {
@@ -483,13 +506,13 @@ namespace ProyectoFinal_Restaurante.UI.Registro
                         {
                             if (item.ProductoId == Idproducto)
                             {
-                              item.Cantidad += Convert.ToInt32(CantidadnumericUpDown.Value);
+                                item.Cantidad += Convert.ToInt32(CantidadnumericUpDown.Value);
                             }
                         }
                     }
                     else
                     {
-                      facturas.Detalle.Add(new FacturaDetalle(0, Convert.ToInt32(IDcomboBox.Text), Convert.ToInt32(ProductoIdcomboBox.Text), Convert.ToInt32(CantidadnumericUpDown.Value), Convert.ToDecimal(PreciotextBox.Text), DescripcionProductotextBox.Text, Convert.ToDecimal(ImportetextBox.Text)));
+                        facturas.Detalle.Add(new FacturaDetalle(0, Convert.ToInt32(IDcomboBox.Text), Convert.ToInt32(ProductoIdcomboBox.Text), Convert.ToInt32(CantidadnumericUpDown.Value), Convert.ToDecimal(PreciotextBox.Text), DescripcionProductotextBox.Text, Convert.ToDecimal(ImportetextBox.Text)));
                     }
                 }
                 else
@@ -498,7 +521,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
 
                     foreach (var item in facturas.Detalle)
                     {
-                       item.Importe = FacturacionBLL.Importe(item.Cantidad, CantidadnumericUpDown.Value, item.Precio, Convert.ToInt32(ProductoIdcomboBox.Text), item.ProductoId);
+                        item.Importe = FacturacionBLL.Importe(item.Cantidad, CantidadnumericUpDown.Value, item.Precio, Convert.ToInt32(ProductoIdcomboBox.Text), item.ProductoId);
                     }
                     facturas.Detalle = FacturacionBLL.Editar(facturas.Detalle, new FacturaDetalle(Convert.ToInt32(DetallecomboBox.Text), Convert.ToInt32(IDcomboBox.Text), Convert.ToInt32(ProductoIdcomboBox.Text), Convert.ToInt32(CantidadnumericUpDown.Value), Convert.ToDecimal(PreciotextBox.Text), DescripcionProductotextBox.Text, Convert.ToDecimal(ImportetextBox.Text)));
                 }
@@ -507,7 +530,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             MontotextBox.Text = Monto.ToString();
             if (paso)
             {
-              AsignarDevuelta();
+                AsignarDevuelta();
             }
             FacturadataGridView.DataSource = null;
             FacturadataGridView.DataSource = facturas.Detalle;
@@ -517,7 +540,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         }
         private void FacturadataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-          RowSelected = e.RowIndex;
+            RowSelected = e.RowIndex;
         }
     }
 }

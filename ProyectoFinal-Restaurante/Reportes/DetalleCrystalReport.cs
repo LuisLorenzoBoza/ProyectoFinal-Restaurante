@@ -16,14 +16,14 @@ namespace ProyectoFinal_Restaurante.Reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class ReporteDeFacturaCrystalReport : ReportClass {
+    public class DetalleCrystalReport : ReportClass {
         
-        public ReporteDeFacturaCrystalReport() {
+        public DetalleCrystalReport() {
         }
         
         public override string ResourceName {
             get {
-                return "ReporteDeFacturaCrystalReport.rpt";
+                return "DetalleCrystalReport.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace ProyectoFinal_Restaurante.Reportes {
         
         public override string FullResourceName {
             get {
-                return "ProyectoFinal_Restaurante.Reportes.ReporteDeFacturaCrystalReport.rpt";
+                return "ProyectoFinal_Restaurante.Reportes.DetalleCrystalReport.rpt";
             }
             set {
                 // Do nothing
@@ -87,12 +87,28 @@ namespace ProyectoFinal_Restaurante.Reportes {
                 return this.ReportDefinition.Sections[4];
             }
         }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_Cliente {
+            get {
+                return this.DataDefinition.ParameterFields[0];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_NombreUsuario {
+            get {
+                return this.DataDefinition.ParameterFields[1];
+            }
+        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedReporteDeFacturaCrystalReport : Component, ICachedReport {
+    public class CachedDetalleCrystalReport : Component, ICachedReport {
         
-        public CachedReporteDeFacturaCrystalReport() {
+        public CachedDetalleCrystalReport() {
         }
         
         [Browsable(false)]
@@ -129,7 +145,7 @@ namespace ProyectoFinal_Restaurante.Reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            ReporteDeFacturaCrystalReport rpt = new ReporteDeFacturaCrystalReport();
+            DetalleCrystalReport rpt = new DetalleCrystalReport();
             rpt.Site = this.Site;
             return rpt;
         }

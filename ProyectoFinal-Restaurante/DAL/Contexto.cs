@@ -15,10 +15,6 @@ namespace ProyectoFinal_Restaurante.BLL
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Factura> factura { get; set; }
         public DbSet<FacturaDetalle> Facturas { get; set; }
-
-
-
-
         public Contexto() : base("ConStr")
         {
 

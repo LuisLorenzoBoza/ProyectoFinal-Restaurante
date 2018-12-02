@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistroVentas));
-            this.proyectoFinalDbDataSet = new ProyectoFinal_Restaurante.ProyectoFinalDbDataSet();
             this.EliminarDetalle = new System.Windows.Forms.Button();
             this.NombreCLientetextBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -79,7 +78,6 @@
             this.ProductoerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.label7 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoFinalDbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EfectivonumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FacturadataGridView)).BeginInit();
@@ -87,11 +85,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.DemaserrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProductoerrorProvider)).BeginInit();
             this.SuspendLayout();
-            // 
-            // proyectoFinalDbDataSet
-            // 
-            this.proyectoFinalDbDataSet.DataSetName = "ProyectoFinalDbDataSet";
-            this.proyectoFinalDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // EliminarDetalle
             // 
@@ -109,6 +102,7 @@
             // 
             this.NombreCLientetextBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.NombreCLientetextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.NombreCLientetextBox.Enabled = false;
             this.NombreCLientetextBox.Location = new System.Drawing.Point(102, 75);
             this.NombreCLientetextBox.Name = "NombreCLientetextBox";
             this.NombreCLientetextBox.ReadOnly = true;
@@ -126,6 +120,7 @@
             // 
             // IDcomboBox
             // 
+            this.IDcomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.IDcomboBox.FormattingEnabled = true;
             this.IDcomboBox.Location = new System.Drawing.Point(102, 15);
             this.IDcomboBox.Name = "IDcomboBox";
@@ -135,6 +130,7 @@
             // 
             // CLienteIDcomboBox
             // 
+            this.CLienteIDcomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CLienteIDcomboBox.FormattingEnabled = true;
             this.CLienteIDcomboBox.Location = new System.Drawing.Point(102, 45);
             this.CLienteIDcomboBox.Name = "CLienteIDcomboBox";
@@ -145,6 +141,7 @@
             // ProductoIdcomboBox
             // 
             this.ProductoIdcomboBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ProductoIdcomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ProductoIdcomboBox.FormattingEnabled = true;
             this.ProductoIdcomboBox.Location = new System.Drawing.Point(102, 209);
             this.ProductoIdcomboBox.Name = "ProductoIdcomboBox";
@@ -155,6 +152,7 @@
             // DetallecomboBox
             // 
             this.DetallecomboBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.DetallecomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DetallecomboBox.Enabled = false;
             this.DetallecomboBox.FormattingEnabled = true;
             this.DetallecomboBox.Location = new System.Drawing.Point(102, 244);
@@ -167,6 +165,7 @@
             // 
             this.UsuariotextBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.UsuariotextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.UsuariotextBox.Enabled = false;
             this.UsuariotextBox.Location = new System.Drawing.Point(16, 568);
             this.UsuariotextBox.Name = "UsuariotextBox";
             this.UsuariotextBox.ReadOnly = true;
@@ -187,6 +186,7 @@
             // 
             this.ImportetextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ImportetextBox.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.ImportetextBox.Enabled = false;
             this.ImportetextBox.Location = new System.Drawing.Point(546, 245);
             this.ImportetextBox.Name = "ImportetextBox";
             this.ImportetextBox.ReadOnly = true;
@@ -228,6 +228,7 @@
             // 
             this.PreciotextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.PreciotextBox.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.PreciotextBox.Enabled = false;
             this.PreciotextBox.Location = new System.Drawing.Point(546, 209);
             this.PreciotextBox.Name = "PreciotextBox";
             this.PreciotextBox.ReadOnly = true;
@@ -248,6 +249,7 @@
             // 
             this.DescripcionProductotextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.DescripcionProductotextBox.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.DescripcionProductotextBox.Enabled = false;
             this.DescripcionProductotextBox.Location = new System.Drawing.Point(246, 210);
             this.DescripcionProductotextBox.Name = "DescripcionProductotextBox";
             this.DescripcionProductotextBox.ReadOnly = true;
@@ -621,7 +623,6 @@
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "RegistroVentas";
             this.Text = "RegistroVentas";
-            ((System.ComponentModel.ISupportInitialize)(this.proyectoFinalDbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EfectivonumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FacturadataGridView)).EndInit();
@@ -634,7 +635,7 @@
         }
 
         #endregion
-        private ProyectoFinalDbDataSet proyectoFinalDbDataSet;
+       
         private System.Windows.Forms.Button EliminarDetalle;
         private System.Windows.Forms.TextBox NombreCLientetextBox;
         private System.Windows.Forms.Label label10;
