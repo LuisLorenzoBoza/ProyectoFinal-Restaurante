@@ -14,7 +14,7 @@ namespace ProyectoFinal_Restaurante.Entidades
         public string Descripcion { get; set; }
         public int Cantidad { get; set; }
         public decimal Precio { get; set; }
-        public DateTime FechaDeRegistro { get; set; }
+        public DateTime Fecha { get; set; }
 
         public Producto()
         {
@@ -22,7 +22,7 @@ namespace ProyectoFinal_Restaurante.Entidades
             Descripcion = string.Empty;
             Cantidad = 0;
             Precio = 0;
-            FechaDeRegistro = DateTime.Now;
+            Fecha = DateTime.Now;
         }
 
         public Producto(int ProductoID, string Descripcion, int Cantidad, decimal Precio, DateTime FechaDeRegistro)
@@ -31,7 +31,7 @@ namespace ProyectoFinal_Restaurante.Entidades
             this.Descripcion = Descripcion;
             this.Cantidad = Cantidad;
             this.Precio = Precio;
-            this.FechaDeRegistro = FechaDeRegistro;
+            this.Fecha = FechaDeRegistro;
         }
 
         public override string ToString()

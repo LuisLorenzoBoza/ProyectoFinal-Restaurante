@@ -30,7 +30,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             producto.Descripcion = DescripciontextBox.Text;
             producto.Cantidad = Convert.ToInt32(CantidadnumericUpDown.Value);
             producto.Precio = Convert.ToInt32(PrecionumericUpDown.Value);
-            producto.FechaDeRegistro = FechaRegistrodateTimePicker.Value;
+            producto.Fecha = FechaRegistrodateTimePicker.Value;
             return producto;
         }
 
@@ -40,7 +40,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             DescripciontextBox.Text = articulos.Descripcion;
             CantidadnumericUpDown.Value = articulos.Cantidad;
             PrecionumericUpDown.Value = Convert.ToDecimal(articulos.Precio);
-            FechaRegistrodateTimePicker.Value = articulos.FechaDeRegistro;  
+            FechaRegistrodateTimePicker.Value = articulos.Fecha;  
         }
         public bool Validar(int error)
         {

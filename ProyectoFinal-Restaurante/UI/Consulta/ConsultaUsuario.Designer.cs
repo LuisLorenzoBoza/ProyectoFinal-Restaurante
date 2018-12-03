@@ -56,7 +56,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(155, 78);
+            this.label4.Location = new System.Drawing.Point(155, 75);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
@@ -66,7 +66,7 @@
             // HastadateTimePicker
             // 
             this.HastadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.HastadateTimePicker.Location = new System.Drawing.Point(154, 93);
+            this.HastadateTimePicker.Location = new System.Drawing.Point(154, 90);
             this.HastadateTimePicker.Margin = new System.Windows.Forms.Padding(2);
             this.HastadateTimePicker.Name = "HastadateTimePicker";
             this.HastadateTimePicker.Size = new System.Drawing.Size(129, 20);
@@ -75,7 +75,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 77);
+            this.label3.Location = new System.Drawing.Point(15, 74);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 13);
@@ -85,7 +85,7 @@
             // DesdedateTimePicker
             // 
             this.DesdedateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DesdedateTimePicker.Location = new System.Drawing.Point(18, 93);
+            this.DesdedateTimePicker.Location = new System.Drawing.Point(18, 90);
             this.DesdedateTimePicker.Margin = new System.Windows.Forms.Padding(2);
             this.DesdedateTimePicker.Name = "DesdedateTimePicker";
             this.DesdedateTimePicker.Size = new System.Drawing.Size(122, 20);
@@ -114,10 +114,10 @@
             this.FiltrocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FiltrocomboBox.FormattingEnabled = true;
             this.FiltrocomboBox.Items.AddRange(new object[] {
+            "Todo",
             "UsuarioID",
-            "Contraseña ",
             "Nombre ",
-            "Todos"});
+            "Contraseña "});
             this.FiltrocomboBox.Location = new System.Drawing.Point(13, 32);
             this.FiltrocomboBox.Margin = new System.Windows.Forms.Padding(2);
             this.FiltrocomboBox.Name = "FiltrocomboBox";

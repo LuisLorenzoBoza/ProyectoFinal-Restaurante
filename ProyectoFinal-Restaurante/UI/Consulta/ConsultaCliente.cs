@@ -13,15 +13,11 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
     {
         List<Cliente> cliente = new List<Cliente>();
         Expression<Func<Cliente, bool>> filtro = x => true;
-       
-
         public ConsultaCliente()
         {
             InitializeComponent();
         }
-
         public object RepositoryBase { get; private set; }
-
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
             RepositoryBase<Cliente> repository = new RepositoryBase<Cliente>();
@@ -35,6 +31,8 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
                         break;
                     case 1://Id
                         {
+                            int id = Convert.ToInt32(CriteriotextBox.Text);
+                            listado = repository.GetList(p => p.ClieteID == id);
                             if (repository.GetList(filtro).Count() == 0)
                             {
                                 MessageBox.Show("Este cliente no Exite", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -63,7 +61,7 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
                         }
                         break;
                     case 4://Telefono                     
-                        {
+                        {                            
                             listado = repository.GetList(p => p.Telefono.Contains(CriteriotextBox.Text));
                             if (repository.GetList(filtro).Count() == 0)
                             {
@@ -73,15 +71,12 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
                         }
                         break;
                 }
-            }
-           
-
+            } 
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = listado;
             CriteriotextBox.Clear();
             cliente = listado;
         }
-
         private void Imprimir_Click(object sender, EventArgs e)
         {
             if (cliente.Count == 0)
@@ -91,7 +86,6 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
             }
             ClienteReview clienteReview = new ClienteReview(cliente);
             clienteReview.Show();
-        
         }
     }
 }

@@ -46,10 +46,9 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
                     case 4://Precio
                         decimal precio = Convert.ToInt32(CriteriotextBox.Text);
                         listado = repository.GetList(p => p.Precio == precio);
-                        break;
-                   
+                        break;                    
                 }
-                listado = listado.Where(c => c.FechaDeRegistro.Date >= DesdedateTimePicker.Value.Date && c.FechaDeRegistro.Date <= HastadateTimePicker.Value.Date).ToList();
+                listado = listado.Where(c => c.Fecha.Date >= DesdedateTimePicker.Value.Date && c.Fecha.Date <= HastadateTimePicker.Value.Date).ToList();
             }
             else
             {
@@ -58,7 +57,6 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = listado;
         }
-
         private void Imprimirbutton_Click(object sender, EventArgs e)
         {
             if (producto.Count == 0)
@@ -66,8 +64,8 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
                 MessageBox.Show("No encontrado");
                 return;
             }
-            ProductoReview clienteReview = new ProductoReview(producto);
-            clienteReview.Show();
+            ProductoReview productoReview = new ProductoReview(producto);
+            productoReview.Show();
         }
     }
 }

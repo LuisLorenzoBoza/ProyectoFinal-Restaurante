@@ -13,15 +13,11 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
     public partial class ConsultaUsuario : Form
     {
         List<Usuario> usuario = new List<Usuario>();
-        //RepositoryBase<Usuario> repositoryBase;
         Expression<Func<Usuario, bool>> filtro = x => true;
-
         public ConsultaUsuario()
         {
             InitializeComponent();
-            //repositoryBase = new RepositoryBase<Usuario>();
         }
-
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
             RepositoryBase<Usuario> repository = new RepositoryBase<Usuario>();
@@ -64,8 +60,7 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
                                 return;
                             }
                         }
-                        break;
-                    
+                        break;                    
                 }
             }
             else
@@ -76,9 +71,7 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
             dataGridView1.DataSource = listado;
             usuario = listado;
             CriteriotextBox.Clear();
-
         }
-
         private void Imprimirbutton_Click(object sender, EventArgs e)
         {
             if (usuario.Count == 0)
