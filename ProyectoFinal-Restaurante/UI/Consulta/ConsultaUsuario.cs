@@ -76,7 +76,7 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
         {
             if (usuario.Count == 0)
             {
-                MessageBox.Show("No encontrado");
+                MessageBox.Show("No encontrado","Fallo");
                 return;
             }
             UsuarioReview usuarioReview = new UsuarioReview(usuario);
