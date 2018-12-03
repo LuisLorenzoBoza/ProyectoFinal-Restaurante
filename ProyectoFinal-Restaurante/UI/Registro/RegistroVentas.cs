@@ -3,12 +3,7 @@ using ProyectoFinal_Restaurante.Entidades;
 using ProyectoFinal_Restaurante.Reportes;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoFinal_Restaurante.UI.Registro
@@ -20,6 +15,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         Factura facturas = new Factura();
         List<FacturaDetalle> Detalle = new List<FacturaDetalle>();
         public RepositoryBase<Producto> repository;
+        public RepositoryBase<Cliente> repositoryC;
         public int RowSelected { get; set; }
         public RegistroVentas()
         {
@@ -35,21 +31,24 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             IDcomboBox.Items.Clear();
             CLienteIDcomboBox.Items.Clear();
             ProductoIdcomboBox.Items.Clear();
-            //CLienteIDcomboBox.DataSource = repositoryBase.GetList(c => true);
+            CLienteIDcomboBox.DataSource = repositoryBase.GetList(c => true);
+
+            RepositoryBase<Cliente> repositoryC = new RepositoryBase<Cliente>();
             foreach (var item in repositoryBase.GetList(c => true))
             {
-                CLienteIDcomboBox.Items.Add(item.ClienteId);
+               CLienteIDcomboBox.Items.Add(item.ClienteID);
             }
+
             RepositoryBase<Producto> repositoryBaseA = new RepositoryBase<Producto>();
             foreach (var item in repositoryBaseA.GetList(c => true))
             {
-                ProductoIdcomboBox.Items.Add(item.ProductoID);
+               ProductoIdcomboBox.Items.Add(item.ProductoID);
             }
+
             foreach (var item in FacturacionBLL.GetList(x => true))
             {
-                IDcomboBox.Items.Add(item.FacturaId);
-            }
-            
+               IDcomboBox.Items.Add(item.FacturaId);
+            }       
         }
         private void LimpiarProvider()
         {
@@ -128,7 +127,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             {
                 factura.FacturaId = Convert.ToInt32(IDcomboBox.Text);
             }
-            factura.ClienteId = Convert.ToInt32(CLienteIDcomboBox.Text);
+            factura.ClienteID = Convert.ToInt32(CLienteIDcomboBox.Text);
             factura.UsuarioId = BLL.FacturacionBLL.returnUsuario().UsuarioID;
             factura.Fecha = FechadateTimePicker.Value;
             factura.Descripcion = DescripciponFacturatextBox.Text;
@@ -244,7 +243,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             LimpiarProvider();
             int idfactura = Convert.ToInt32(IDcomboBox.Text);
             facturas = FacturacionBLL.Buscar(Convert.ToInt32(IDcomboBox.Text));
-            CLienteIDcomboBox.Text = facturas.ClienteId.ToString();
+            CLienteIDcomboBox.Text = facturas.ClienteID.ToString();
             DescripciponFacturatextBox.Text = facturas.Descripcion;
             DevueltatextBox.Text = facturas.Devuelta.ToString();
             MontotextBox.Text = facturas.Monto.ToString();
@@ -322,7 +321,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
                     if (result == DialogResult.Yes)
                     {
                         RepositoryBase<Cliente> repositorio = new RepositoryBase<Cliente>();
-                        var usuario = repositorio.Buscar(factura.ClienteId);
+                        var usuario = repositorio.Buscar(factura.ClienteID);
                         DetalleReporte reporte = new DetalleReporte(facturas.Detalle, UsuariotextBox.Text, usuario.Nombre);
                         reporte.Show();
                     }
@@ -360,7 +359,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
                         {
                             Factura facturas = LlenaClase();
                             RepositoryBase<Cliente> repositorio = new RepositoryBase<Cliente>();
-                            var usuario = repositorio.Buscar(factura.ClienteId);
+                            var usuario = repositorio.Buscar(factura.ClienteID);
                             DetalleReporte reporte = new DetalleReporte(facturas.Detalle, UsuariotextBox.Text, usuario.Nombre);
                             reporte.Show();
                         }

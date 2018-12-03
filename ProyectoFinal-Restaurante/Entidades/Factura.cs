@@ -14,7 +14,7 @@ namespace ProyectoFinal_Restaurante.Entidades
         public int FacturaId { get; set; }
         public decimal Monto { get; set; }
         public int UsuarioId { get; set; }
-        public int ClienteId { get; set; }
+        public int ClienteID { get; set; }
         public DateTime Fecha { get; set; }
         public string Descripcion { get; set; }
         public decimal Devuelta { get; set; }
@@ -27,7 +27,7 @@ namespace ProyectoFinal_Restaurante.Entidades
             this.FacturaId = idFactura;
             this.Monto = monto;
             this.UsuarioId = usuarioId;
-            this.ClienteId = clienteId;
+            this.ClienteID = clienteId;
             this.Fecha = fecha;
             this.Descripcion = descripcion;
             this.Devuelta = devuelta;
@@ -39,7 +39,7 @@ namespace ProyectoFinal_Restaurante.Entidades
             this.FacturaId = 0;
             this.Monto = 0;
             this.UsuarioId = 0;
-            this.ClienteId = 0;
+            this.ClienteID = 0;
             this.Fecha = DateTime.Now;
             this.Descripcion = string.Empty;
             this.Devuelta = 0;

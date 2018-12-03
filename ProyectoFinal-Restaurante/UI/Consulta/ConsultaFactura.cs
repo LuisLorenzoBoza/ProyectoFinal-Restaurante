@@ -44,7 +44,7 @@ namespace ProyectoFinal_Restaurante.UI.Consulta
                         break;
                     case 4://ClienteId
                         int clienteId = Convert.ToInt32(CriteriotextBox.Text);
-                        listado = repository.GetList(p => p.ClienteId == clienteId);
+                        listado = repository.GetList(p => p.ClienteID == clienteId);
                         break;
                     case 5://Descripcion
                         listado = repository.GetList(p => p.Descripcion.Contains(CriteriotextBox.Text));

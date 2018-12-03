@@ -90,7 +90,7 @@
             // 
             this.EliminarDetalle.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.EliminarDetalle.Enabled = false;
-            this.EliminarDetalle.Location = new System.Drawing.Point(13, 509);
+            this.EliminarDetalle.Location = new System.Drawing.Point(12, 538);
             this.EliminarDetalle.Name = "EliminarDetalle";
             this.EliminarDetalle.Size = new System.Drawing.Size(90, 27);
             this.EliminarDetalle.TabIndex = 100;
@@ -143,7 +143,7 @@
             this.ProductoIdcomboBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ProductoIdcomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ProductoIdcomboBox.FormattingEnabled = true;
-            this.ProductoIdcomboBox.Location = new System.Drawing.Point(102, 209);
+            this.ProductoIdcomboBox.Location = new System.Drawing.Point(102, 181);
             this.ProductoIdcomboBox.Name = "ProductoIdcomboBox";
             this.ProductoIdcomboBox.Size = new System.Drawing.Size(111, 21);
             this.ProductoIdcomboBox.TabIndex = 95;
@@ -155,7 +155,7 @@
             this.DetallecomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.DetallecomboBox.Enabled = false;
             this.DetallecomboBox.FormattingEnabled = true;
-            this.DetallecomboBox.Location = new System.Drawing.Point(102, 244);
+            this.DetallecomboBox.Location = new System.Drawing.Point(102, 216);
             this.DetallecomboBox.Name = "DetallecomboBox";
             this.DetallecomboBox.Size = new System.Drawing.Size(111, 21);
             this.DetallecomboBox.TabIndex = 94;
@@ -166,7 +166,7 @@
             this.UsuariotextBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.UsuariotextBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.UsuariotextBox.Enabled = false;
-            this.UsuariotextBox.Location = new System.Drawing.Point(16, 568);
+            this.UsuariotextBox.Location = new System.Drawing.Point(512, 623);
             this.UsuariotextBox.Name = "UsuariotextBox";
             this.UsuariotextBox.ReadOnly = true;
             this.UsuariotextBox.Size = new System.Drawing.Size(136, 20);
@@ -176,7 +176,7 @@
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(33, 251);
+            this.label11.Location = new System.Drawing.Point(33, 223);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(54, 13);
             this.label11.TabIndex = 92;
@@ -187,7 +187,7 @@
             this.ImportetextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ImportetextBox.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ImportetextBox.Enabled = false;
-            this.ImportetextBox.Location = new System.Drawing.Point(546, 245);
+            this.ImportetextBox.Location = new System.Drawing.Point(546, 217);
             this.ImportetextBox.Name = "ImportetextBox";
             this.ImportetextBox.ReadOnly = true;
             this.ImportetextBox.Size = new System.Drawing.Size(100, 20);
@@ -197,7 +197,7 @@
             // 
             this.Importe.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.Importe.AutoSize = true;
-            this.Importe.Location = new System.Drawing.Point(543, 232);
+            this.Importe.Location = new System.Drawing.Point(543, 204);
             this.Importe.Name = "Importe";
             this.Importe.Size = new System.Drawing.Size(42, 13);
             this.Importe.TabIndex = 90;
@@ -207,7 +207,7 @@
             // 
             this.Agregarbutton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.Agregarbutton.BackgroundImage = global::ProyectoFinal_Restaurante.Properties.Resources.if_sign_add_299068;
-            this.Agregarbutton.Location = new System.Drawing.Point(405, 241);
+            this.Agregarbutton.Location = new System.Drawing.Point(405, 213);
             this.Agregarbutton.Name = "Agregarbutton";
             this.Agregarbutton.Size = new System.Drawing.Size(32, 32);
             this.Agregarbutton.TabIndex = 89;
@@ -218,7 +218,7 @@
             // 
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(543, 193);
+            this.label12.Location = new System.Drawing.Point(543, 165);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(37, 13);
             this.label12.TabIndex = 88;
@@ -229,7 +229,7 @@
             this.PreciotextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.PreciotextBox.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.PreciotextBox.Enabled = false;
-            this.PreciotextBox.Location = new System.Drawing.Point(546, 209);
+            this.PreciotextBox.Location = new System.Drawing.Point(546, 181);
             this.PreciotextBox.Name = "PreciotextBox";
             this.PreciotextBox.ReadOnly = true;
             this.PreciotextBox.Size = new System.Drawing.Size(100, 20);
@@ -239,7 +239,7 @@
             // 
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(243, 197);
+            this.label13.Location = new System.Drawing.Point(243, 169);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(63, 13);
             this.label13.TabIndex = 86;
@@ -250,7 +250,7 @@
             this.DescripcionProductotextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.DescripcionProductotextBox.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.DescripcionProductotextBox.Enabled = false;
-            this.DescripcionProductotextBox.Location = new System.Drawing.Point(246, 210);
+            this.DescripcionProductotextBox.Location = new System.Drawing.Point(246, 182);
             this.DescripcionProductotextBox.Name = "DescripcionProductotextBox";
             this.DescripcionProductotextBox.ReadOnly = true;
             this.DescripcionProductotextBox.Size = new System.Drawing.Size(212, 20);
@@ -259,7 +259,7 @@
             // CantidadnumericUpDown
             // 
             this.CantidadnumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.CantidadnumericUpDown.Location = new System.Drawing.Point(298, 244);
+            this.CantidadnumericUpDown.Location = new System.Drawing.Point(298, 216);
             this.CantidadnumericUpDown.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -274,7 +274,7 @@
             // 
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(243, 251);
+            this.label14.Location = new System.Drawing.Point(243, 223);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(49, 13);
             this.label14.TabIndex = 83;
@@ -284,7 +284,7 @@
             // 
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(33, 216);
+            this.label15.Location = new System.Drawing.Point(33, 188);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(59, 13);
             this.label15.TabIndex = 82;
@@ -295,7 +295,7 @@
             this.Eliminarbutton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Eliminarbutton.BackgroundImage = global::ProyectoFinal_Restaurante.Properties.Resources.if_basket_1814090;
             this.Eliminarbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Eliminarbutton.Location = new System.Drawing.Point(408, 624);
+            this.Eliminarbutton.Location = new System.Drawing.Point(408, 675);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(32, 32);
             this.Eliminarbutton.TabIndex = 81;
@@ -308,7 +308,7 @@
             this.Guardarbutton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Guardarbutton.BackgroundImage = global::ProyectoFinal_Restaurante.Properties.Resources.iconfinder_Save_70652;
             this.Guardarbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Guardarbutton.Location = new System.Drawing.Point(305, 624);
+            this.Guardarbutton.Location = new System.Drawing.Point(305, 675);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(32, 32);
             this.Guardarbutton.TabIndex = 80;
@@ -321,7 +321,7 @@
             this.Nuevobutton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.Nuevobutton.BackgroundImage = global::ProyectoFinal_Restaurante.Properties.Resources.if_window_new_3671912;
             this.Nuevobutton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Nuevobutton.Location = new System.Drawing.Point(202, 624);
+            this.Nuevobutton.Location = new System.Drawing.Point(202, 675);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(32, 32);
             this.Nuevobutton.TabIndex = 79;
@@ -333,7 +333,7 @@
             // 
             this.MontotextBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.MontotextBox.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.MontotextBox.Location = new System.Drawing.Point(265, 566);
+            this.MontotextBox.Location = new System.Drawing.Point(561, 545);
             this.MontotextBox.Name = "MontotextBox";
             this.MontotextBox.ReadOnly = true;
             this.MontotextBox.Size = new System.Drawing.Size(87, 20);
@@ -343,7 +343,7 @@
             // 
             this.DevueltatextBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.DevueltatextBox.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.DevueltatextBox.Location = new System.Drawing.Point(544, 568);
+            this.DevueltatextBox.Location = new System.Drawing.Point(559, 597);
             this.DevueltatextBox.Name = "DevueltatextBox";
             this.DevueltatextBox.ReadOnly = true;
             this.DevueltatextBox.Size = new System.Drawing.Size(87, 20);
@@ -352,7 +352,7 @@
             // EfectivonumericUpDown
             // 
             this.EfectivonumericUpDown.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.EfectivonumericUpDown.Location = new System.Drawing.Point(407, 568);
+            this.EfectivonumericUpDown.Location = new System.Drawing.Point(559, 571);
             this.EfectivonumericUpDown.Maximum = new decimal(new int[] {
             1410065408,
             2,
@@ -377,9 +377,9 @@
             this.FacturaId,
             this.Id,
             this.ImporteDg});
-            this.FacturadataGridView.Location = new System.Drawing.Point(12, 282);
+            this.FacturadataGridView.Location = new System.Drawing.Point(12, 261);
             this.FacturadataGridView.Name = "FacturadataGridView";
-            this.FacturadataGridView.Size = new System.Drawing.Size(634, 213);
+            this.FacturadataGridView.Size = new System.Drawing.Size(634, 271);
             this.FacturadataGridView.TabIndex = 75;
             this.FacturadataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.FacturadataGridView_CellContentClick);
             // 
@@ -446,7 +446,7 @@
             this.DescripciponFacturatextBox.Location = new System.Drawing.Point(102, 105);
             this.DescripciponFacturatextBox.Multiline = true;
             this.DescripciponFacturatextBox.Name = "DescripciponFacturatextBox";
-            this.DescripciponFacturatextBox.Size = new System.Drawing.Size(265, 89);
+            this.DescripciponFacturatextBox.Size = new System.Drawing.Size(121, 22);
             this.DescripciponFacturatextBox.TabIndex = 74;
             // 
             // label6
@@ -465,16 +465,16 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FechadateTimePicker.CustomFormat = "dd/MM/yyyy";
             this.FechadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.FechadateTimePicker.Location = new System.Drawing.Point(446, 27);
+            this.FechadateTimePicker.Location = new System.Drawing.Point(546, 15);
             this.FechadateTimePicker.Name = "FechadateTimePicker";
-            this.FechadateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.FechadateTimePicker.Size = new System.Drawing.Size(109, 20);
             this.FechadateTimePicker.TabIndex = 71;
             // 
             // label9
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(403, 552);
+            this.label9.Location = new System.Drawing.Point(462, 578);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(91, 13);
             this.label9.TabIndex = 70;
@@ -484,7 +484,7 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(541, 552);
+            this.label8.Location = new System.Drawing.Point(503, 604);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(50, 13);
             this.label8.TabIndex = 69;
@@ -495,7 +495,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(443, 9);
+            this.label5.Location = new System.Drawing.Point(503, 21);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 13);
             this.label5.TabIndex = 67;
@@ -505,7 +505,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(262, 550);
+            this.label4.Location = new System.Drawing.Point(518, 552);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 66;
@@ -525,7 +525,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 552);
+            this.label2.Location = new System.Drawing.Point(423, 630);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 13);
             this.label2.TabIndex = 64;
@@ -560,7 +560,7 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(443, 88);
+            this.label7.Location = new System.Drawing.Point(359, 88);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(173, 39);
             this.label7.TabIndex = 101;
@@ -572,7 +572,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(392, 66);
+            this.label16.Location = new System.Drawing.Point(308, 66);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(254, 22);
             this.label16.TabIndex = 102;
@@ -624,6 +624,7 @@
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "RegistroVentas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegistroVentas";
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EfectivonumericUpDown)).EndInit();
