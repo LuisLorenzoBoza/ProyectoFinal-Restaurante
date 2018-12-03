@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace ProyectoFinal_Restaurante.Reportes
 {
-    public partial class ReporteDeFacturas : Form
+    public partial class ReporteDeFacturasReview : Form
     {
-        List<Factura> lista = new List<Factura>();
-        public ReporteDeFacturas(List<Factura> factura)
+        List<Usuario> lista = new List<Usuario>();
+        public ReporteDeFacturasReview(List<Usuario> factura)
         {
             InitializeComponent();
             lista = factura;

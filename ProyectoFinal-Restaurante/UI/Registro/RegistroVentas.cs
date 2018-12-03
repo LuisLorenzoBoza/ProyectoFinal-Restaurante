@@ -25,12 +25,12 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         {
             InitializeComponent();
             LlenarComboBox();
-            //UsuariotextBox.Text = FacturacionBLL.returnUsuario().Nombre;
-            UsuariotextBox.Text = Login.user;
+            UsuariotextBox.Text = FacturacionBLL.returnUsuario().Nombre;
+            //UsuariotextBox.Text = Login.user;
         }
         private void LlenarComboBox()
         {
-            RepositoryBase<Cliente> repositoryBase = new RepositoryBase<Cliente>();
+            RepositoryBase<Factura> repositoryBase = new RepositoryBase<Factura>();
             DevueltatextBox.Text = "0";
             IDcomboBox.Items.Clear();
             CLienteIDcomboBox.Items.Clear();
@@ -38,7 +38,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             //CLienteIDcomboBox.DataSource = repositoryBase.GetList(c => true);
             foreach (var item in repositoryBase.GetList(c => true))
             {
-                CLienteIDcomboBox.Items.Add(item.ClieteID);
+                CLienteIDcomboBox.Items.Add(item.ClienteId);
             }
             RepositoryBase<Producto> repositoryBaseA = new RepositoryBase<Producto>();
             foreach (var item in repositoryBaseA.GetList(c => true))
@@ -49,11 +49,7 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             {
                 IDcomboBox.Items.Add(item.FacturaId);
             }
-            //CLienteIDcomboBox.ValueMember = "ClienteId";
-            //CLienteIDcomboBox.DisplayMember = "Nombre";
-            //RepositoryBase<Producto> repositoryBaseA = new RepositoryBase<Producto>();
-            //ProductoIdcomboBox.ValueMember = "ProductoId";
-            //ProductoIdcomboBox.DisplayMember = "Descripcion";
+            
         }
         private void LimpiarProvider()
         {
@@ -142,7 +138,6 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             factura.Detalle = facturas.Detalle;
             return factura;
         }
-        
         private void Nuevobutton_Click(object sender, EventArgs e)
         {
             Clean();

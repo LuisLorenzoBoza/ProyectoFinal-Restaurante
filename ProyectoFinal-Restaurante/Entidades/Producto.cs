@@ -16,7 +16,6 @@ namespace ProyectoFinal_Restaurante.Entidades
         public decimal Precio { get; set; }
         public DateTime FechaDeRegistro { get; set; }
 
-
         public Producto()
         {
             ProductoID = 0;
@@ -26,7 +25,6 @@ namespace ProyectoFinal_Restaurante.Entidades
             FechaDeRegistro = DateTime.Now;
         }
 
-
         public Producto(int ProductoID, string Descripcion, int Cantidad, decimal Precio, DateTime FechaDeRegistro)
         {
             this.ProductoID = ProductoID;
@@ -35,8 +33,6 @@ namespace ProyectoFinal_Restaurante.Entidades
             this.Precio = Precio;
             this.FechaDeRegistro = FechaDeRegistro;
         }
-
-
 
         public override string ToString()
         {

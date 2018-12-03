@@ -114,11 +114,11 @@
       <DependentUpon>ReporteDeFactura.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reportes\ReporteDeFacturas.cs">
+    <Compile Include="Reportes\ReporteDeFacturasReview.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reportes\ReporteDeFacturas.Designer.cs">
-      <DependentUpon>ReporteDeFacturas.cs</DependentUpon>
+    <Compile Include="Reportes\ReporteDeFacturasReview.Designer.cs">
+      <DependentUpon>ReporteDeFacturasReview.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\UsuarioCrystalReportr.cs">
       <AutoGen>True</AutoGen>
@@ -149,6 +149,12 @@
     </Compile>
     <Compile Include="UI\Consulta\ConsultaCliente.Designer.cs">
       <DependentUpon>ConsultaCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consulta\ConsultaFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consulta\ConsultaFactura.Designer.cs">
+      <DependentUpon>ConsultaFactura.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Consulta\ConsultaProducto.cs">
       <SubType>Form</SubType>
@@ -220,8 +226,8 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteDeFactura.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\ReporteDeFacturas.resx">
-      <DependentUpon>ReporteDeFacturas.cs</DependentUpon>
+    <EmbeddedResource Include="Reportes\ReporteDeFacturasReview.resx">
+      <DependentUpon>ReporteDeFacturasReview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\UsuarioCrystalReportr.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -239,6 +245,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Consulta\ConsultaCliente.resx">
       <DependentUpon>ConsultaCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consulta\ConsultaFactura.resx">
+      <DependentUpon>ConsultaFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Consulta\ConsultaProducto.resx">
       <DependentUpon>ConsultaProducto.cs</DependentUpon>

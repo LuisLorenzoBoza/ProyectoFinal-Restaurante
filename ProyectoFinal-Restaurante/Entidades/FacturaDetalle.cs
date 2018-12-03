@@ -33,7 +33,6 @@ namespace ProyectoFinal_Restaurante.Entidades
 
         public FacturaDetalle()
         {
-
             this.Id = 0;
             this.FacturaId = 0;
             this.ProductoId = 0;

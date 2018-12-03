@@ -17,9 +17,9 @@ namespace ProyectoFinal_Restaurante
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new MainForm());
+            Application.Run(new MainForm());
 
-            Application.Run(new Login());
+            //Application.Run(new Login());
         }
         public static Usuario usuario = null;
     }

@@ -1,6 +1,6 @@
 ﻿namespace ProyectoFinal_Restaurante.Reportes
 {
-    partial class ReporteDeFacturas
+    partial class ReporteDeFacturasReview
     {
         /// <summary>
         /// Required designer variable.

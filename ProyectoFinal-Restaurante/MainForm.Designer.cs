@@ -42,6 +42,7 @@
             this.ventaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultaDeFacturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,7 +106,8 @@
             this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.consultaDeUsuarioToolStripMenuItem,
             this.consultaDeClienteToolStripMenuItem,
-            this.consultaDeProductoToolStripMenuItem});
+            this.consultaDeProductoToolStripMenuItem,
+            this.consultaDeFacturaToolStripMenuItem});
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
             this.consultasToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.consultasToolStripMenuItem.Text = "Consultas";
@@ -161,6 +163,13 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
+            // consultaDeFacturaToolStripMenuItem
+            // 
+            this.consultaDeFacturaToolStripMenuItem.Name = "consultaDeFacturaToolStripMenuItem";
+            this.consultaDeFacturaToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.consultaDeFacturaToolStripMenuItem.Text = "Consulta  de Factura";
+            this.consultaDeFacturaToolStripMenuItem.Click += new System.EventHandler(this.consultaDeFacturaToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -200,6 +209,7 @@
         private System.Windows.Forms.ToolStripMenuItem ventaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultaDeFacturaToolStripMenuItem;
     }
 }
 

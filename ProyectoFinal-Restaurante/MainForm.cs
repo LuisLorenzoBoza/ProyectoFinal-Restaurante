@@ -72,5 +72,12 @@ namespace ProyectoFinal_Restaurante
         {
             Application.Exit();
         }
+
+        private void consultaDeFacturaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultaFactura consultaFactura = new ConsultaFactura();
+            consultaFactura.Show();
+            consultaFactura.MdiParent = this;
+        }
     }
 }
