@@ -21,8 +21,8 @@ namespace ProyectoFinal_Restaurante.UI.Registro
         {
             InitializeComponent();
             LlenarComboBox();
-            UsuariotextBox.Text = FacturacionBLL.returnUsuario().Nombre;
-            //UsuariotextBox.Text = Login.user;
+            //UsuariotextBox.Text = FacturacionBLL.returnUsuario().Nombre;
+           UsuariotextBox.Text = Login.user;
         }
         private void LlenarComboBox()
         {
@@ -31,12 +31,12 @@ namespace ProyectoFinal_Restaurante.UI.Registro
             IDcomboBox.Items.Clear();
             CLienteIDcomboBox.Items.Clear();
             ProductoIdcomboBox.Items.Clear();
-            CLienteIDcomboBox.DataSource = repositoryBase.GetList(c => true);
+            
 
             RepositoryBase<Cliente> repositoryC = new RepositoryBase<Cliente>();
-            foreach (var item in repositoryBase.GetList(c => true))
+            foreach (var item in repositoryC.GetList(c => true))
             {
-               CLienteIDcomboBox.Items.Add(item.ClienteID);
+               CLienteIDcomboBox.Items.Add(item.ClieteID);
             }
 
             RepositoryBase<Producto> repositoryBaseA = new RepositoryBase<Producto>();

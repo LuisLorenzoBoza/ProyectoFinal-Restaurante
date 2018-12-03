@@ -16,7 +16,7 @@ namespace ProyectoFinal_Restaurante
 {
     public partial class Login : Form
     {
-        public static string user;
+        public static string user = string.Empty;
         public Login()
         {
             InitializeComponent();
@@ -33,7 +33,7 @@ namespace ProyectoFinal_Restaurante
                 Usuario usuarios = new Usuario();
                 usuarios.Nombre = "Admin";
                 usuarios.Contraseña = "1234";
-                //usuarios.CuentaUsua = "root";
+                usuarios.CuentaUsua = "root";
                 RepositoryBase<Usuario> repository = new RepositoryBase<Usuario>();
                 repository.Guardar(usuarios);
             }
